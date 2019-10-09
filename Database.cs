@@ -14,10 +14,14 @@ using JMSuite.Collections;
 public class Database {
     private Graph <string, Planet> planets;
     private Dictionary<string, Character> characters;
+    private Dictionary<string, Government> governments;
+    private Dictionary<string, Faction> factions;
 
     private void InitDatabase() {
         planets = new Graph<string, Planet>();
         characters = new Dictionary<string, Character>();
+        governments = new Dictionary<string, Government>();
+        factions = new Dictionary<string, Faction>();
     }
 
     public Database() {
@@ -54,5 +58,85 @@ public class Database {
 
     public Planet GetHomeworld(Character c) {
         return GetPlanet(c.Homeworld);
+    }
+
+    public Faction GetFaction(string factionId) {
+        Faction f;
+        if (factions.TryGetValue(factionId, out f))
+            return f;
+        return new Faction();
+    }
+
+    public Faction GetFaction(Planet p) {
+        return GetFaction(p.Faction);
+    }
+
+    public Government GetGovernment(string governmentId) {
+        Government g;
+        if (governments.TryGetValue(governmentId, out g))
+            return g;
+        return new Government();
+    }
+
+    public Government GetGovernment(Faction f) {
+        return GetGovernment(f.Government);
+    }
+    
+    // Loading database from file
+    private void LoadPlanets(string directory) {
+        List<Planet> planetList = new List<Planet>();
+        Serializer<List<Planet>> PlanetListSerializer = 
+            new Serializer<List<Planet>>();
+        planetList = 
+            PlanetListSerializer.Deserialize(directory + "planets.xml");
+        foreach(Planet aPlanet in planetList) 
+            planets.Add(aPlanet.ID, aPlanet, aPlanet.Neighbors);
+    }
+    private void LoadFactions(string directory) {
+        Faction empire = new Faction("Galactic Empire");
+        Faction rebels = new Faction("New Republic");
+
+        empire.ID = "empire";
+        empire.AddRelationship(rebels.ID, 0);
+        empire.Color = "Red";
+        empire.Government = "empire";
+
+        rebels.ID = "newrepublic";
+        rebels.AddRelationship(empire.ID, 0);
+        rebels.Color = "Blue";
+        rebels.Government = "rebels";
+
+        List<Faction> factionList = new List<Faction>();
+        factionList.Add(empire);
+        factionList.Add(rebels);
+
+        foreach(Faction aFaction in factionList)
+            factions.Add(aFaction.ID, aFaction);
+        foreach(Planet aPlanet in planets.Values()) {
+            Faction pFaction = GetFaction(aPlanet);
+            if (!GetGovernment(pFaction).MemberPlanets.Contains(aPlanet.ID))
+                GetGovernment(pFaction).MemberPlanets.Add(aPlanet.ID);
+        }
+    }
+    private void LoadGovernments(string directory) {
+        Government empire = new Government("Galactic Empire");
+        empire.ID = "empire";
+        empire.ExecutivePower = 1f;
+        
+        Government rebels = new Government("New Republic");
+        rebels.ID = "rebels";
+        rebels.ExecutivePower = 0.375f;
+        rebels.LegislativePower = 0.375f;
+        rebels.JudicialPower = 0.25f;
+
+        List<Government> governmentList = new List<Government>();
+        governmentList.Add(empire);
+        governmentList.Add(rebels);
+
+        foreach(Government aGovernment in governmentList)
+            governments.Add(aGovernment.ID, aGovernment);
+    }
+    private void LoadCharacters(string directory) {
+
     }
 }

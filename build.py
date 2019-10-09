@@ -13,6 +13,7 @@ dependencies = ["Budget.cs",
                 "Government.cs",
                 "Planet.cs",
                 "Player.cs",
+                "Serializer.cs",
                 "ShipModel.cs",
                 "Weapon.cs"]
 
