@@ -2,6 +2,8 @@ using System;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
+namespace GSWS {
+
 public enum DateSystem { ABY }
 [Serializable] public class Date {
     private const int WeekLength = 7;
@@ -44,4 +46,5 @@ public enum DateSystem { ABY }
     public bool SimYear() {
         return DateInt % YearLength == 0;
     }
+}
 }

@@ -3,13 +3,15 @@
 //                                 Planet.cs                                  //
 //                                Planet class                                //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//             Modified by: Jarett (Jay) Mirecki, August 01, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
 using System;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+
+namespace GSWS {
 
 [Serializable] public class Planet {
     [XmlAttribute] public string ID;
@@ -78,4 +80,5 @@ using System.Xml.Serialization;
                 value.ToString("###,###.00");
         return valueString + " credits per year";
     }
+}
 }

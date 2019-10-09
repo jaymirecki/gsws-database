@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using JMSuite.Collections;
 
+namespace GSWS {
 public class Database {
     private Graph <string, Planet> planets;
     private Dictionary<string, Character> characters;
@@ -144,4 +145,5 @@ public class Database {
     private void LoadCharacters(string directory) {
 
     }
+}
 }

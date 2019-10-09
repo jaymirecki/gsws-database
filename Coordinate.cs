@@ -3,7 +3,7 @@
 //                               Coordinate.cs                                //
 //                              Coordinate class                              //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//             Modified by: Jarett (Jay) Mirecki, August 01, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -11,6 +11,8 @@ using System;
 using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
+
+namespace GSWS {
 
 [Serializable] public class Coordinate {
     public int X;
@@ -54,4 +56,5 @@ using System.Xml.Serialization;
     override public string ToString() {
         return ("(" + X.ToString() + "," + Y.ToString() + "," + Z.ToString() + ")");
     }
+}
 }

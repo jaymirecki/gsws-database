@@ -12,6 +12,8 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
+namespace GSWS {
+
 [Serializable] public class Character {
     [XmlAttribute] public string ID;
     public string Name, Species, Homeworld;
@@ -33,4 +35,5 @@ using System.Collections.Generic;
         InitInstance();
         this.Name = name;
     }
+}
 }

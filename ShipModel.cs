@@ -3,7 +3,7 @@
 //                                ShipModel.cs                                //
 //                               ShipModel class                              //
 //            Created by: Jarett (Jay) Mirecki, September 02, 2019            //
-//            Modified by: Jarett (Jay) Mirecki, September 02, 2019           //
+//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -11,6 +11,8 @@ using System;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+
+namespace GSWS {
 
 public enum ShipClass { Interceptor, Fighter, Bomber, Corvette, Frigate, LightCruiser, HeavyCruiser, Destroyer, Battlecruiser, Dreadnought }
 
@@ -32,4 +34,5 @@ public enum ShipClass { Interceptor, Fighter, Bomber, Corvette, Frigate, LightCr
     public ShipModel() {
         InitInstance();
     }
+}
 }

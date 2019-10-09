@@ -3,7 +3,7 @@
 //                                 Budget.cs                                  //
 //                                Budget class                                //
 //             Created by: Jarett (Jay) Mirecki, August 08, 2019              //
-//             Modified by: Jarett (Jay) Mirecki, August 08, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+
+namespace GSWS {
 
 [Serializable] public class Budget {
     public float Military, PublicSafety, Health, Education, Balance;
@@ -48,4 +50,5 @@ using System.Xml.Serialization;
     public float GetSurplus() {
         return 1 - (Military + PublicSafety + Health + Education);
     }
+}
 }

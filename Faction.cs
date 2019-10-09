@@ -3,7 +3,7 @@
 //                                 Faction.cs                                 //
 //                               Faction class                                //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//             Modified by: Jarett (Jay) Mirecki, August 08, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -11,6 +11,8 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Drawing;
+
+namespace GSWS {
 
 [Serializable]
 public class Relationship {
@@ -65,4 +67,5 @@ public class Faction {
     public int GetRelationship(string faction) {
         return Relations.Find(r => r.Faction == faction).RelationshipRating;
     }
+}
 }
