@@ -83,6 +83,11 @@ public class Database {
     }
     
     // Loading database from file
+    public void LoadDatabase(string directory) {
+        LoadPlanets(directory);
+        LoadFactions(directory);
+        LoadGovernments(directory);
+    }
     private void LoadPlanets(string directory) {
         List<Planet> planetList = new List<Planet>();
         Serializer<List<Planet>> PlanetListSerializer = 
