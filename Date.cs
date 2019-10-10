@@ -1,3 +1,12 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                   Date.cs                                  //
+//                                 Date class                                 //
+//              Created by: Jarett (Jay) Mirecki, August 07, 2019             //
+//             Modified by: Jarett (Jay) Mirecki, October 09, 2019            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
 using System;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
@@ -37,13 +46,53 @@ public enum DateSystem { ABY }
                         + era[(int)System];
         return dateString;
     }
-    public bool SimWeek() {
+    // public void StartTime() {
+    //     InvokeRepeating("AdvanceTime", 1f, 1f);
+    // }
+    // public void StopTime() {
+    //     CancelInvoke("AdvanceTime");
+    // }
+    public void AdvanceTime() {
+        AdvanceDay();
+        if (IsWeek())
+            AdvanceWeek();
+        if (IsMonth())
+            AdvanceMonth();
+        if (IsYear())
+            AdvanceYear();
+    }
+    public void AdvanceDay() {
+        DateInt++;
+
+    }
+    public void AdvanceWeek() {
+
+    }
+    public void AdvanceMonth() {
+        // float residentialValue, commercialValue, totalRevenue;
+        // foreach (Government aGovernment in new List<Government>(governments.Values)) {
+        //     residentialValue = commercialValue = totalRevenue = 0f;
+        //     foreach (string planetName in aGovernment.MemberPlanets) {
+        //         residentialValue += Game.GetPlanetFromString(planetName).ResidentialValue();
+        //         commercialValue += Game.GetPlanetFromString(planetName).IndustrialValue();
+        //     }
+        //     totalRevenue = 
+        //         residentialValue * aGovernment.ResidentialTax + commercialValue * aGovernment.CommercialTax;
+        //     totalRevenue = totalRevenue / (368f/12f);
+        //     aGovernment.Budget.Balance += 
+        //         aGovernment.Budget.GetSurplus() * totalRevenue;
+        // }
+    }
+    public void AdvanceYear() {
+
+    }
+    public bool IsWeek() {
         return DateInt % WeekLength == 0;
     }
-    public bool SimMonth() {
+    public bool IsMonth() {
         return DateInt % MonthLength == 0;
     }
-    public bool SimYear() {
+    public bool IsYear() {
         return DateInt % YearLength == 0;
     }
 }

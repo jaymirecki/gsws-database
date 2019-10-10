@@ -15,8 +15,18 @@ public class Player {
     public string Character;
     public string Faction;
 
-    public Player(string name) {
+    private void initInstance() {
+        Character = Faction = "";
+    }
+
+    public Player() {
+        initInstance();
+    }
+
+    public Player(string name, string faction) {
+        initInstance();
         // this.Character = new Character(name);
+        this.Faction = faction;
     }
 }
 }

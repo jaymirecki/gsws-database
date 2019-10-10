@@ -17,16 +17,26 @@ public class Database {
     private Dictionary<string, Character> characters;
     private Dictionary<string, Government> governments;
     private Dictionary<string, Faction> factions;
+    private Player player;
+    private Date date;
 
     private void InitDatabase() {
         planets = new Graph<string, Planet>();
         characters = new Dictionary<string, Character>();
         governments = new Dictionary<string, Government>();
         factions = new Dictionary<string, Faction>();
+        player = new Player();
+        date = new Date();
     }
 
     public Database() {
         InitDatabase();
+    }
+
+    public Database(Player p, Date d) {
+        InitDatabase();
+        player = p;
+        date = d;
     }
 
     public Planet GetPlanet(string planetId) {
@@ -34,6 +44,14 @@ public class Database {
         if (planets.TryFind(planetId, out p))
             return p;
         return new Planet();
+    }
+
+    public Graph<string, Planet> GetPlanets() {
+        return planets;
+    }
+
+    public void AdvanceTime() {
+        date.AdvanceTime();
     }
 
     public void AddPlanet(Planet p) {
@@ -81,6 +99,43 @@ public class Database {
 
     public Government GetGovernment(Faction f) {
         return GetGovernment(f.Government);
+    }
+
+    public Character GetPlayerCharacter() {
+        return GetCharacter(player.Character);
+    }
+
+    public Faction GetPlayerFaction() {
+        return GetFaction(player.Faction);
+    }
+    public Government GetPlayerGovernment() {
+        return GetGovernment(GetFaction(player.Faction).Government);
+    }
+
+    public string GetDateString() {
+        return date.ToString();
+    }
+
+    public bool IsWeek() {
+        return date.IsWeek();
+    }
+    public bool IsMonth() {
+        return date.IsMonth();
+    }
+    public bool IsYear() {
+        return date.IsYear();
+    }
+
+    public void Save(string directory) {
+        new Serializer<List<Planet>>().Serialize(directory + "planets.xml", planets.Values());
+
+        new Serializer<Faction>().SerializeDictionary(directory + "factions.xml", factions);
+
+        new Serializer<Government>().SerializeDictionary(directory + "governments.xml", governments);
+        
+        // new Serializer<Character>().SerializeDictionary(directory + "characters.xml", Game.Instance.Characters);
+
+        new Serializer<Date>().Serialize(directory + "date.xml", date);
     }
     
     // Loading database from file
