@@ -33,6 +33,7 @@ public enum ShipClass { Interceptor, Fighter, Bomber, Corvette, Frigate, LightCr
     }
     public ShipModel() {
         InitInstance();
+        ShipClass x = Class;
     }
 }
 }
