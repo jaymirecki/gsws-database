@@ -39,83 +39,87 @@ public class Database {
         date = d;
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    //                                Planets                                 //
+    ////////////////////////////////////////////////////////////////////////////
     public Planet GetPlanet(string planetId) {
         Planet p;
         if (planets.TryFind(planetId, out p))
             return p;
         return new Planet();
     }
-
     public Graph<string, Planet> GetPlanets() {
         return planets;
     }
-
-    public void AdvanceTime() {
-        date.AdvanceTime();
-    }
-
     public void AddPlanet(Planet p) {
         // int[] distances = new int[p.Neighbors.Length];
         // foreach ()
         planets.Add(p.ID, p, p.Neighbors);
     }
+    public Planet GetHomeworld(string characterId) {
+        return GetHomeworld(GetCharacter(characterId));
+    }
+    public Planet GetHomeworld(Character c) {
+        return GetPlanet(c.Homeworld);
+    }
 
+    ////////////////////////////////////////////////////////////////////////////
+    //                               Characters                               //
+    ////////////////////////////////////////////////////////////////////////////
     public void AddCharacter(Character c) {
         characters.Add(c.ID, c);
     }
-
     public Character GetCharacter(string characterId) {
         Character c;
         if (characters.TryGetValue(characterId, out c))
             return c;
         return new Character();
     }
-
-    public Planet GetHomeworld(string characterId) {
-        return GetHomeworld(GetCharacter(characterId));
+    public Character GetPlayerCharacter() {
+        return GetCharacter(player.Character);
     }
 
-    public Planet GetHomeworld(Character c) {
-        return GetPlanet(c.Homeworld);
-    }
-
+    ////////////////////////////////////////////////////////////////////////////
+    //                                Factions                                //
+    ////////////////////////////////////////////////////////////////////////////
     public Faction GetFaction(string factionId) {
         Faction f;
         if (factions.TryGetValue(factionId, out f))
             return f;
         return new Faction();
     }
-
     public Faction GetFaction(Planet p) {
         return GetFaction(p.Faction);
     }
+    public Faction GetPlayerFaction() {
+        return GetFaction(player.Faction);
+    }
 
+    ////////////////////////////////////////////////////////////////////////////
+    //                               Governments                              //
+    ////////////////////////////////////////////////////////////////////////////
     public Government GetGovernment(string governmentId) {
         Government g;
         if (governments.TryGetValue(governmentId, out g))
             return g;
         return new Government();
     }
-
     public Government GetGovernment(Faction f) {
         return GetGovernment(f.Government);
-    }
-
-    public Character GetPlayerCharacter() {
-        return GetCharacter(player.Character);
-    }
-
-    public Faction GetPlayerFaction() {
-        return GetFaction(player.Faction);
     }
     public Government GetPlayerGovernment() {
         return GetGovernment(GetFaction(player.Faction).Government);
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    //                                  Date                                  //
+    ////////////////////////////////////////////////////////////////////////////
+    public void AdvanceTime() {
+        date.AdvanceTime();
+    }
     public string GetDateString() {
         return date.ToString();
     }
-
     public bool IsWeek() {
         return date.IsWeek();
     }
@@ -126,6 +130,10 @@ public class Database {
         return date.IsYear();
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////
+    //                              Save and Load                             //
+    ////////////////////////////////////////////////////////////////////////////
     public void Save(string directory) {
         new Serializer<List<Planet>>().Serialize(directory + "planets.xml", planets.Values());
 
