@@ -3,7 +3,7 @@
 //                                   Date.cs                                  //
 //                                 Date class                                 //
 //              Created by: Jarett (Jay) Mirecki, August 07, 2019             //
-//             Modified by: Jarett (Jay) Mirecki, October 09, 2019            //
+//             Modified by: Jarett (Jay) Mirecki, October 19, 2019            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -20,7 +20,7 @@ public enum DateSystem { ABY }
     private const int YearLength = 368;
     private string[] era = { "ABY" };
     public int DateInt;
-    private DateSystem System;
+    public DateSystem System;
     public Date() {
         SetDate(0, DateSystem.ABY);
     }

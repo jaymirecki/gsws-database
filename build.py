@@ -13,12 +13,14 @@ dependencies = ["Budget.cs",
                 "Government.cs",
                 "Planet.cs",
                 "Player.cs",
+                "Save.cs",
                 "Serializer.cs",
                 "ShipModel.cs",
                 "Weapon.cs"]
 
 def test():
     build()
+    subprocess.run(["rm", "-rf", "Data/Saves"])
     capture = subprocess.run(["/mnt/c/Windows/Microsoft.NET/Framework/v4.0.30319/csc.exe", "-target:exe", "-out:DatabaseTest.exe", "-reference:GSWS.Database.dll", "-reference:JMSuite.Testing.dll", "DatabaseTest.cs"], capture_output=True, text=True)
     output = capture.stdout.split() + capture.stderr.split()
     # print(output)

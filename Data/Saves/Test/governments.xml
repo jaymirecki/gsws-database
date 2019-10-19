@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfGovernment xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Government ID="empire">
+    <Name>Galactic Empire</Name>
+    <ExecutivePower>1</ExecutivePower>
+    <LegislativePower>0</LegislativePower>
+    <JudicialPower>0</JudicialPower>
+    <ResidentialTax>0</ResidentialTax>
+    <CommercialTax>0</CommercialTax>
+    <MemberPlanets />
+    <Budget>
+      <Military>0</Military>
+      <PublicSafety>0</PublicSafety>
+      <Health>0</Health>
+      <Education>0</Education>
+      <Balance>0</Balance>
+    </Budget>
+  </Government>
+  <Government ID="rebels">
+    <Name>New Republic</Name>
+    <ExecutivePower>0.375</ExecutivePower>
+    <LegislativePower>0.375</LegislativePower>
+    <JudicialPower>0.25</JudicialPower>
+    <ResidentialTax>0</ResidentialTax>
+    <CommercialTax>0</CommercialTax>
+    <MemberPlanets />
+    <Budget>
+      <Military>0</Military>
+      <PublicSafety>0</PublicSafety>
+      <Health>0</Health>
+      <Education>0</Education>
+      <Balance>0</Balance>
+    </Budget>
+  </Government>
+</ArrayOfGovernment>

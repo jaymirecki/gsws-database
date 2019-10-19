@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCampaign xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Campaign ID="PostEndor">
+    <Name>Post Endor (5 ABY)</Name>
+    <FactionNames>
+      <string>Galactic Empire</string>
+      <string>New Republic</string>
+    </FactionNames>
+    <FactionIDs>
+      <string>empire</string>
+      <string>newrepublic</string>
+    </FactionIDs>
+    <Date>
+      <DateInt>1840</DateInt>
+    </Date>
+  </Campaign>
+  <Campaign ID="GCW2">
+    <Name>Second Galactic Civil War (44 ABY)</Name>
+    <FactionNames>
+      <string>Galactic Alliance</string>
+      <string>Confederation</string>
+    </FactionNames>
+    <FactionIDs>
+      <string>empire</string>
+      <string>newrepublic</string>
+    </FactionIDs>
+    <Date>
+      <DateInt>16192</DateInt>
+    </Date>
+  </Campaign>
+  <Campaign ID="Test">
+    <Name>Test (0 ABY)</Name>
+    <FactionNames>
+      <string>CIS</string>
+      <string>Republic</string>
+    </FactionNames>
+    <FactionIDs>
+      <string>cis</string>
+      <string>republic</string>
+    </FactionIDs>
+    <Date>
+      <DateInt>0</DateInt>
+    </Date>
+    <Species>
+      <string>Human</string>
+    </Species>
+    <SpeciesIDs>
+      <string>human</string>
+    </SpeciesIDs>
+  </Campaign>
+</ArrayOfCampaign>
