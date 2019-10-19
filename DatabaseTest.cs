@@ -8,7 +8,8 @@ class Driver {
     static void Main() {
         Testing.CheckExpect("Construct Database", ConstructDatabase, "success");
         Testing.CheckExpect("Load Campaigns", LoadCampaign, "Test (0 ABY)");
-        Testing.CheckExpect("Load Database from Campaign", LoadCampaignDatabase, "Corellia");
+        Testing.CheckExpectTimed("Load Database from Campaign", 
+                                 LoadCampaignDatabase, "Corellia");
         Testing.CheckExpect("Add Planet", AddPlanet, "success");
         Testing.CheckExpect("Date Test", DateTest, "1:0 ABY");
         Testing.CheckExpect("Date Test 2", DateTest2, "217:13 ABY");

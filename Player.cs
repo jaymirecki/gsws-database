@@ -25,7 +25,7 @@ public class Player {
 
     public Player(string name, string faction) {
         initInstance();
-        // this.Character = new Character(name);
+        this.Character = name;
         this.Faction = faction;
     }
 }

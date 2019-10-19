@@ -39,9 +39,9 @@ namespace GSWS {
             date = d;
         }
 
-        ////////////////////////////////////////////////////////////////////////////
-        //                                Planets                                 //
-        ////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //                              Planets                               //
+        ////////////////////////////////////////////////////////////////////////
         public Planet GetPlanet(string planetId) {
             Planet p;
             if (planets.TryFind(planetId, out p))
@@ -63,9 +63,9 @@ namespace GSWS {
             return GetPlanet(c.Homeworld);
         }
 
-        ////////////////////////////////////////////////////////////////////////////
-        //                               Characters                               //
-        ////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //                             Characters                             //
+        ////////////////////////////////////////////////////////////////////////
         public void AddCharacter(Character c) {
             characters.Add(c.ID, c);
         }
@@ -79,9 +79,9 @@ namespace GSWS {
             return GetCharacter(player.Character);
         }
 
-        ////////////////////////////////////////////////////////////////////////////
-        //                                Factions                                //
-        ////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //                              Factions                               /
+        ////////////////////////////////////////////////////////////////////////
         public Faction GetFaction(string factionId) {
             Faction f;
             if (factions.TryGetValue(factionId, out f))
@@ -95,9 +95,9 @@ namespace GSWS {
             return GetFaction(player.Faction);
         }
 
-        ////////////////////////////////////////////////////////////////////////////
-        //                               Governments                              //
-        ////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //                             Governments                            //
+        ////////////////////////////////////////////////////////////////////////
         public Government GetGovernment(string governmentId) {
             Government g;
             if (governments.TryGetValue(governmentId, out g))
@@ -111,9 +111,9 @@ namespace GSWS {
             return GetGovernment(GetFaction(player.Faction).Government);
         }
 
-        ////////////////////////////////////////////////////////////////////////////
-        //                                  Date                                  //
-        ////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //                                Date                                //
+        ////////////////////////////////////////////////////////////////////////
         public void AdvanceTime() {
             date.AdvanceTime();
         }
@@ -128,6 +128,24 @@ namespace GSWS {
         }
         public bool IsYear() {
             return date.IsYear();
+        }
+
+        ////////////////////////////////////////////////////////////////////////
+        //                               Player                               //
+        ////////////////////////////////////////////////////////////////////////
+        public void CreatePlayer(string character, string faction) {
+            player = new Player(character, faction);
+            GetCharacter(character).IsPlayer = true;
+        }
+        public void CreatePlayer(string name, string species, string homeworld, string faction) {
+            Character c = new Character();
+            c.Name = name;
+            c.ID = c.Name;
+            c.Species = species;
+            c.Homeworld = homeworld;
+            c.IsPlayer = true;
+            AddCharacter(c);
+            player = new Player(c.ID, faction);
         }
     }
 }
