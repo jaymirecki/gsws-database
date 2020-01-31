@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //                                                                            //
-//                                 Database.cs                                //
+//                                Database.cs                                 //
 //                               Database class                               //
 //             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//             Modified by: Jarett (Jay) Mirecki, October 19, 2019            //
+//             Modified by: Jarett (Jay) Mirecki, January 31, 2020            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -42,6 +42,7 @@ namespace GSWS {
         ////////////////////////////////////////////////////////////////////////
         //                              Planets                               //
         ////////////////////////////////////////////////////////////////////////
+        #region
         public Planet GetPlanet(string planetId) {
             Planet p;
             if (planets.TryFind(planetId, out p))
@@ -62,10 +63,11 @@ namespace GSWS {
         public Planet GetHomeworld(Character c) {
             return GetPlanet(c.Homeworld);
         }
-
+        #endregion
         ////////////////////////////////////////////////////////////////////////
         //                             Characters                             //
         ////////////////////////////////////////////////////////////////////////
+        #region
         public void AddCharacter(Character c) {
             characters.Add(c.ID, c);
         }
@@ -78,10 +80,11 @@ namespace GSWS {
         public Character GetPlayerCharacter() {
             return GetCharacter(player.Character);
         }
-
+        #endregion
         ////////////////////////////////////////////////////////////////////////
         //                              Factions                               /
         ////////////////////////////////////////////////////////////////////////
+        #region
         public Faction GetFaction(string factionId) {
             Faction f;
             if (factions.TryGetValue(factionId, out f))
@@ -94,10 +97,11 @@ namespace GSWS {
         public Faction GetPlayerFaction() {
             return GetFaction(player.Faction);
         }
-
+        #endregion
         ////////////////////////////////////////////////////////////////////////
         //                             Governments                            //
         ////////////////////////////////////////////////////////////////////////
+        #region
         public Government GetGovernment(string governmentId) {
             Government g;
             if (governments.TryGetValue(governmentId, out g))
@@ -110,10 +114,11 @@ namespace GSWS {
         public Government GetPlayerGovernment() {
             return GetGovernment(GetFaction(player.Faction).Government);
         }
-
+        #endregion
         ////////////////////////////////////////////////////////////////////////
         //                                Date                                //
         ////////////////////////////////////////////////////////////////////////
+        #region
         public void AdvanceTime() {
             date.AdvanceTime();
         }
@@ -129,10 +134,11 @@ namespace GSWS {
         public bool IsYear() {
             return date.IsYear();
         }
-
+        #endregion
         ////////////////////////////////////////////////////////////////////////
         //                               Player                               //
         ////////////////////////////////////////////////////////////////////////
+        #region
         public void CreatePlayer(string character, string faction) {
             player = new Player(character, faction);
             GetCharacter(character).IsPlayer = true;
@@ -147,5 +153,6 @@ namespace GSWS {
             AddCharacter(c);
             player = new Player(c.ID, faction);
         }
+        #endregion
     }
 }

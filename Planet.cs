@@ -19,13 +19,14 @@ namespace GSWS {
     public Coordinate Coordinates;
     public int DayLength, YearLength, AtmosphereType, Diameter;
     public float Gravity, AvailableSurface, PopulationEconomicPosition, PopulationSocialPosition, Population, Wealth, Industrialization, Productivity, PopulationCapacity, IndustrialCapacity, UnusedCapacity, MaxCapacity;
-    public string[] Neighbors;
+    public string[] Neighbors, Fleets;
 
     private void InitInstance() {
         ID = Name = System = Sector = Region = Class = Climate = Demonym = Faction = Economy = "";
         DayLength = YearLength = AtmosphereType = Diameter = 0;
         Gravity = AvailableSurface = PopulationEconomicPosition = PopulationSocialPosition = Population = Wealth = Industrialization = Productivity = PopulationCapacity = IndustrialCapacity = UnusedCapacity = MaxCapacity = 0f;
         Neighbors = new string[0];
+        Fleets = new string[0];
         Coordinates = new Coordinate();
     }
 

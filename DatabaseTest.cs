@@ -7,7 +7,8 @@ class Driver {
     static Campaign[] camps;
     static void Main() {
         Testing.CheckExpect("Construct Database", ConstructDatabase, "success");
-        Testing.CheckExpect("Load Campaigns", LoadCampaign, "Test (0 ABY)");
+        Testing.CheckExpect("Load Campaigns", LoadCampaign, 
+                            "Post Endor (5 ABY)Second Galactic Civil War (44 ABY)Test (0 ABY)3");
         Testing.CheckExpectTimed("Load Database from Campaign", 
                                  LoadCampaignDatabase, "Corellia");
         Testing.CheckExpect("Add Planet", AddPlanet, "success");
@@ -20,15 +21,18 @@ class Driver {
         db = new Database();
         return "success";
     }
+    #region // Campaigns
     static string LoadCampaign() {
         camps = new Serializer<Campaign[]>().Deserialize(loadDirectory + "campaignList.xml");
-        return camps[2].Name;
+        return camps[0].Name + camps[1].Name + camps[2].Name + camps.Length.ToString();
     }
     static string LoadCampaignDatabase() {
         Player player = new Player("Test Player", camps[2].FactionIDs[0]);
         db.LoadDatabase(loadDirectory + camps[2].ID + "/", player);
         return db.GetPlanet("corellia").Name;
     }
+    #endregion
+    #region // Planets
     static string AddPlanet() {
         Planet test = 
             new Planet("Commenor", 
@@ -40,6 +44,8 @@ class Driver {
             return "success";
         return "fail";
     }
+    #endregion
+    #region // Dates
     static string DateTest() {
         Date d = new Date();
         return d.ToString();
@@ -49,6 +55,7 @@ class Driver {
         d.DateInt = d.DateInt + 5000;
         return d.ToString();
     }
+    #endregion
     static string TestCharacter() {
         Character c = new Character();
         db.AddCharacter(c);
