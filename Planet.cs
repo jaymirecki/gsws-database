@@ -3,7 +3,13 @@
 //                                 Planet.cs                                  //
 //                                Planet class                                //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
+//                                                                            //
+//          The Planet class represents a planet in the galaxy. This          //
+//          structure stores information about its location,                  //
+//          population, and industry. Additionally, the class                 //
+//          implements methods to update the dynamic parameters as            //
+//          the simulation runs.                                              //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -39,6 +45,10 @@ namespace GSWS {
         this.ID = this.Name.ToLower().Replace("'", "").Replace(' ', '_');
         this.Coordinates = Coordinates;
         this.Neighbors = neighbors;
+    }
+    public string DatapadDescription() {
+        string description = 
+            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region
     }
     public float Value() {
         return ResidentialValue() + IndustrialValue();
