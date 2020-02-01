@@ -15,19 +15,22 @@ namespace GSWS {
 
 public enum DateSystem { ABY }
 [Serializable] public class Date {
-    private const int WeekLength = 7;
-    private const int MonthLength = 28;
-    private const int YearLength = 368;
+    private const int DayLength = 24;
+    private const int WeekLength = 5 * DayLength;
+    private const int MonthLength = 7 * WeekLength;
+    private const int YearLength = 10 * MonthLength + 
+                                   3 * WeekLength + 
+                                   3 * DayLength;
     private string[] era = { "ABY" };
-    public int DateInt;
+    public long DateInt;
     public DateSystem System;
     public Date() {
         SetDate(0, DateSystem.ABY);
     }
-    public Date(int date, DateSystem system) {
+    public Date(long date, DateSystem system) {
         SetDate(date, system);
     }
-    public void SetDate(int date, DateSystem system) {
+    public void SetDate(long date, DateSystem system) {
         DateInt = date;
         System = system;
     }
@@ -35,8 +38,8 @@ public enum DateSystem { ABY }
         int day, year;
         string dateString;
         if (System == DateSystem.ABY) {
-            day = DateInt % YearLength + 1;
-            year = DateInt / YearLength;
+            day = (int)((DateInt % (long)YearLength) / (long)DayLength + 1);
+            year = (int)(DateInt / (long)YearLength);
         } else {
             day = 0;
             year = 0;

@@ -25,6 +25,7 @@ class Driver {
         Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #20");
         Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
         Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Fleet #1Test FleetFleet #2Fleet #3Fleet #4Fleet #5Fleet #6");
+        Testing.CheckExpect("Test Character", TestCharacter, "success");
         Testing.CheckExpect("Save Test", SaveTest, "saved");
         Testing.ReportTestResults();
     }
@@ -33,7 +34,7 @@ class Driver {
         db = new Database();
         return "success";
     }
-    #region // Campaigns
+    #region Campaigns
     static string LoadCampaign() {
         camps = new Serializer<Campaign[]>().Deserialize(loadDirectory + "campaignList.xml");
         return camps[0].Name + camps[1].Name + camps[2].Name + camps.Length.ToString();
@@ -44,7 +45,7 @@ class Driver {
         return db.ToString();
     }
     #endregion
-    #region // Planets
+    #region Planets
     static string AddPlanet() {
         Planet test = 
             new Planet("Commenor", 
@@ -57,18 +58,18 @@ class Driver {
         return "fail";
     }
     #endregion
-    #region // Dates
+    #region Dates
     static string DateTest() {
         Date d = new Date();
         return d.ToString();
     }
     static string DateTest2() {
         Date d = new Date();
-        d.DateInt = d.DateInt + 5000;
+        d.DateInt = d.DateInt + (5000 * 24);
         return d.ToString();
     }
     #endregion
-    #region // Fleets
+    #region Fleets
     static string ConstructFleet() {
         Fleet fleet = db.NewFleet();
         return fleet.Name + fleet.Ships.Count.ToString();
@@ -90,6 +91,7 @@ class Driver {
         return ret;
     }
     #endregion
+    #region Characters
     static string TestCharacter() {
         Character c = new Character();
         db.AddCharacter(c);
@@ -97,6 +99,7 @@ class Driver {
             return "success";
         return "failure";
     }
+    #endregion
     static string SaveTest() {
         db.Save("Data/Saves/Test/");
         return "saved";

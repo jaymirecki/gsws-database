@@ -19,7 +19,7 @@ namespace GSWS {
 
 [Serializable] public class Fleet {
     [XmlAttribute] public string ID;
-    public string Name, Destination, NextStop;
+    public string Name, Destination, NextStop, Orbiting;
     public Coordinate Position;
     public List<string> Ships;
 
@@ -27,7 +27,7 @@ namespace GSWS {
     private void InitInstance() {
         ID = Database.GetFreshID();
         Name = "";
-        Destination = NextStop = null;
+        Destination = NextStop = Orbiting = null;
         Position = new Coordinate(0, 0, 0);
         Ships = new List<string>();
     }

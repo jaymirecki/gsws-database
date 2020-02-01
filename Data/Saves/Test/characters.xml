@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfCharacter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<ArrayOfCharacter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Character ID="">
+    <Name />
+    <Species />
+    <Homeworld />
+    <Governments />
+    <Factions />
+    <Militaries />
+    <Units />
+    <IsPlayer>false</IsPlayer>
+  </Character>
+</ArrayOfCharacter>

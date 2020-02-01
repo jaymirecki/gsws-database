@@ -9,7 +9,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="c3d51740-8877-4ff4-8049-da2d384a93cf">
+  <Fleet ID="6337ce92-bcb3-4510-b113-1fa3895014e5">
     <Name>Test Fleet</Name>
     <Position>
       <X>0</X>
@@ -18,7 +18,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="8a89dd17-2741-4a97-abe6-a507cd67a7bb">
+  <Fleet ID="1c082e90-6d56-4178-8db6-41f313430992">
     <Name>Fleet #2</Name>
     <Position>
       <X>0</X>
@@ -27,7 +27,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="87c0dfcd-4894-48b6-a160-6ce262e8b8f8">
+  <Fleet ID="13d6750d-d400-4baa-aaf8-0a559fd8232f">
     <Name>Fleet #3</Name>
     <Position>
       <X>0</X>
@@ -36,7 +36,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="0edff0e2-7b22-4857-9967-6560e9f407bd">
+  <Fleet ID="2c8131ff-40eb-43e1-ab3c-3820dccfd0b6">
     <Name>Fleet #4</Name>
     <Position>
       <X>0</X>
@@ -45,7 +45,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="97fd0a3b-a04b-4b4f-9a7f-f287c4f1a137">
+  <Fleet ID="f8564a95-a525-447d-8b6e-7a68f75f63bd">
     <Name>Fleet #5</Name>
     <Position>
       <X>0</X>
@@ -54,7 +54,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="d5f9927b-d2e0-4a52-b468-a51e251e958f">
+  <Fleet ID="c29e81f5-ec05-4869-b02f-93faaa13fc36">
     <Name>Fleet #6</Name>
     <Position>
       <X>0</X>
