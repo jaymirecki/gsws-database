@@ -3,7 +3,7 @@
 //                                Database.cs                                 //
 //                               Database class                               //
 //             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//             Modified by: Jarett (Jay) Mirecki, January 31, 2020            //
+//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -45,6 +45,22 @@ namespace GSWS {
         #endregion
         public static string GetFreshID() {
             return Guid.NewGuid().ToString();
+        }
+        private string DictionaryToString<T>(Dictionary<string, T> dic) {
+            string ret = "[ ";
+            foreach (T t in dic.Values) {
+                ret += t.ToString() + ", ";
+            }
+            return ret + "]";
+        }
+        public override string ToString() {
+            return DictionaryToString<Character>(Characters) + 
+                   DictionaryToString<Faction>(Factions) + 
+                   DictionaryToString<Fleet>(Fleets) + 
+                   DictionaryToString<Government>(Governments) + 
+                   //DictionaryToString<Planet>(Planets) + 
+                   Player.ToString() + 
+                   Date.ToString();
         }
         ////////////////////////////////////////////////////////////////////////
         //                              Planets                               //

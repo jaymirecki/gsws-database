@@ -39,6 +39,7 @@ namespace GSWS {
             LoadPlanets(directory);
             LoadFactions(directory);
             LoadGovernments(directory);
+            LoadFleets(directory);
             this.Player = player;
         }
         private void LoadPlanets(string directory) {
@@ -93,6 +94,15 @@ namespace GSWS {
 
             foreach(Government aGovernment in governmentList)
                 Governments.Add(aGovernment.ID, aGovernment);
+        }
+        private void LoadFleets(string directory) {
+            List<Fleet> fleetList = new List<Fleet>();
+            Serializer<List<Fleet>> FleetListSerializer = 
+                new Serializer<List<Fleet>>();
+            fleetList = 
+                FleetListSerializer.Deserialize(directory + "fleets.xml");
+            foreach(Fleet aFleet in fleetList) 
+                Fleets.Add(aFleet.ID, aFleet);
         }
         private void LoadCharacters(string directory) {
 

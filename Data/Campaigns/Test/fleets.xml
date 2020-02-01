@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Fleet ID="Fleet1">
+    <Name>Fleet #1</Name>
+  </Fleet>
+</ArrayOfFleet>

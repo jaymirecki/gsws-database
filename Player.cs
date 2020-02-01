@@ -28,5 +28,8 @@ public class Player {
         this.Character = name;
         this.Faction = faction;
     }
+    public override string ToString() {
+        return "{" + Character + ", " + Faction + "}";
+    }
 }
 }

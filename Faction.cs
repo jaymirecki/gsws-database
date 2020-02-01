@@ -55,6 +55,9 @@ public class Faction {
         InitInstance();
         this.Name = name;
     }
+    public override string ToString() {
+        return "{" + ID + ", " + Name + "}";
+    }
     public void SetRelationship(string faction, int relationshipRating) {
 
         int index =  Relations.IndexOf(Relations.Find(x => x.Faction == faction));

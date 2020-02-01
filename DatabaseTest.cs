@@ -1,3 +1,11 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                               DatabaseTest.cs                              //
+//                       Testing file for Database class                      //
+//             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 using JMSuite;
 using GSWS;
 
@@ -10,13 +18,13 @@ class Driver {
         Testing.CheckExpect("Load Campaigns", LoadCampaign, 
                             "Post Endor (5 ABY)Second Galactic Civil War (44 ABY)Test (0 ABY)3");
         Testing.CheckExpectTimed("Load Database from Campaign", 
-                                 LoadCampaignDatabase, "Corellia");
+                                 LoadCampaignDatabase, "all good bois");
         Testing.CheckExpect("Add Planet", AddPlanet, "success");
         Testing.CheckExpect("Date Test", DateTest, "1:0 ABY");
         Testing.CheckExpect("Date Test 2", DateTest2, "217:13 ABY");
-        Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #10");
+        Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #20");
         Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
-        Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Test FleetFleet #1Fleet #2Fleet #3Fleet #4Fleet #5");
+        Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Fleet #1Test FleetFleet #2Fleet #3Fleet #4Fleet #5Fleet #6");
         Testing.CheckExpect("Save Test", SaveTest, "saved");
         Testing.ReportTestResults();
     }
@@ -32,7 +40,9 @@ class Driver {
     static string LoadCampaignDatabase() {
         Player player = new Player("Test Player", camps[2].FactionIDs[0]);
         db.LoadDatabase(loadDirectory + camps[2].ID + "/", player);
-        return db.GetPlanet("corellia").Name;
+        if (db.ToString() == "[ ][ {empire, Galactic Empire}, {newrepublic, New Republic}, ][ {Fleet1, Fleet #1}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ]{Test Player, cis}1:0 ABY")
+            return "all good bois";
+        return "yikes 'bos";
     }
     #endregion
     #region // Planets

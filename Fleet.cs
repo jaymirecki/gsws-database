@@ -16,13 +16,16 @@ namespace GSWS {
 
 [Serializable] public class Fleet {
     [XmlAttribute] public string ID;
-    public string Name;
+    public string Name, Destination, NextStop;
+    public Coordinate Position;
     public List<string> Ships;
 
     #region Constructing
     private void InitInstance() {
         ID = Database.GetFreshID();
         Name = "";
+        Destination = NextStop = null;
+        Position = new Coordinate(0, 0, 0);
         Ships = new List<string>();
     }
     public Fleet() {
@@ -33,5 +36,8 @@ namespace GSWS {
         Name = name;
     }
     #endregion
+    public override string ToString() {
+        return "{" + ID + ", " + Name + "}";
+    }
 }
 }

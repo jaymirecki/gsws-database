@@ -35,5 +35,8 @@ namespace GSWS {
         this.Name = Name;
         ID = Name.ToLower().Replace("'", "").Replace(' ', '_');
     }
+    public override string ToString() {
+        return "{" + ID + ", " + Name + "}";
+    }
 }
 }
