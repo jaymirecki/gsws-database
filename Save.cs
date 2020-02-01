@@ -3,7 +3,11 @@
 //                                  Save .cs                                  //
 //               Save and Load functions for the Database Class               //
 //             Created by: Jarett (Jay) Mirecki, October 19, 2019             //
-//             Modified by: Jarett (Jay) Mirecki, October 19, 2019            //
+//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
+//                                                                            //
+//          This extension for the Database class allows for the              //
+//          loading and saving of the entire database (and its                //
+//          constituent parts) from or to a directory.                        //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -52,22 +56,10 @@ namespace GSWS {
                 Planets.Add(aPlanet.ID, aPlanet, aPlanet.Neighbors);
         }
         private void LoadFactions(string directory) {
-            Faction empire = new Faction("Galactic Empire");
-            Faction rebels = new Faction("New Republic");
-
-            empire.ID = "empire";
-            empire.AddRelationship(rebels.ID, 0);
-            empire.Color = "Red";
-            empire.Government = "empire";
-
-            rebels.ID = "newrepublic";
-            rebels.AddRelationship(empire.ID, 0);
-            rebels.Color = "Blue";
-            rebels.Government = "rebels";
-
             List<Faction> factionList = new List<Faction>();
-            factionList.Add(empire);
-            factionList.Add(rebels);
+            Serializer<List<Faction>> FactionListSerializer = 
+                new Serializer<List<Faction>>();
+            factionList = FactionListSerializer.Deserialize(directory + "factions.xml");
 
             foreach(Faction aFaction in factionList)
                 Factions.Add(aFaction.ID, aFaction);
@@ -78,19 +70,22 @@ namespace GSWS {
             }
         }
         private void LoadGovernments(string directory) {
-            Government empire = new Government("Galactic Empire");
-            empire.ID = "empire";
-            empire.ExecutivePower = 1f;
+            // Government empire = new Government("Galactic Empire");
+            // empire.ID = "empire";
+            // empire.ExecutivePower = 1f;
             
-            Government rebels = new Government("New Republic");
-            rebels.ID = "rebels";
-            rebels.ExecutivePower = 0.375f;
-            rebels.LegislativePower = 0.375f;
-            rebels.JudicialPower = 0.25f;
+            // Government rebels = new Government("New Republic");
+            // rebels.ID = "rebels";
+            // rebels.ExecutivePower = 0.375f;
+            // rebels.LegislativePower = 0.375f;
+            // rebels.JudicialPower = 0.25f;
 
             List<Government> governmentList = new List<Government>();
-            governmentList.Add(empire);
-            governmentList.Add(rebels);
+            Serializer<List<Government>> GovernmentListSerializer = 
+                new Serializer<List<Government>>();
+            governmentList = GovernmentListSerializer.Deserialize(directory + "governments.xml");
+            // governmentList.Add(empire);
+            // governmentList.Add(rebels);
 
             foreach(Government aGovernment in governmentList)
                 Governments.Add(aGovernment.ID, aGovernment);

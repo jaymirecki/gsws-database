@@ -5,6 +5,15 @@
 //             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
 //            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
 //                                                                            //
+//          The Database class implements all of the functions                //
+//          needed to manipulate the data structures in the GSWS              //
+//          simulations. Ideally, this allows for abstraction                 //
+//          between the simulation data and the simulation                    //
+//          visualization. This interface also provides shortcut              //
+//          functions for accessing multiple data structures(i.e.             //
+//          for getting the Planet object representing a character's          //
+//          home planet).                                                     //
+//                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
 using System;

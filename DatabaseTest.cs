@@ -18,7 +18,7 @@ class Driver {
         Testing.CheckExpect("Load Campaigns", LoadCampaign, 
                             "Post Endor (5 ABY)Second Galactic Civil War (44 ABY)Test (0 ABY)3");
         Testing.CheckExpectTimed("Load Database from Campaign", 
-                                 LoadCampaignDatabase, "all good bois");
+                                 LoadCampaignDatabase, LoadedDatabaseString);
         Testing.CheckExpect("Add Planet", AddPlanet, "success");
         Testing.CheckExpect("Date Test", DateTest, "1:0 ABY");
         Testing.CheckExpect("Date Test 2", DateTest2, "217:13 ABY");
@@ -28,6 +28,7 @@ class Driver {
         Testing.CheckExpect("Save Test", SaveTest, "saved");
         Testing.ReportTestResults();
     }
+    static string LoadedDatabaseString = "[ ][ {empire, Galactic Empire}, {newrepublic, New Republic}, ][ {Fleet1, Fleet #1}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ]{Test Player, cis}1:0 ABY";
     static string ConstructDatabase() {
         db = new Database();
         return "success";
@@ -40,9 +41,7 @@ class Driver {
     static string LoadCampaignDatabase() {
         Player player = new Player("Test Player", camps[2].FactionIDs[0]);
         db.LoadDatabase(loadDirectory + camps[2].ID + "/", player);
-        if (db.ToString() == "[ ][ {empire, Galactic Empire}, {newrepublic, New Republic}, ][ {Fleet1, Fleet #1}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ]{Test Player, cis}1:0 ABY")
-            return "all good bois";
-        return "yikes 'bos";
+        return db.ToString();
     }
     #endregion
     #region // Planets

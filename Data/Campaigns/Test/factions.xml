@@ -2,16 +2,20 @@
 <ArrayOfFaction xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Faction ID="empire">
     <Name>Galactic Empire</Name>
-    <Government>empire</Government>
-    <Military />
     <Color>Red</Color>
-    <Relations />
+    <Relationship>
+      <Faction>newrepublic</Faction>
+      <RelationshipRating>0</RelationshipRating>
+    </Relationship>
+    <Government>empire</Government>
   </Faction>
   <Faction ID="newrepublic">
     <Name>New Republic</Name>
-    <Government>rebels</Government>
-    <Military />
     <Color>Blue</Color>
-    <Relations />
+    <Relationship>
+      <Faction>empire</Faction>
+      <RelationshipRating>0</RelationshipRating>
+    </Relationship>
+    <Government>rebels</Government>
   </Faction>
 </ArrayOfFaction>
