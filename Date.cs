@@ -35,28 +35,30 @@ public enum DateSystem { ABY }
         System = system;
     }
     public override string ToString() {
-        int day, year;
+        int hour, day, year;
         string dateString;
         if (System == DateSystem.ABY) {
+            hour = (int)(DateInt % (long)DayLength);
             day = (int)((DateInt % (long)YearLength) / (long)DayLength + 1);
             year = (int)(DateInt / (long)YearLength);
         } else {
+            hour = 0;
             day = 0;
             year = 0;
         }
-        dateString = day.ToString() + ":" 
-                        + year.ToString() + " " 
-                        + era[(int)System];
+        string hourString;
+        if (hour < 10) hourString = "0" + hour.ToString();
+        else hourString = hour.ToString();
+        dateString = hourString + ":00 " + 
+                     day.ToString() + ":" +
+                     year.ToString() + " " +
+                     era[(int)System];
         return dateString;
     }
-    // public void StartTime() {
-    //     InvokeRepeating("AdvanceTime", 1f, 1f);
-    // }
-    // public void StopTime() {
-    //     CancelInvoke("AdvanceTime");
-    // }
     public void AdvanceTime() {
-        AdvanceDay();
+        AdvanceHour();
+        if (IsDay())
+            AdvanceDay();
         if (IsWeek())
             AdvanceWeek();
         if (IsMonth())
@@ -64,8 +66,10 @@ public enum DateSystem { ABY }
         if (IsYear())
             AdvanceYear();
     }
-    public void AdvanceDay() {
+    public void AdvanceHour() {
         DateInt++;
+    }
+    public void AdvanceDay() {
 
     }
     public void AdvanceWeek() {
@@ -88,6 +92,9 @@ public enum DateSystem { ABY }
     }
     public void AdvanceYear() {
 
+    }
+    public bool IsDay() {
+        return DateInt % DayLength == 0;
     }
     public bool IsWeek() {
         return DateInt % WeekLength == 0;

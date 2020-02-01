@@ -20,8 +20,8 @@ class Driver {
         Testing.CheckExpectTimed("Load Database from Campaign", 
                                  LoadCampaignDatabase, LoadedDatabaseString);
         Testing.CheckExpect("Add Planet", AddPlanet, "success");
-        Testing.CheckExpect("Date Test", DateTest, "1:0 ABY");
-        Testing.CheckExpect("Date Test 2", DateTest2, "217:13 ABY");
+        Testing.CheckExpect("Date Test", DateTest, "00:00 1:0 ABY");
+        Testing.CheckExpect("Date Test 2", DateTest2, "00:00 217:13 ABY");
         Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #20");
         Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
         Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Fleet #1Test FleetFleet #2Fleet #3Fleet #4Fleet #5Fleet #6");
@@ -29,7 +29,7 @@ class Driver {
         Testing.CheckExpect("Save Test", SaveTest, "saved");
         Testing.ReportTestResults();
     }
-    static string LoadedDatabaseString = "[ ][ {empire, Galactic Empire}, {newrepublic, New Republic}, ][ {Fleet1, Fleet #1}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ]{Test Player, cis}1:0 ABY";
+    static string LoadedDatabaseString = "[ ][ {empire, Galactic Empire}, {newrepublic, New Republic}, ][ {Fleet1, Fleet #1}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ]{Test Player, cis}00:00 1:0 ABY";
     static string ConstructDatabase() {
         db = new Database();
         return "success";

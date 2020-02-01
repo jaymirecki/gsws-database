@@ -226,6 +226,9 @@ namespace GSWS {
             AddCharacter(c);
             Player = new Player(c.ID, faction);
         }
+        public Player GetPlayer() {
+            return Player;
+        }
         #endregion
     }
 }
