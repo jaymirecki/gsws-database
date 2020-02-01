@@ -29,6 +29,8 @@ namespace GSWS {
             
             new Serializer<Character>().SerializeDictionary(directory + "characters.xml", Characters);
 
+            new Serializer<Fleet>().SerializeDictionary(directory + "fleets.xml", Fleets);
+
             new Serializer<Date>().Serialize(directory + "date.xml", Date);
 
             new Serializer<Player>().Serialize(directory + "player.xml", Player);
@@ -44,6 +46,9 @@ namespace GSWS {
             LoadFactions(directory);
             LoadGovernments(directory);
             LoadFleets(directory);
+
+            Date = new Serializer<Date>().Deserialize(directory + "date.xml");
+
             this.Player = player;
         }
         private void LoadPlanets(string directory) {
@@ -70,22 +75,11 @@ namespace GSWS {
             }
         }
         private void LoadGovernments(string directory) {
-            // Government empire = new Government("Galactic Empire");
-            // empire.ID = "empire";
-            // empire.ExecutivePower = 1f;
-            
-            // Government rebels = new Government("New Republic");
-            // rebels.ID = "rebels";
-            // rebels.ExecutivePower = 0.375f;
-            // rebels.LegislativePower = 0.375f;
-            // rebels.JudicialPower = 0.25f;
 
             List<Government> governmentList = new List<Government>();
             Serializer<List<Government>> GovernmentListSerializer = 
                 new Serializer<List<Government>>();
             governmentList = GovernmentListSerializer.Deserialize(directory + "governments.xml");
-            // governmentList.Add(empire);
-            // governmentList.Add(rebels);
 
             foreach(Government aGovernment in governmentList)
                 Governments.Add(aGovernment.ID, aGovernment);
