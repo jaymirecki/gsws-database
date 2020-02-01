@@ -35,6 +35,7 @@
       <string>bilbringi</string>
       <string>corellia</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="bespin">
     <Name>Bespin</Name>
@@ -71,6 +72,7 @@
       <string>endor</string>
       <string>yagdhul</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="sullust">
     <Name>Sullust</Name>
@@ -107,6 +109,7 @@
       <string>yagdhul</string>
       <string>dagobah</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="dagobah">
     <Name>Dagobah</Name>
@@ -142,6 +145,7 @@
     <Neighbors>
       <string>sullust</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="yagdhul">
     <Name>Yag'Dhul</Name>
@@ -179,6 +183,7 @@
       <string>sullust</string>
       <string>corellia</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="fondor">
     <Name>Fondor</Name>
@@ -214,6 +219,7 @@
     <Neighbors>
       <string>yagdhul</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="corellia">
     <Name>Corellia</Name>
@@ -250,6 +256,7 @@
       <string>coruscant</string>
       <string>yagdhul</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="bilbringi">
     <Name>Bilbringi Asteroids</Name>
@@ -286,6 +293,7 @@
       <string>coruscant</string>
       <string>orinda</string>
     </Neighbors>
+    <Fleets />
   </Planet>
   <Planet ID="commenor">
     <Name>Commenor</Name>
@@ -321,5 +329,6 @@
     <Neighbors>
       <string>Corellia</string>
     </Neighbors>
+    <Fleets />
   </Planet>
 </ArrayOfPlanet>

@@ -17,17 +17,17 @@ namespace GSWS {
         public void Save(string directory) {
             Directory.CreateDirectory(directory);
 
-            new Serializer<List<Planet>>().Serialize(directory + "planets.xml", planets.Values());
+            new Serializer<List<Planet>>().Serialize(directory + "planets.xml", Planets.Values());
 
-            new Serializer<Faction>().SerializeDictionary(directory + "factions.xml", factions);
+            new Serializer<Faction>().SerializeDictionary(directory + "factions.xml", Factions);
 
-            new Serializer<Government>().SerializeDictionary(directory + "governments.xml", governments);
+            new Serializer<Government>().SerializeDictionary(directory + "governments.xml", Governments);
             
-            new Serializer<Character>().SerializeDictionary(directory + "characters.xml", characters);
+            new Serializer<Character>().SerializeDictionary(directory + "characters.xml", Characters);
 
-            new Serializer<Date>().Serialize(directory + "date.xml", date);
+            new Serializer<Date>().Serialize(directory + "date.xml", Date);
 
-            new Serializer<Player>().Serialize(directory + "player.xml", player);
+            new Serializer<Player>().Serialize(directory + "player.xml", Player);
         }
         
         // Loading database from file
@@ -39,7 +39,7 @@ namespace GSWS {
             LoadPlanets(directory);
             LoadFactions(directory);
             LoadGovernments(directory);
-            this.player = player;
+            this.Player = player;
         }
         private void LoadPlanets(string directory) {
             List<Planet> planetList = new List<Planet>();
@@ -48,7 +48,7 @@ namespace GSWS {
             planetList = 
                 PlanetListSerializer.Deserialize(directory + "planets.xml");
             foreach(Planet aPlanet in planetList) 
-                planets.Add(aPlanet.ID, aPlanet, aPlanet.Neighbors);
+                Planets.Add(aPlanet.ID, aPlanet, aPlanet.Neighbors);
         }
         private void LoadFactions(string directory) {
             Faction empire = new Faction("Galactic Empire");
@@ -69,8 +69,8 @@ namespace GSWS {
             factionList.Add(rebels);
 
             foreach(Faction aFaction in factionList)
-                factions.Add(aFaction.ID, aFaction);
-            foreach(Planet aPlanet in planets.Values()) {
+                Factions.Add(aFaction.ID, aFaction);
+            foreach(Planet aPlanet in Planets.Values()) {
                 Faction pFaction = GetFaction(aPlanet);
                 if (!GetGovernment(pFaction).MemberPlanets.Contains(aPlanet.ID))
                     GetGovernment(pFaction).MemberPlanets.Add(aPlanet.ID);
@@ -92,7 +92,7 @@ namespace GSWS {
             governmentList.Add(rebels);
 
             foreach(Government aGovernment in governmentList)
-                governments.Add(aGovernment.ID, aGovernment);
+                Governments.Add(aGovernment.ID, aGovernment);
         }
         private void LoadCharacters(string directory) {
 

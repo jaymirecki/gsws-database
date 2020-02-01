@@ -14,6 +14,9 @@ class Driver {
         Testing.CheckExpect("Add Planet", AddPlanet, "success");
         Testing.CheckExpect("Date Test", DateTest, "1:0 ABY");
         Testing.CheckExpect("Date Test 2", DateTest2, "217:13 ABY");
+        Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #10");
+        Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
+        Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Test FleetFleet #1Fleet #2Fleet #3Fleet #4Fleet #5");
         Testing.CheckExpect("Save Test", SaveTest, "saved");
         Testing.ReportTestResults();
     }
@@ -54,6 +57,28 @@ class Driver {
         Date d = new Date();
         d.DateInt = d.DateInt + 5000;
         return d.ToString();
+    }
+    #endregion
+    #region // Fleets
+    static string ConstructFleet() {
+        Fleet fleet = db.NewFleet();
+        return fleet.Name + fleet.Ships.Count.ToString();
+    }
+    static string AddFleet() {
+        Fleet fleet = db.NewFleet("Test Fleet");
+        db.AddFleet(fleet);
+        return db.GetFleet(fleet.ID).Name;
+    }
+    static string AddMultipleFleets() {
+        db.AddFleet(db.NewFleet());
+        db.AddFleet(db.NewFleet());
+        db.AddFleet(db.NewFleet());
+        db.AddFleet(db.NewFleet());
+        db.AddFleet(db.NewFleet());
+        string ret = "";
+        foreach(Fleet f in db.GetFleets())
+            ret += f.Name;
+        return ret;
     }
     #endregion
     static string TestCharacter() {

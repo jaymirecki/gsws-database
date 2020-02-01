@@ -13,20 +13,24 @@ using JMSuite.Collections;
 
 namespace GSWS {
     public partial class Database {
-        private Graph <string, Planet> planets;
-        private Dictionary<string, Character> characters;
-        private Dictionary<string, Government> governments;
-        private Dictionary<string, Faction> factions;
-        private Player player;
-        private Date date;
-
+        #region Members
+        private Dictionary<string, Character> Characters;
+        private Dictionary<string, Faction> Factions;
+        private Dictionary<string, Fleet> Fleets;
+        private Dictionary<string, Government> Governments;
+        private Graph <string, Planet> Planets;
+        private Player Player;
+        private Date Date;
+        #endregion
+        #region Constructing
         private void InitDatabase() {
-            planets = new Graph<string, Planet>();
-            characters = new Dictionary<string, Character>();
-            governments = new Dictionary<string, Government>();
-            factions = new Dictionary<string, Faction>();
-            player = new Player();
-            date = new Date();
+            Characters = new Dictionary<string, Character>();
+            Factions = new Dictionary<string, Faction>();
+            Fleets = new Dictionary<string, Fleet>();
+            Governments = new Dictionary<string, Government>();
+            Planets = new Graph<string, Planet>();
+            Player = new Player();
+            Date = new Date();
         }
 
         public Database() {
@@ -35,27 +39,30 @@ namespace GSWS {
 
         public Database(Player p, Date d) {
             InitDatabase();
-            player = p;
-            date = d;
+            Player = p;
+            Date = d;
         }
-
+        #endregion
+        public static string GetFreshID() {
+            return Guid.NewGuid().ToString();
+        }
         ////////////////////////////////////////////////////////////////////////
         //                              Planets                               //
         ////////////////////////////////////////////////////////////////////////
         #region
         public Planet GetPlanet(string planetId) {
             Planet p;
-            if (planets.TryFind(planetId, out p))
+            if (Planets.TryFind(planetId, out p))
                 return p;
             return new Planet();
         }
         public Graph<string, Planet> GetPlanets() {
-            return planets;
+            return Planets;
         }
         public void AddPlanet(Planet p) {
             // int[] distances = new int[p.Neighbors.Length];
             // foreach ()
-            planets.Add(p.ID, p, p.Neighbors);
+            Planets.Add(p.ID, p, p.Neighbors);
         }
         public Planet GetHomeworld(string characterId) {
             return GetHomeworld(GetCharacter(characterId));
@@ -69,16 +76,16 @@ namespace GSWS {
         ////////////////////////////////////////////////////////////////////////
         #region
         public void AddCharacter(Character c) {
-            characters.Add(c.ID, c);
+            Characters.Add(c.ID, c);
         }
         public Character GetCharacter(string characterId) {
             Character c;
-            if (characters.TryGetValue(characterId, out c))
+            if (Characters.TryGetValue(characterId, out c))
                 return c;
             return new Character();
         }
         public Character GetPlayerCharacter() {
-            return GetCharacter(player.Character);
+            return GetCharacter(Player.Character);
         }
         #endregion
         ////////////////////////////////////////////////////////////////////////
@@ -87,7 +94,7 @@ namespace GSWS {
         #region
         public Faction GetFaction(string factionId) {
             Faction f;
-            if (factions.TryGetValue(factionId, out f))
+            if (Factions.TryGetValue(factionId, out f))
                 return f;
             return new Faction();
         }
@@ -95,7 +102,48 @@ namespace GSWS {
             return GetFaction(p.Faction);
         }
         public Faction GetPlayerFaction() {
-            return GetFaction(player.Faction);
+            return GetFaction(Player.Faction);
+        }
+        #endregion
+        ////////////////////////////////////////////////////////////////////////
+        //                              Fleets                                //
+        ////////////////////////////////////////////////////////////////////////
+        #region
+        public Fleet NewFleet() {
+            Fleet fleet = new Fleet(GetNewFleetName());
+            return fleet;
+        }
+        public Fleet NewFleet(string name) {
+            Fleet fleet = new Fleet(name);
+            return fleet;
+        }
+        public void AddFleet(Fleet fleet) {
+            Fleets.Add(fleet.ID, fleet);
+        }
+        public Fleet GetFleet(string fleetID) {
+            Fleet fleet;
+            if (Fleets.TryGetValue(fleetID, out fleet))
+                return fleet;
+            return new Fleet();
+        }
+        private string GetNewFleetName() {
+            int fleetCounter = 1;
+            string fleetName = "UNASSIGNED";
+            bool nameExists = true;
+            while(nameExists) {
+                fleetName = "Fleet #" + fleetCounter++.ToString();
+                nameExists = false;
+                foreach(Fleet f in Fleets.Values) {
+                    if (fleetName == f.Name) {
+                        nameExists = true;
+                        break;
+                    }
+                }
+            }
+            return fleetName;
+        }
+        public List<Fleet> GetFleets() {
+            return new List<Fleet>(Fleets.Values);
         }
         #endregion
         ////////////////////////////////////////////////////////////////////////
@@ -104,7 +152,7 @@ namespace GSWS {
         #region
         public Government GetGovernment(string governmentId) {
             Government g;
-            if (governments.TryGetValue(governmentId, out g))
+            if (Governments.TryGetValue(governmentId, out g))
                 return g;
             return new Government();
         }
@@ -112,7 +160,7 @@ namespace GSWS {
             return GetGovernment(f.Government);
         }
         public Government GetPlayerGovernment() {
-            return GetGovernment(GetFaction(player.Faction).Government);
+            return GetGovernment(GetFaction(Player.Faction).Government);
         }
         #endregion
         ////////////////////////////////////////////////////////////////////////
@@ -120,19 +168,19 @@ namespace GSWS {
         ////////////////////////////////////////////////////////////////////////
         #region
         public void AdvanceTime() {
-            date.AdvanceTime();
+            Date.AdvanceTime();
         }
         public string GetDateString() {
-            return date.ToString();
+            return Date.ToString();
         }
         public bool IsWeek() {
-            return date.IsWeek();
+            return Date.IsWeek();
         }
         public bool IsMonth() {
-            return date.IsMonth();
+            return Date.IsMonth();
         }
         public bool IsYear() {
-            return date.IsYear();
+            return Date.IsYear();
         }
         #endregion
         ////////////////////////////////////////////////////////////////////////
@@ -140,7 +188,7 @@ namespace GSWS {
         ////////////////////////////////////////////////////////////////////////
         #region
         public void CreatePlayer(string character, string faction) {
-            player = new Player(character, faction);
+            Player = new Player(character, faction);
             GetCharacter(character).IsPlayer = true;
         }
         public void CreatePlayer(string name, string species, string homeworld, string faction) {
@@ -151,7 +199,7 @@ namespace GSWS {
             c.Homeworld = homeworld;
             c.IsPlayer = true;
             AddCharacter(c);
-            player = new Player(c.ID, faction);
+            Player = new Player(c.ID, faction);
         }
         #endregion
     }
