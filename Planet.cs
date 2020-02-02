@@ -48,7 +48,8 @@ namespace GSWS {
     }
     public string DatapadDescription() {
         string description = 
-            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region
+            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region;
+        return description;
     }
     public float Value() {
         return ResidentialValue() + IndustrialValue();
