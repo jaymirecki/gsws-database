@@ -3,7 +3,7 @@
 //                                  Fleet.cs                                  //
 //                                 Fleet class                                //
 //             Created by: Jarett (Jay) Mirecki, January 31, 2020             //
-//            Modified by: Jarett (Jay) Mirecki, February 06, 2020            //
+//            Modified by: Jarett (Jay) Mirecki, February 07, 2020            //
 //                                                                            //
 //          The Fleet class is a representation of groups of space            //
 //          vessels, allowing them to move as groups.                         //

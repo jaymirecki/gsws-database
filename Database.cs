@@ -3,7 +3,7 @@
 //                                Database.cs                                 //
 //                               Database class                               //
 //             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
+//            Modified by: Jarett (Jay) Mirecki, February 07, 2020            //
 //                                                                            //
 //          The Database class implements all of the functions                //
 //          needed to manipulate the data structures in the GSWS              //
@@ -89,11 +89,16 @@ namespace GSWS {
             // foreach ()
             Planets.Add(p.ID, p, p.Neighbors);
         }
-        public Planet GetHomeworld(string characterId) {
-            return GetHomeworld(GetCharacter(characterId));
+        public List<Fleet> GetPlanetFleets(string planet) {
+            Planet p = GetPlanet(planet);
+            return GetPlanetFleets(p);
         }
-        public Planet GetHomeworld(Character c) {
-            return GetPlanet(c.Homeworld);
+        public List<Fleet> GetPlanetFleets(Planet planet) {
+            List<Fleet> fleets = new List<Fleet>();
+            foreach (string f in planet.Fleets) {
+                fleets.Add(GetFleet(f));
+            }
+            return fleets;
         }
         #endregion
         ////////////////////////////////////////////////////////////////////////
@@ -111,6 +116,12 @@ namespace GSWS {
         }
         public Character GetPlayerCharacter() {
             return GetCharacter(Player.Character);
+        }
+        public Planet GetHomeworld(string characterId) {
+            return GetHomeworld(GetCharacter(characterId));
+        }
+        public Planet GetHomeworld(Character c) {
+            return GetPlanet(c.Homeworld);
         }
         #endregion
         ////////////////////////////////////////////////////////////////////////
@@ -169,6 +180,19 @@ namespace GSWS {
         }
         public List<Fleet> GetFleets() {
             return new List<Fleet>(Fleets.Values);
+        }
+        public bool GetFleetPlanet(string fleet, out Planet planet) {
+            return GetFleetPlanet(GetFleet(fleet), out planet);
+        }
+        public bool GetFleetPlanet(Fleet fleet, out Planet planet) {
+            if (fleet.Orbiting == null) {
+                planet = new Planet();
+                return false;
+            }
+            else {
+                planet =  GetPlanet(fleet.Orbiting);
+                return true;
+            }
         }
         #endregion
         ////////////////////////////////////////////////////////////////////////

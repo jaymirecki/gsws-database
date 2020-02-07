@@ -3,7 +3,7 @@
 //                               DatabaseTest.cs                              //
 //                       Testing file for Database class                      //
 //             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
+//            Modified by: Jarett (Jay) Mirecki, February 07, 2020            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 using JMSuite;
@@ -22,17 +22,22 @@ class Driver {
         Testing.CheckExpectTimed("Load Database from Campaign", 
                                  LoadCampaignDatabase, LoadedDatabaseString);
         Testing.CheckExpect("Add Planet", AddPlanet, "success");
+        Testing.CheckExpect("Get Planet's Fleets", TestPlanetFleets, "coruscant");
         Testing.CheckExpect("Date Test", DateTest, "00:00 1:0 ABY");
         Testing.CheckExpect("Date Test 2", DateTest2, "00:00 217:13 ABY");
         Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #20");
         Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
-        Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Fleet #1Test FleetFleet #2Fleet #3Fleet #4Fleet #5Fleet #6");
+        Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Fleet #1Coruscant Defense FleetTest FleetFleet #2Fleet #3Fleet #4Fleet #5Fleet #6");
+        Testing.CheckExpect("Get Fleet's Planet with string", TestFleetPlanetString, "Truecoruscant");
+        Testing.CheckExpect("Get Fleet's Planet with object", TestFleetPlanetObject, "Truecoruscant");
+        Testing.CheckExpect("Get Fleet's Planet with string, fail", TestFleetPlanetStringFail, "False");
+        Testing.CheckExpect("Get Fleet's Planet with object, fail", TestFleetPlanetObjectFail, "False");
         Testing.CheckExpect("Test Character", TestCharacter, "success");
         Testing.CheckExpect("Search Test 1", SearchTest, "");
         Testing.CheckExpect("Save Test", SaveTest, "saved");
         Testing.ReportTestResults();
     }
-    static string LoadedDatabaseString = "[ ][ {empire, Galactic Empire}, {newrepublic, New Republic}, ][ {Fleet1, Fleet #1}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ]{Test Player, cis}00:00 1:0 ABY";
+    static string LoadedDatabaseString = "[ ][ {empire, Galactic Empire}, {newrepublic, New Republic}, ][ {Fleet1, Fleet #1}, {coruscant, Coruscant Defense Fleet}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ]{Test Player, cis}00:00 1:0 ABY";
     static string ConstructDatabase() {
         db = new Database();
         return "success";
@@ -59,6 +64,9 @@ class Driver {
         if (db.GetPlanet(test.ID) == test)
             return "success";
         return "fail";
+    }
+    static string TestPlanetFleets() {
+        return db.GetPlanetFleets("coruscant")[0].ID;
     }
     #endregion
     #region Dates
@@ -92,6 +100,28 @@ class Driver {
         foreach(Fleet f in db.GetFleets())
             ret += f.Name;
         return ret;
+    }
+    static string TestFleetPlanetString() {
+        Planet p;
+        bool o = db.GetFleetPlanet("coruscant", out p);
+        return o.ToString() + p.ID;
+    }
+    static string TestFleetPlanetObject() {
+        Planet p;
+        Fleet f = db.GetFleet("coruscant");
+        bool o = db.GetFleetPlanet(f, out p);
+        return o.ToString() + p.ID;
+    }
+    static string TestFleetPlanetStringFail() {
+        Planet p;
+        bool o = db.GetFleetPlanet("Fleet1", out p);
+        return o.ToString() + p.ID;
+    }
+    static string TestFleetPlanetObjectFail() {
+        Planet p;
+        Fleet f = db.GetFleet("Fleet1");
+        bool o = db.GetFleetPlanet(f, out p);
+        return o.ToString() + p.ID;
     }
     #endregion
     #region Characters

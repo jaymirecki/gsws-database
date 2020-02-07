@@ -35,6 +35,9 @@
       <string>bilbringi</string>
       <string>corellia</string>
     </Neighbors>
+    <Fleets>
+      <string>coruscant</string>
+    </Fleets>
   </Planet>
   <Planet ID="bespin">
     <Name>Bespin</Name>

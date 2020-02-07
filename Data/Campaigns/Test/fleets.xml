@@ -3,4 +3,8 @@
   <Fleet ID="Fleet1">
     <Name>Fleet #1</Name>
   </Fleet>
+  <Fleet ID="coruscant">
+    <Name>Coruscant Defense Fleet</Name>
+    <Orbiting>coruscant</Orbiting>
+  </Fleet>
 </ArrayOfFleet>

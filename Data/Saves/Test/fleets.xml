@@ -9,7 +9,17 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="c78f6881-772f-4f1c-9e5e-8e390997bac8">
+  <Fleet ID="coruscant">
+    <Name>Coruscant Defense Fleet</Name>
+    <Orbiting>coruscant</Orbiting>
+    <Position>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </Position>
+    <Ships />
+  </Fleet>
+  <Fleet ID="50fbac81-2b34-444b-8d7e-c5d534995005">
     <Name>Test Fleet</Name>
     <Position>
       <X>0</X>
@@ -18,7 +28,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="f2af333d-eaf2-4a2d-97c4-3629d1b09624">
+  <Fleet ID="423a6ff7-107f-492f-a8fc-f00f2173d166">
     <Name>Fleet #2</Name>
     <Position>
       <X>0</X>
@@ -27,7 +37,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="4cd604e0-8aa2-44ee-9935-8448860474ff">
+  <Fleet ID="308386be-7126-4d0a-9e9c-01e0d6960cef">
     <Name>Fleet #3</Name>
     <Position>
       <X>0</X>
@@ -36,7 +46,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="92fd98a1-f4e2-42ce-9f95-1d8313f939b5">
+  <Fleet ID="de2d0527-5867-4a67-aee4-82f900b99604">
     <Name>Fleet #4</Name>
     <Position>
       <X>0</X>
@@ -45,7 +55,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="d5b8825a-4e9c-41a2-bf44-1a913be7fd8a">
+  <Fleet ID="21e44227-2211-41ed-a0ea-02757a907a35">
     <Name>Fleet #5</Name>
     <Position>
       <X>0</X>
@@ -54,7 +64,7 @@
     </Position>
     <Ships />
   </Fleet>
-  <Fleet ID="773cdada-0b39-4281-a877-310fe970c261">
+  <Fleet ID="9b9bb0fc-11d2-4e86-ada3-c07fcf180396">
     <Name>Fleet #6</Name>
     <Position>
       <X>0</X>
