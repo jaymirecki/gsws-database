@@ -3,7 +3,7 @@
 //                                 Faction.cs                                 //
 //                               Faction class                                //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, February 06, 2019            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -58,6 +58,11 @@ public class Faction {
     public override string ToString() {
         return "{" + ID + ", " + Name + "}";
     }
+    public string DatapadDescription() {
+        string description = 
+            Name;
+        return description;
+    } 
     public void SetRelationship(string faction, int relationshipRating) {
 
         int index =  Relations.IndexOf(Relations.Find(x => x.Faction == faction));

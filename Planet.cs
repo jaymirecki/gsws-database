@@ -3,7 +3,7 @@
 //                                 Planet.cs                                  //
 //                                Planet class                                //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
+//            Modified by: Jarett (Jay) Mirecki, February 06, 2020            //
 //                                                                            //
 //          The Planet class represents a planet in the galaxy. This          //
 //          structure stores information about its location,                  //
@@ -21,14 +21,14 @@ namespace GSWS {
 
 [Serializable] public class Planet {
     [XmlAttribute] public string ID;
-    public string Name, System, Sector, Region, Class, Climate, Demonym, Faction, Economy;
+    public string Name, System, Sector, Region, Class, Climate, Demonym, Description, Faction, Economy;
     public Coordinate Coordinates;
     public int DayLength, YearLength, AtmosphereType, Diameter;
     public float Gravity, AvailableSurface, PopulationEconomicPosition, PopulationSocialPosition, Population, Wealth, Industrialization, Productivity, PopulationCapacity, IndustrialCapacity, UnusedCapacity, MaxCapacity;
     public string[] Neighbors, Fleets;
 
     private void InitInstance() {
-        ID = Name = System = Sector = Region = Class = Climate = Demonym = Faction = Economy = "";
+        ID = Name = System = Sector = Region = Class = Climate = Demonym = Description = Faction = Economy = "";
         DayLength = YearLength = AtmosphereType = Diameter = 0;
         Gravity = AvailableSurface = PopulationEconomicPosition = PopulationSocialPosition = Population = Wealth = Industrialization = Productivity = PopulationCapacity = IndustrialCapacity = UnusedCapacity = MaxCapacity = 0f;
         Neighbors = new string[0];
@@ -48,7 +48,7 @@ namespace GSWS {
     }
     public string DatapadDescription() {
         string description = 
-            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region;
+            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region + "\n" + Description;
         return description;
     }
     public float Value() {
@@ -59,6 +59,10 @@ namespace GSWS {
     }
     public float IndustrialValue() {
         return Productivity * Industrialization;
+    }
+    public void GenerateUnknownInfo() {
+        if (Description == "")
+            Description = "A planet in the " + System + "system";
     }
     public string ValueString() {
         float value = Value();

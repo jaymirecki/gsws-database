@@ -3,7 +3,7 @@
 //                               Government.cs                                //
 //                              Government class                              //
 //             Created by: Jarett (Jay) Mirecki, August 08, 2019              //
-//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, February 06, 2019            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -37,6 +37,11 @@ namespace GSWS {
     }
     public override string ToString() {
         return "{" + ID + ", " + Name + "}";
+    }
+    public string DatapadDescription() {
+        string description = 
+            Name;
+        return description;
     }
 }
 }

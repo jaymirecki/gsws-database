@@ -3,7 +3,7 @@
 //                                Character.cs                                //
 //                               Character class                              //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//             Modified by: Jarett (Jay) Mirecki, August 09, 2019             //
+//            Modified by: Jarett (Jay) Mirecki, February 06, 2020            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -34,6 +34,11 @@ namespace GSWS {
     public Character(string name) {
         InitInstance();
         this.Name = name;
+    }
+    public string DatapadDescription() {
+        string description = 
+            Name + "\n" + Species + " from " + Homeworld;
+        return description;
     }
 }
 }
