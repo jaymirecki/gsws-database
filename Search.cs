@@ -3,7 +3,7 @@
 //                                 Search.cs                                  //
 //                  Search functions for the Database Class                   //
 //            Created by: Jarett (Jay) Mirecki, February 01, 2020             //
-//            Modified by: Jarett (Jay) Mirecki, February 01, 2020            //
+//            Modified by: Jarett (Jay) Mirecki, February 06, 2020            //
 //                                                                            //
 //          This extension for the Database class allows for                  //
 //          searching the objects (to provide results for the                 //
@@ -17,113 +17,123 @@ using System.IO;
 using JMSuite.Collections;
 
 namespace GSWS {
+using SearchResult = KeyValuePair<string, Type>;
+using RankedResult = KeyValuePair<int, KeyValuePair<string, Type>>;
 public partial class Database {
-    public List<string> Search(string query, bool characters, bool factions, bool fleets, bool governments, bool planets) {
-        List<KeyValuePair<string, int>> rankedResults = new List<KeyValuePair<string, int>>();
-        List<string> results = new List<string>();
+    public List<SearchResult> Search(string query, bool characters, bool factions, bool fleets, bool governments, bool planets) {
+        List<RankedResult> rankedResults = new List<RankedResult>();
+        List<SearchResult> results = new List<SearchResult>();
 
-        if (characters) {
-            foreach (Character c in Characters.Values) {
-                rankedResults.AddRange(SearchCharacters(query));
-            }
+        if (factions)
+            rankedResults.AddRange(SearchFactions(query));
+        if (governments)
+            rankedResults.AddRange(SearchGovernments(query));
+        if (fleets)
+            rankedResults.AddRange(SearchFleets(query));
+        if (planets)
+            rankedResults.AddRange(SearchPlanets(query));
+        if (characters)
+            rankedResults.AddRange(SearchCharacters(query));
+        rankedResults.Sort(SortRankedResults);
+        foreach(RankedResult p in rankedResults) {
+            results.Add(p.Value);
         }
-        if (factions) {
-            foreach (Faction f in Factions.Values) {
-                rankedResults.AddRange(SearchFactions(query));
-            }
-        }
-        if (fleets) {
-            foreach (Fleet f in Fleets.Values) {
-                rankedResults.AddRange(SearchFleets(query));
-            }
-        }
-        if (governments) {
-            foreach (Government g in Governments.Values) {
-                rankedResults.AddRange(SearchGovernments(query));
-            }
-        }
-        if (planets) {
-            foreach (Planet p in Planets.Values()) {
-                rankedResults.AddRange(SearchPlanets(query));
-            }
-        }
-        // rankedResults.Sort()
-        foreach(KeyValuePair<string, int> p in rankedResults)
-            results.Add(p.Key);
         return results;
     }
-    private bool Match(string comparison, string query) {
-        return comparison.Length <= query.Length && 
-               comparison.Substring(0, query.Length) == query;
+    private int SortRankedResults(RankedResult a, RankedResult b) {
+        return a.Key.CompareTo(b.Key);
     }
-    private List<KeyValuePair<string, int>> SearchCharacters(string query) {
-        List<KeyValuePair<string, int>> rankedResults = 
-            new List<KeyValuePair<string, int>>();
+    private bool Match(string comparison, string query) {
+        return comparison.Contains(query);
+    }
+    private bool Matches(List<string> comparison, string query) {
+        foreach(string s in comparison) {
+            if (Match(s, query))
+                return true;
+        }
+        return false;
+    }
+    private List<RankedResult> SearchCharacters(string query) {
+        List<RankedResult> rankedResults = new List<RankedResult>();
         foreach (Character c in Characters.Values) {
             int rank = -1;
-            if (Match(c.Name, query))
+            if (Match(c.Name, query) || Match(c.ID, query))
                 rank = 0;
-            else if (Match(c.Unit, query))
+            else if (Matches(c.Units, query))
                 rank = 1;
-            else if (Match(c.Military, query) || Match(c.Government, query))
+            else if (Matches(c.Militaries, query) || Matches(c.Governments, query))
                 rank = 2;
-            else if (Match(c.Faction, query) ||
+            else if (Matches(c.Factions, query) ||
                      Match(c.Species, query) ||
                      Match(c.Homeworld, query))
                 rank = 3;
+            else if (Matches(c.Factions, query))
+                rank = 4;
             if (rank > -1)
-                rankedResults.Add(new KeyValuePair<string, int>(c.ID, rank));
+                rankedResults.Add(new RankedResult(
+                                    rank,
+                                    new SearchResult(c.ID, c.GetType())));
         }
         return rankedResults;
     }
-    private List<KeyValuePair<string, int>> SearchFactions(string query) {
-        List<KeyValuePair<string, int>> rankedResults = 
-            new List<KeyValuePair<string, int>>();
+    private List<RankedResult> SearchFactions(string query) {
+        List<RankedResult> rankedResults = 
+            new List<RankedResult>();
         foreach (Faction f in Factions.Values) {
             int rank = -1;
-            if (Match(f.Name, query))
+            if (Match(f.Name, query) || Match(f.ID, query))
                 rank = 0;
             else if (Match(f.Government, query) ||
                      Match(f.Military, query))
                 rank = 1;
             if (rank > -1)
-                rankedResults.Add(new KeyValuePair<string, int>(f.ID, rank));
+                rankedResults.Add(new RankedResult(
+                                    rank,
+                                    new SearchResult(f.ID, f.GetType())));
         }
         return rankedResults;
     }
-    private List<KeyValuePair<string, int>> SearchFleets(string query) {
-        List<KeyValuePair<string, int>> rankedResults = 
-            new List<KeyValuePair<string, int>>();
+    private List<RankedResult> SearchFleets(string query) {
+        List<RankedResult> rankedResults = 
+            new List<RankedResult>();
         foreach (Fleet f in Fleets.Values) {
             int rank = -1;
-            if (Match(f.Name, query))
+            if (Match(f.Name, query) || Match(f.ID, query))
                 rank = 0;
             if (rank > -1)
-                rankedResults.Add(new KeyValuePair<string, int>(f.ID, rank));
+                rankedResults.Add(new RankedResult(
+                                    rank,
+                                    new SearchResult(f.ID, f.GetType())));
         }
         return rankedResults;
     }
-    private List<KeyValuePair<string, int>> SearchGovernments(string query) {
-        List<KeyValuePair<string, int>> rankedResults = 
-            new List<KeyValuePair<string, int>>();
+    private List<RankedResult> SearchGovernments(string query) {
+        List<RankedResult> rankedResults = 
+            new List<RankedResult>();
         foreach (Government g in Governments.Values) {
             int rank = -1;
-            if (Match(g.Name, query))
+            if (Match(g.Name, query) || Match(g.ID, query))
                 rank = 0;
             if (rank > -1)
-                rankedResults.Add(new KeyValuePair<string, int>(g.ID, rank));
+                rankedResults.Add(new RankedResult(
+                                    rank,
+                                    new SearchResult(g.ID, g.GetType())));
         }
         return rankedResults;
     }
-    private List<KeyValuePair<string, int>> SearchPlanets(string query) {
-        List<KeyValuePair<string, int>> rankedResults = 
-            new List<KeyValuePair<string, int>>();
-        foreach (Planet p in Planets.Values) {
+    private List<RankedResult> SearchPlanets(string query) {
+        List<RankedResult> rankedResults = 
+            new List<RankedResult>();
+        foreach (Planet p in Planets.Values()) {
             int rank = -1;
-            if (Match(p.Name, query))
+            if (Match(p.Name, query) || Match(p.ID, query))
                 rank = 0;
+            else if (Match(p.Faction, query))
+                rank = 3;
             if (rank > -1)
-                rankedResults.Add(new KeyValuePair<string, int>(p.ID, rank));
+                rankedResults.Add(new RankedResult(
+                                    rank,
+                                    new SearchResult(p.ID, p.GetType())));
         }
         return rankedResults;
     }

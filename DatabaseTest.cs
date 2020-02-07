@@ -7,6 +7,8 @@
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 using JMSuite;
+using System;
+using System.Collections.Generic;
 using GSWS;
 
 class Driver {
@@ -26,6 +28,7 @@ class Driver {
         Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
         Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Fleet #1Test FleetFleet #2Fleet #3Fleet #4Fleet #5Fleet #6");
         Testing.CheckExpect("Test Character", TestCharacter, "success");
+        Testing.CheckExpect("Search Test 1", SearchTest, "");
         Testing.CheckExpect("Save Test", SaveTest, "saved");
         Testing.ReportTestResults();
     }
@@ -98,6 +101,15 @@ class Driver {
         if (db.GetCharacter(c.ID) == c)
             return "success";
         return "failure";
+    }
+    #endregion
+    #region Search
+    static string SearchTest() {
+        string results = "";
+        foreach(KeyValuePair<string, Type> p in db.Search("empireempirecorelliabilbringicoruscantfondor", true, true, true, true, true)) {
+            results += p.Key;
+        }
+        return results;
     }
     #endregion
     static string SaveTest() {
