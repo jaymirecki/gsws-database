@@ -50,5 +50,9 @@ namespace GSWS {
     public bool Stationary() {
         return Destination == null;
     }
+    public void Move() {
+        if (Stationary()) return;
+        
+    }
 }
 }

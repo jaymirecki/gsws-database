@@ -3,7 +3,7 @@
 //                                Database.cs                                 //
 //                               Database class                               //
 //             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//            Modified by: Jarett (Jay) Mirecki, February 07, 2020            //
+//            Modified by: Jarett (Jay) Mirecki, February 27, 2020            //
 //                                                                            //
 //          The Database class implements all of the functions                //
 //          needed to manipulate the data structures in the GSWS              //
@@ -23,21 +23,23 @@ using JMSuite.Collections;
 namespace GSWS {
     public partial class Database {
         #region Members
-        private Dictionary<string, Character> Characters;
-        private Dictionary<string, Faction> Factions;
-        private Dictionary<string, Fleet> Fleets;
-        private Dictionary<string, Government> Governments;
-        private Graph <string, Planet> Planets;
+        private JDictionary<string, Character> Characters;
+        private JDictionary<string, Faction> Factions;
+        private JDictionary<string, Fleet> Fleets;
+        private JDictionary<string, Government> Governments;
+        private JDictionary<string, Planet> Planets;
+        private JGraph<string> Map;
         private Player Player;
         private Date Date;
         #endregion
         #region Constructing
         private void InitDatabase() {
-            Characters = new Dictionary<string, Character>();
-            Factions = new Dictionary<string, Faction>();
-            Fleets = new Dictionary<string, Fleet>();
-            Governments = new Dictionary<string, Government>();
-            Planets = new Graph<string, Planet>();
+            Characters = new JDictionary<string, Character>();
+            Factions = new JDictionary<string, Faction>();
+            Fleets = new JDictionary<string, Fleet>();
+            Governments = new JDictionary<string, Government>();
+            Planets = new JDictionary<string, Planet>();
+            Map = new JGraph<string>();
             Player = new Player();
             Date = new Date();
         }
@@ -77,17 +79,20 @@ namespace GSWS {
         #region
         public Planet GetPlanet(string planetId) {
             Planet p;
-            if (Planets.TryFind(planetId, out p))
+            if (Planets.TryGetValue(planetId, out p))
                 return p;
             return new Planet();
         }
-        public Graph<string, Planet> GetPlanets() {
+        public JGraph<string> GetMap() {
+            return Map;
+        }
+        public JDictionary<string, Planet> GetPlanets() {
             return Planets;
         }
         public void AddPlanet(Planet p) {
             // int[] distances = new int[p.Neighbors.Length];
             // foreach ()
-            Planets.Add(p.ID, p, p.Neighbors);
+            Planets.Add(p.ID, p);
         }
         public List<Fleet> GetPlanetFleets(string planet) {
             Planet p = GetPlanet(planet);

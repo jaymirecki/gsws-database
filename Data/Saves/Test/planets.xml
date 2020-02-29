@@ -1,345 +1,408 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfPlanet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Planet ID="coruscant">
-    <Name>Coruscant</Name>
-    <System>coruscant</System>
-    <Sector>coruscant</Sector>
-    <Region>core</Region>
-    <Class>terrestrial</Class>
-    <Climate>temperate</Climate>
-    <Demonym>Coruscanti</Demonym>
-    <Description />
-    <Faction>empire</Faction>
-    <Economy>politics</Economy>
-    <Coordinates>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>0</Z>
-    </Coordinates>
-    <DayLength>24</DayLength>
-    <YearLength>368</YearLength>
-    <AtmosphereType>1</AtmosphereType>
-    <Diameter>12240</Diameter>
-    <Gravity>1</Gravity>
-    <AvailableSurface>0.99</AvailableSurface>
-    <PopulationEconomicPosition>3</PopulationEconomicPosition>
-    <PopulationSocialPosition>5</PopulationSocialPosition>
-    <Population>1E+12</Population>
-    <Wealth>57782</Wealth>
-    <Industrialization>4.850842E+11</Industrialization>
-    <Productivity>8.103283E+16</Productivity>
-    <PopulationCapacity>1.19065359E+12</PopulationCapacity>
-    <IndustrialCapacity>5.953268E+11</IndustrialCapacity>
-    <UnusedCapacity>2734449</UnusedCapacity>
-    <MaxCapacity>1.8E+12</MaxCapacity>
-    <Neighbors>
-      <string>bilbringi</string>
-      <string>corellia</string>
-    </Neighbors>
-    <Fleets>
+<JDictionaryOfStringPlanet>
+  <item>
+    <key>
       <string>coruscant</string>
-    </Fleets>
-  </Planet>
-  <Planet ID="bespin">
-    <Name>Bespin</Name>
-    <System>bespin</System>
-    <Sector>anoat</Sector>
-    <Region>outer_rim</Region>
-    <Class>gas</Class>
-    <Climate>temperate</Climate>
-    <Demonym>Bespinite</Demonym>
-    <Description />
-    <Faction>newrepublic</Faction>
-    <Economy>fuel</Economy>
-    <Coordinates>
-      <X>-63</X>
-      <Y>-548</Y>
-      <Z>-7</Z>
-    </Coordinates>
-    <DayLength>12</DayLength>
-    <YearLength>5110</YearLength>
-    <AtmosphereType>1</AtmosphereType>
-    <Diameter>118000</Diameter>
-    <Gravity>1</Gravity>
-    <AvailableSurface>0</AvailableSurface>
-    <PopulationEconomicPosition>1</PopulationEconomicPosition>
-    <PopulationSocialPosition>2</PopulationSocialPosition>
-    <Population>6000000</Population>
-    <Wealth>40000</Wealth>
-    <Industrialization>6000000</Industrialization>
-    <Productivity>1E+18</Productivity>
-    <PopulationCapacity>6000000</PopulationCapacity>
-    <IndustrialCapacity>6000000</IndustrialCapacity>
-    <UnusedCapacity>3.38461645E+09</UnusedCapacity>
-    <MaxCapacity>1.73529408E+13</MaxCapacity>
-    <Neighbors>
-      <string>endor</string>
-      <string>yagdhul</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-  <Planet ID="sullust">
-    <Name>Sullust</Name>
-    <System>sullust</System>
-    <Sector>brema</Sector>
-    <Region>outer_rim</Region>
-    <Class>terrestrial</Class>
-    <Climate>superheated</Climate>
-    <Demonym>Sullustan</Demonym>
-    <Description />
-    <Faction>newrepublic</Faction>
-    <Economy>shipbuilding</Economy>
-    <Coordinates>
-      <X>99</X>
-      <Y>-501</Y>
-      <Z>-3</Z>
-    </Coordinates>
-    <DayLength>20</DayLength>
-    <YearLength>263</YearLength>
-    <AtmosphereType>2</AtmosphereType>
-    <Diameter>12780</Diameter>
-    <Gravity>1</Gravity>
-    <AvailableSurface>0.99</AvailableSurface>
-    <PopulationEconomicPosition>5</PopulationEconomicPosition>
-    <PopulationSocialPosition>2</PopulationSocialPosition>
-    <Population>3E+09</Population>
-    <Wealth>60000</Wealth>
-    <Industrialization>2E+09</Industrialization>
-    <Productivity>2.4544604E+14</Productivity>
-    <PopulationCapacity>3E+09</PopulationCapacity>
-    <IndustrialCapacity>2E+09</IndustrialCapacity>
-    <UnusedCapacity>365596224</UnusedCapacity>
-    <MaxCapacity>1.87941179E+12</MaxCapacity>
-    <Neighbors>
-      <string>yagdhul</string>
-      <string>dagobah</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-  <Planet ID="dagobah">
-    <Name>Dagobah</Name>
-    <System>dagobah</System>
-    <Sector>sluis</Sector>
-    <Region>outer_rim</Region>
-    <Class>terrestrial</Class>
-    <Climate>murky</Climate>
-    <Demonym>Dagobahn</Demonym>
-    <Description />
-    <Faction>newrepublic</Faction>
-    <Economy>none</Economy>
-    <Coordinates>
-      <X>106</X>
-      <Y>-610</Y>
-      <Z>4</Z>
-    </Coordinates>
-    <DayLength>23</DayLength>
-    <YearLength>327</YearLength>
-    <AtmosphereType>1</AtmosphereType>
-    <Diameter>8900</Diameter>
-    <Gravity>1.1</Gravity>
-    <AvailableSurface>0.9</AvailableSurface>
-    <PopulationEconomicPosition>5</PopulationEconomicPosition>
-    <PopulationSocialPosition>1</PopulationSocialPosition>
-    <Population>1000000</Population>
-    <Wealth>30000</Wealth>
-    <Industrialization>0</Industrialization>
-    <Productivity>0</Productivity>
-    <PopulationCapacity>1000000</PopulationCapacity>
-    <IndustrialCapacity>0</IndustrialCapacity>
-    <UnusedCapacity>255280384</UnusedCapacity>
-    <MaxCapacity>1.30882352E+12</MaxCapacity>
-    <Neighbors>
-      <string>sullust</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-  <Planet ID="yagdhul">
-    <Name>Yag'Dhul</Name>
-    <System>yagdhul</System>
-    <Sector>tapani</Sector>
-    <Region>inner_rim</Region>
-    <Class>barren</Class>
-    <Climate />
-    <Demonym>Yag'Dhul</Demonym>
-    <Description />
-    <Faction>newrepublic</Faction>
-    <Economy>education</Economy>
-    <Coordinates>
-      <X>54</X>
-      <Y>-314</Y>
-      <Z>-6</Z>
-    </Coordinates>
-    <DayLength>2400</DayLength>
-    <YearLength>5000</YearLength>
-    <AtmosphereType>4</AtmosphereType>
-    <Diameter>12000</Diameter>
-    <Gravity>1.2</Gravity>
-    <AvailableSurface>0.5</AvailableSurface>
-    <PopulationEconomicPosition>2</PopulationEconomicPosition>
-    <PopulationSocialPosition>3</PopulationSocialPosition>
-    <Population>1E+09</Population>
-    <Wealth>40000</Wealth>
-    <Industrialization>1E+09</Industrialization>
-    <Productivity>1E+14</Productivity>
-    <PopulationCapacity>1E+09</PopulationCapacity>
-    <IndustrialCapacity>1E+09</IndustrialCapacity>
-    <UnusedCapacity>343808448</UnusedCapacity>
-    <MaxCapacity>1.76470583E+12</MaxCapacity>
-    <Neighbors>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="coruscant">
+        <Name>Coruscant</Name>
+        <System>coruscant</System>
+        <Sector>coruscant</Sector>
+        <Region>core</Region>
+        <Class>terrestrial</Class>
+        <Climate>temperate</Climate>
+        <Demonym>Coruscanti</Demonym>
+        <Description />
+        <Faction>empire</Faction>
+        <Economy>politics</Economy>
+        <Coordinates>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Coordinates>
+        <DayLength>24</DayLength>
+        <YearLength>368</YearLength>
+        <AtmosphereType>1</AtmosphereType>
+        <Diameter>12240</Diameter>
+        <Gravity>1</Gravity>
+        <AvailableSurface>0.99</AvailableSurface>
+        <PopulationEconomicPosition>3</PopulationEconomicPosition>
+        <PopulationSocialPosition>5</PopulationSocialPosition>
+        <Population>1E+12</Population>
+        <Wealth>57782</Wealth>
+        <Industrialization>4.850842E+11</Industrialization>
+        <Productivity>8.103283E+16</Productivity>
+        <PopulationCapacity>1.19065359E+12</PopulationCapacity>
+        <IndustrialCapacity>5.953268E+11</IndustrialCapacity>
+        <UnusedCapacity>2734449</UnusedCapacity>
+        <MaxCapacity>1.8E+12</MaxCapacity>
+        <Neighbors>
+          <string>bilbringi</string>
+          <string>corellia</string>
+        </Neighbors>
+        <Fleets>
+          <string>coruscant</string>
+        </Fleets>
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
       <string>bespin</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="bespin">
+        <Name>Bespin</Name>
+        <System>bespin</System>
+        <Sector>anoat</Sector>
+        <Region>outer_rim</Region>
+        <Class>gas</Class>
+        <Climate>temperate</Climate>
+        <Demonym>Bespinite</Demonym>
+        <Description />
+        <Faction>newrepublic</Faction>
+        <Economy>fuel</Economy>
+        <Coordinates>
+          <X>-63</X>
+          <Y>-548</Y>
+          <Z>-7</Z>
+        </Coordinates>
+        <DayLength>12</DayLength>
+        <YearLength>5110</YearLength>
+        <AtmosphereType>1</AtmosphereType>
+        <Diameter>118000</Diameter>
+        <Gravity>1</Gravity>
+        <AvailableSurface>0</AvailableSurface>
+        <PopulationEconomicPosition>1</PopulationEconomicPosition>
+        <PopulationSocialPosition>2</PopulationSocialPosition>
+        <Population>6000000</Population>
+        <Wealth>40000</Wealth>
+        <Industrialization>6000000</Industrialization>
+        <Productivity>1E+18</Productivity>
+        <PopulationCapacity>6000000</PopulationCapacity>
+        <IndustrialCapacity>6000000</IndustrialCapacity>
+        <UnusedCapacity>3.38461645E+09</UnusedCapacity>
+        <MaxCapacity>1.73529408E+13</MaxCapacity>
+        <Neighbors>
+          <string>endor</string>
+          <string>yagdhul</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
       <string>sullust</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="sullust">
+        <Name>Sullust</Name>
+        <System>sullust</System>
+        <Sector>brema</Sector>
+        <Region>outer_rim</Region>
+        <Class>terrestrial</Class>
+        <Climate>superheated</Climate>
+        <Demonym>Sullustan</Demonym>
+        <Description />
+        <Faction>newrepublic</Faction>
+        <Economy>shipbuilding</Economy>
+        <Coordinates>
+          <X>99</X>
+          <Y>-501</Y>
+          <Z>-3</Z>
+        </Coordinates>
+        <DayLength>20</DayLength>
+        <YearLength>263</YearLength>
+        <AtmosphereType>2</AtmosphereType>
+        <Diameter>12780</Diameter>
+        <Gravity>1</Gravity>
+        <AvailableSurface>0.99</AvailableSurface>
+        <PopulationEconomicPosition>5</PopulationEconomicPosition>
+        <PopulationSocialPosition>2</PopulationSocialPosition>
+        <Population>3E+09</Population>
+        <Wealth>60000</Wealth>
+        <Industrialization>2E+09</Industrialization>
+        <Productivity>2.4544604E+14</Productivity>
+        <PopulationCapacity>3E+09</PopulationCapacity>
+        <IndustrialCapacity>2E+09</IndustrialCapacity>
+        <UnusedCapacity>365596224</UnusedCapacity>
+        <MaxCapacity>1.87941179E+12</MaxCapacity>
+        <Neighbors>
+          <string>yagdhul</string>
+          <string>dagobah</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>dagobah</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="dagobah">
+        <Name>Dagobah</Name>
+        <System>dagobah</System>
+        <Sector>sluis</Sector>
+        <Region>outer_rim</Region>
+        <Class>terrestrial</Class>
+        <Climate>murky</Climate>
+        <Demonym>Dagobahn</Demonym>
+        <Description />
+        <Faction>newrepublic</Faction>
+        <Economy>none</Economy>
+        <Coordinates>
+          <X>106</X>
+          <Y>-610</Y>
+          <Z>4</Z>
+        </Coordinates>
+        <DayLength>23</DayLength>
+        <YearLength>327</YearLength>
+        <AtmosphereType>1</AtmosphereType>
+        <Diameter>8900</Diameter>
+        <Gravity>1.1</Gravity>
+        <AvailableSurface>0.9</AvailableSurface>
+        <PopulationEconomicPosition>5</PopulationEconomicPosition>
+        <PopulationSocialPosition>1</PopulationSocialPosition>
+        <Population>1000000</Population>
+        <Wealth>30000</Wealth>
+        <Industrialization>0</Industrialization>
+        <Productivity>0</Productivity>
+        <PopulationCapacity>1000000</PopulationCapacity>
+        <IndustrialCapacity>0</IndustrialCapacity>
+        <UnusedCapacity>255280384</UnusedCapacity>
+        <MaxCapacity>1.30882352E+12</MaxCapacity>
+        <Neighbors>
+          <string>sullust</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>yaghul</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="yagdhul">
+        <Name>Yag'Dhul</Name>
+        <System>yagdhul</System>
+        <Sector>tapani</Sector>
+        <Region>inner_rim</Region>
+        <Class>barren</Class>
+        <Climate />
+        <Demonym>Yag'Dhul</Demonym>
+        <Description />
+        <Faction>newrepublic</Faction>
+        <Economy>education</Economy>
+        <Coordinates>
+          <X>54</X>
+          <Y>-314</Y>
+          <Z>-6</Z>
+        </Coordinates>
+        <DayLength>2400</DayLength>
+        <YearLength>5000</YearLength>
+        <AtmosphereType>4</AtmosphereType>
+        <Diameter>12000</Diameter>
+        <Gravity>1.2</Gravity>
+        <AvailableSurface>0.5</AvailableSurface>
+        <PopulationEconomicPosition>2</PopulationEconomicPosition>
+        <PopulationSocialPosition>3</PopulationSocialPosition>
+        <Population>1E+09</Population>
+        <Wealth>40000</Wealth>
+        <Industrialization>1E+09</Industrialization>
+        <Productivity>1E+14</Productivity>
+        <PopulationCapacity>1E+09</PopulationCapacity>
+        <IndustrialCapacity>1E+09</IndustrialCapacity>
+        <UnusedCapacity>343808448</UnusedCapacity>
+        <MaxCapacity>1.76470583E+12</MaxCapacity>
+        <Neighbors>
+          <string>bespin</string>
+          <string>sullust</string>
+          <string>corellia</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>fondor</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fondor">
+        <Name>Fondor</Name>
+        <System>fondor</System>
+        <Sector>tapani</Sector>
+        <Region>colonies</Region>
+        <Class>terrestrial</Class>
+        <Climate>temperate</Climate>
+        <Demonym>Fondorian</Demonym>
+        <Description />
+        <Faction>empire</Faction>
+        <Economy>shipbuilding</Economy>
+        <Coordinates>
+          <X>16</X>
+          <Y>-240</Y>
+          <Z>1</Z>
+        </Coordinates>
+        <DayLength>31</DayLength>
+        <YearLength>532</YearLength>
+        <AtmosphereType>1</AtmosphereType>
+        <Diameter>9100</Diameter>
+        <Gravity>1</Gravity>
+        <AvailableSurface>0.95</AvailableSurface>
+        <PopulationEconomicPosition>5</PopulationEconomicPosition>
+        <PopulationSocialPosition>2</PopulationSocialPosition>
+        <Population>5E+09</Population>
+        <Wealth>50000</Wealth>
+        <Industrialization>3E+09</Industrialization>
+        <Productivity>3.68169059E+14</Productivity>
+        <PopulationCapacity>5E+09</PopulationCapacity>
+        <IndustrialCapacity>3E+09</IndustrialCapacity>
+        <UnusedCapacity>259456848</UnusedCapacity>
+        <MaxCapacity>1.33823529E+12</MaxCapacity>
+        <Neighbors>
+          <string>yagdhul</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
       <string>corellia</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-  <Planet ID="fondor">
-    <Name>Fondor</Name>
-    <System>fondor</System>
-    <Sector>tapani</Sector>
-    <Region>colonies</Region>
-    <Class>terrestrial</Class>
-    <Climate>temperate</Climate>
-    <Demonym>Fondorian</Demonym>
-    <Description />
-    <Faction>empire</Faction>
-    <Economy>shipbuilding</Economy>
-    <Coordinates>
-      <X>16</X>
-      <Y>-240</Y>
-      <Z>1</Z>
-    </Coordinates>
-    <DayLength>31</DayLength>
-    <YearLength>532</YearLength>
-    <AtmosphereType>1</AtmosphereType>
-    <Diameter>9100</Diameter>
-    <Gravity>1</Gravity>
-    <AvailableSurface>0.95</AvailableSurface>
-    <PopulationEconomicPosition>5</PopulationEconomicPosition>
-    <PopulationSocialPosition>2</PopulationSocialPosition>
-    <Population>5E+09</Population>
-    <Wealth>50000</Wealth>
-    <Industrialization>3E+09</Industrialization>
-    <Productivity>3.68169059E+14</Productivity>
-    <PopulationCapacity>5E+09</PopulationCapacity>
-    <IndustrialCapacity>3E+09</IndustrialCapacity>
-    <UnusedCapacity>259456848</UnusedCapacity>
-    <MaxCapacity>1.33823529E+12</MaxCapacity>
-    <Neighbors>
-      <string>yagdhul</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-  <Planet ID="corellia">
-    <Name>Corellia</Name>
-    <System>corellian</System>
-    <Sector>corellian</Sector>
-    <Region>core</Region>
-    <Class>terrestrial</Class>
-    <Climate>temperate</Climate>
-    <Demonym>Corellian</Demonym>
-    <Description />
-    <Faction>empire</Faction>
-    <Economy>shipbuilding</Economy>
-    <Coordinates>
-      <X>101</X>
-      <Y>-121</Y>
-      <Z>7</Z>
-    </Coordinates>
-    <DayLength>25</DayLength>
-    <YearLength>329</YearLength>
-    <AtmosphereType>1</AtmosphereType>
-    <Diameter>11000</Diameter>
-    <Gravity>1</Gravity>
-    <AvailableSurface>0.23</AvailableSurface>
-    <PopulationEconomicPosition>5</PopulationEconomicPosition>
-    <PopulationSocialPosition>1</PopulationSocialPosition>
-    <Population>3E+09</Population>
-    <Wealth>71535</Wealth>
-    <Industrialization>1.45525261E+09</Industrialization>
-    <Productivity>1.78593E+14</Productivity>
-    <PopulationCapacity>5E+09</PopulationCapacity>
-    <IndustrialCapacity>2E+09</IndustrialCapacity>
-    <UnusedCapacity>3.1415E+08</UnusedCapacity>
-    <MaxCapacity>1.61764711E+12</MaxCapacity>
-    <Neighbors>
-      <string>coruscant</string>
-      <string>yagdhul</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-  <Planet ID="bilbringi">
-    <Name>Bilbringi Asteroids</Name>
-    <System>bilbringi</System>
-    <Sector>bilbringi</Sector>
-    <Region>inner_rim</Region>
-    <Class>barren</Class>
-    <Climate>temperate</Climate>
-    <Demonym>Bilbringi</Demonym>
-    <Description />
-    <Faction>empire</Faction>
-    <Economy>shipbuilding</Economy>
-    <Coordinates>
-      <X>-76</X>
-      <Y>102</Y>
-      <Z>0</Z>
-    </Coordinates>
-    <DayLength>0</DayLength>
-    <YearLength>0</YearLength>
-    <AtmosphereType>4</AtmosphereType>
-    <Diameter>100</Diameter>
-    <Gravity>0.1</Gravity>
-    <AvailableSurface>0.99</AvailableSurface>
-    <PopulationEconomicPosition>5</PopulationEconomicPosition>
-    <PopulationSocialPosition>1</PopulationSocialPosition>
-    <Population>1000000</Population>
-    <Wealth>35000</Wealth>
-    <Industrialization>1000000</Industrialization>
-    <Productivity>1.22723025E+11</Productivity>
-    <PopulationCapacity>1000000</PopulationCapacity>
-    <IndustrialCapacity>1000000</IndustrialCapacity>
-    <UnusedCapacity>2867931</UnusedCapacity>
-    <MaxCapacity>1.47058821E+10</MaxCapacity>
-    <Neighbors>
-      <string>coruscant</string>
-      <string>orinda</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-  <Planet ID="commenor">
-    <Name>Commenor</Name>
-    <System />
-    <Sector />
-    <Region />
-    <Class />
-    <Climate />
-    <Demonym />
-    <Description />
-    <Faction />
-    <Economy />
-    <Coordinates>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>0</Z>
-    </Coordinates>
-    <DayLength>0</DayLength>
-    <YearLength>0</YearLength>
-    <AtmosphereType>0</AtmosphereType>
-    <Diameter>0</Diameter>
-    <Gravity>0</Gravity>
-    <AvailableSurface>0</AvailableSurface>
-    <PopulationEconomicPosition>0</PopulationEconomicPosition>
-    <PopulationSocialPosition>0</PopulationSocialPosition>
-    <Population>0</Population>
-    <Wealth>0</Wealth>
-    <Industrialization>0</Industrialization>
-    <Productivity>0</Productivity>
-    <PopulationCapacity>0</PopulationCapacity>
-    <IndustrialCapacity>0</IndustrialCapacity>
-    <UnusedCapacity>0</UnusedCapacity>
-    <MaxCapacity>0</MaxCapacity>
-    <Neighbors>
-      <string>Corellia</string>
-    </Neighbors>
-    <Fleets />
-  </Planet>
-</ArrayOfPlanet>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="corellia">
+        <Name>Corellia</Name>
+        <System>corellian</System>
+        <Sector>corellian</Sector>
+        <Region>core</Region>
+        <Class>terrestrial</Class>
+        <Climate>temperate</Climate>
+        <Demonym>Corellian</Demonym>
+        <Description />
+        <Faction>empire</Faction>
+        <Economy>shipbuilding</Economy>
+        <Coordinates>
+          <X>101</X>
+          <Y>-121</Y>
+          <Z>7</Z>
+        </Coordinates>
+        <DayLength>25</DayLength>
+        <YearLength>329</YearLength>
+        <AtmosphereType>1</AtmosphereType>
+        <Diameter>11000</Diameter>
+        <Gravity>1</Gravity>
+        <AvailableSurface>0.23</AvailableSurface>
+        <PopulationEconomicPosition>5</PopulationEconomicPosition>
+        <PopulationSocialPosition>1</PopulationSocialPosition>
+        <Population>3E+09</Population>
+        <Wealth>71535</Wealth>
+        <Industrialization>1.45525261E+09</Industrialization>
+        <Productivity>1.78593E+14</Productivity>
+        <PopulationCapacity>5E+09</PopulationCapacity>
+        <IndustrialCapacity>2E+09</IndustrialCapacity>
+        <UnusedCapacity>3.1415E+08</UnusedCapacity>
+        <MaxCapacity>1.61764711E+12</MaxCapacity>
+        <Neighbors>
+          <string>coruscant</string>
+          <string>yagdhul</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>bilbringi</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="bilbringi">
+        <Name>Bilbringi Asteroids</Name>
+        <System>bilbringi</System>
+        <Sector>bilbringi</Sector>
+        <Region>inner_rim</Region>
+        <Class>barren</Class>
+        <Climate>temperate</Climate>
+        <Demonym>Bilbringi</Demonym>
+        <Description />
+        <Faction>empire</Faction>
+        <Economy>shipbuilding</Economy>
+        <Coordinates>
+          <X>-76</X>
+          <Y>102</Y>
+          <Z>0</Z>
+        </Coordinates>
+        <DayLength>0</DayLength>
+        <YearLength>0</YearLength>
+        <AtmosphereType>4</AtmosphereType>
+        <Diameter>100</Diameter>
+        <Gravity>0.1</Gravity>
+        <AvailableSurface>0.99</AvailableSurface>
+        <PopulationEconomicPosition>5</PopulationEconomicPosition>
+        <PopulationSocialPosition>1</PopulationSocialPosition>
+        <Population>1000000</Population>
+        <Wealth>35000</Wealth>
+        <Industrialization>1000000</Industrialization>
+        <Productivity>1.22723025E+11</Productivity>
+        <PopulationCapacity>1000000</PopulationCapacity>
+        <IndustrialCapacity>1000000</IndustrialCapacity>
+        <UnusedCapacity>2867931</UnusedCapacity>
+        <MaxCapacity>1.47058821E+10</MaxCapacity>
+        <Neighbors>
+          <string>coruscant</string>
+          <string>orinda</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>commenor</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="commenor">
+        <Name>Commenor</Name>
+        <System />
+        <Sector />
+        <Region />
+        <Class />
+        <Climate />
+        <Demonym />
+        <Description />
+        <Faction />
+        <Economy />
+        <Coordinates>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Coordinates>
+        <DayLength>0</DayLength>
+        <YearLength>0</YearLength>
+        <AtmosphereType>0</AtmosphereType>
+        <Diameter>0</Diameter>
+        <Gravity>0</Gravity>
+        <AvailableSurface>0</AvailableSurface>
+        <PopulationEconomicPosition>0</PopulationEconomicPosition>
+        <PopulationSocialPosition>0</PopulationSocialPosition>
+        <Population>0</Population>
+        <Wealth>0</Wealth>
+        <Industrialization>0</Industrialization>
+        <Productivity>0</Productivity>
+        <PopulationCapacity>0</PopulationCapacity>
+        <IndustrialCapacity>0</IndustrialCapacity>
+        <UnusedCapacity>0</UnusedCapacity>
+        <MaxCapacity>0</MaxCapacity>
+        <Neighbors>
+          <string>Corellia</string>
+        </Neighbors>
+        <Fleets />
+      </Planet>
+    </value>
+  </item>
+</JDictionaryOfStringPlanet>

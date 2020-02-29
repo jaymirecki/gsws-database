@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfFleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Fleet ID="Fleet1">
-    <Name>Fleet #1</Name>
-  </Fleet>
-  <Fleet ID="coruscant">
-    <Name>Coruscant Defense Fleet</Name>
-    <Orbiting>coruscant</Orbiting>
-  </Fleet>
-</ArrayOfFleet>
+<JDictionaryOfStringFleet>
+  <item>
+    <key>
+      <string>fleetfleet1</string>
+    </key>
+    <value>
+      <Fleet ID="Fleet1">
+        <Name>Fleet #1</Name>
+      </Fleet>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>coruscant</string>
+    </key>
+    <value>
+      <Fleet ID="coruscant">
+        <Name>Coruscant Defense Fleet</Name>
+        <Orbiting>coruscant</Orbiting>
+      </Fleet>
+    </value>
+  </item>
+</JDictionaryOfStringFleet>

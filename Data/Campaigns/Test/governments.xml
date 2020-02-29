@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfGovernment xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Government ID="empire">
-    <Name>Galactic Empire</Name>
-    <ExecutivePower>1</ExecutivePower>
-  </Government>
-  <Government ID="rebels">
-    <Name>New Republic</Name>
-    <ExecutivePower>0.375</ExecutivePower>
-    <LegislativePower>0.375</LegislativePower>
-    <JudicialPower>0.25</JudicialPower>
-  </Government>
-</ArrayOfGovernment>
+<JDictionaryOfStringGovernment>
+  <item>
+    <key>
+      <string>empire</string>
+    </key>
+    <value>
+      <Government ID="empire">
+        <Name>Galactic Empire</Name>
+        <ExecutivePower>1</ExecutivePower>
+      </Government>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>rebels</string>
+    </key>
+    <value>
+      <Government ID="rebels">
+        <Name>New Republic</Name>
+        <ExecutivePower>0.375</ExecutivePower>
+        <LegislativePower>0.375</LegislativePower>
+        <JudicialPower>0.25</JudicialPower>
+      </Government>
+    </value>
+  </item>
+</JDictionaryOfStringGovernment>

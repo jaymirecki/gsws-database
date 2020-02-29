@@ -53,6 +53,30 @@ public partial class Database {
         }
         return false;
     }
+    private List<RankedResult> SearchDictionary<T>(string query, Dictionary<string, T> database, string[] keys, int[] ranks, bool[] list) {
+        List<RankedResult> rankedResults = new List<RankedResult>();
+        foreach (T t in database.Values) {
+            int rank = -1;
+            for (int i = 0; i < keys.Length; i++) {
+                bool match = false;
+                if (list[i]) {
+                    List<string> field = (List<string>) typeof(T).GetProperty(keys[i]).GetValue(t);
+                    match = Matches(field, query);
+                }
+                else {
+                    string field = (string) typeof(T).GetProperty(keys[i]).GetValue(t);
+                    match = Match(field, query);
+                }
+                if (rank == -1 || rank > ranks[i])
+                    rank = ranks[i];
+            }
+            if (rank > -1)
+                rankedResults.Add(new RankedResult(
+                    rank,
+                    new SearchResult((string) typeof(T).GetProperty("ID").GetValue(t), typeof(T))));
+        }
+        return rankedResults;
+    }
     private List<RankedResult> SearchCharacters(string query) {
         List<RankedResult> rankedResults = new List<RankedResult>();
         foreach (Character c in Characters.Values) {
@@ -124,7 +148,7 @@ public partial class Database {
     private List<RankedResult> SearchPlanets(string query) {
         List<RankedResult> rankedResults = 
             new List<RankedResult>();
-        foreach (Planet p in Planets.Values()) {
+        foreach (Planet p in Planets.Values) {
             int rank = -1;
             if (Match(p.Name, query) || Match(p.ID, query))
                 rank = 0;

@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfFaction xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Faction ID="empire">
-    <Name>Galactic Empire</Name>
-    <Government>empire</Government>
-    <Military />
-    <Color>Red</Color>
-    <Relations />
-  </Faction>
-  <Faction ID="newrepublic">
-    <Name>New Republic</Name>
-    <Government>rebels</Government>
-    <Military />
-    <Color>Blue</Color>
-    <Relations />
-  </Faction>
-</ArrayOfFaction>
+<JDictionaryOfStringFaction>
+  <item>
+    <key>
+      <string>empire</string>
+    </key>
+    <value>
+      <Faction xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="empire">
+        <Name>Galactic Empire</Name>
+        <Government>empire</Government>
+        <Military />
+        <Color>Red</Color>
+        <Relations />
+      </Faction>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>newrepublic</string>
+    </key>
+    <value>
+      <Faction xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="newrepublic">
+        <Name>New Republic</Name>
+        <Government>rebels</Government>
+        <Military />
+        <Color>Blue</Color>
+        <Relations />
+      </Faction>
+    </value>
+  </item>
+</JDictionaryOfStringFaction>
