@@ -3,7 +3,7 @@
 //                                 Search.cs                                  //
 //                  Search functions for the Database Class                   //
 //            Created by: Jarett (Jay) Mirecki, February 01, 2020             //
-//            Modified by: Jarett (Jay) Mirecki, February 06, 2020            //
+//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
 //                                                                            //
 //          This extension for the Database class allows for                  //
 //          searching the objects (to provide results for the                 //
@@ -24,8 +24,6 @@ public partial class Database {
         List<RankedResult> rankedResults = new List<RankedResult>();
         List<SearchResult> results = new List<SearchResult>();
 
-        if (factions)
-            rankedResults.AddRange(SearchFactions(query));
         if (governments)
             rankedResults.AddRange(SearchGovernments(query));
         if (fleets)
@@ -100,23 +98,6 @@ public partial class Database {
         }
         return rankedResults;
     }
-    private List<RankedResult> SearchFactions(string query) {
-        List<RankedResult> rankedResults = 
-            new List<RankedResult>();
-        foreach (Faction f in Factions.Values) {
-            int rank = -1;
-            if (Match(f.Name, query) || Match(f.ID, query))
-                rank = 0;
-            else if (Match(f.Government, query) ||
-                     Match(f.Military, query))
-                rank = 1;
-            if (rank > -1)
-                rankedResults.Add(new RankedResult(
-                                    rank,
-                                    new SearchResult(f.ID, f.GetType())));
-        }
-        return rankedResults;
-    }
     private List<RankedResult> SearchFleets(string query) {
         List<RankedResult> rankedResults = 
             new List<RankedResult>();
@@ -152,8 +133,8 @@ public partial class Database {
             int rank = -1;
             if (Match(p.Name, query) || Match(p.ID, query))
                 rank = 0;
-            else if (Match(p.Faction, query))
-                rank = 3;
+            // else if (Match(p.Faction, query))
+            //     rank = 3;
             if (rank > -1)
                 rankedResults.Add(new RankedResult(
                                     rank,

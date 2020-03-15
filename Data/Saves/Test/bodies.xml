@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JDictionaryOfStringBody>
+  <item>
+    <key>
+      <string>corellia</string>
+    </key>
+    <value>
+      <Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="corellia">
+        <Name />
+        <kSystem>corellia</kSystem>
+        <kSector>corellia</kSector>
+        <Atmosphere>Breathable</Atmosphere>
+        <Coordinates>
+          <X>101</X>
+          <Y>-121</Y>
+          <Z>0</Z>
+        </Coordinates>
+        <Class>Terrestrial</Class>
+        <Gravity>1</Gravity>
+        <Surface>1</Surface>
+        <Terrain>Varied</Terrain>
+        <Region>Core</Region>
+        <DayLength>1</DayLength>
+        <YearLength>1</YearLength>
+        <Diameter>1</Diameter>
+      </Body>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>coruscant</string>
+    </key>
+    <value>
+      <Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="coruscant">
+        <Name />
+        <kSystem>coruscant</kSystem>
+        <kSector>coruscant</kSector>
+        <Atmosphere>Breathable</Atmosphere>
+        <Coordinates>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Coordinates>
+        <Class>Terrestrial</Class>
+        <Gravity>1</Gravity>
+        <Surface>1</Surface>
+        <Terrain>Varied</Terrain>
+        <Region>Core</Region>
+        <DayLength>1</DayLength>
+        <YearLength>1</YearLength>
+        <Diameter>1</Diameter>
+      </Body>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>commenor</string>
+    </key>
+    <value>
+      <Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="commenor">
+        <Name />
+        <kSystem>commenor</kSystem>
+        <kSector>commenor</kSector>
+        <Atmosphere>Breathable</Atmosphere>
+        <Coordinates>
+          <X>151</X>
+          <Y>-59</Y>
+          <Z>0</Z>
+        </Coordinates>
+        <Class>Terrestrial</Class>
+        <Gravity>1</Gravity>
+        <Surface>1</Surface>
+        <Terrain>Varied</Terrain>
+        <Region>Core</Region>
+        <DayLength>1</DayLength>
+        <YearLength>1</YearLength>
+        <Diameter>1</Diameter>
+      </Body>
+    </value>
+  </item>
+</JDictionaryOfStringBody>

@@ -2,10 +2,10 @@
 <JDictionaryOfStringCharacter>
   <item>
     <key>
-      <string />
+      <string>character1</string>
     </key>
     <value>
-      <Character xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="">
+      <Character xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="character1">
         <Name />
         <Species />
         <Homeworld />

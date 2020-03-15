@@ -3,7 +3,7 @@
 //                               Coordinate.cs                                //
 //                              Coordinate class                              //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
+//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -14,13 +14,12 @@ using System.Xml.Serialization;
 
 namespace GSWS {
 
-[Serializable] public class Coordinate {
+[Serializable] public struct Coordinate {
     public int X;
     public int Y;
     public int Z;
-    static private float scaleFactor = 0.2f;
+    private static float scaleFactor = 0.2f;
 
-    public Coordinate(){}
     public Coordinate(int X, int Y, int Z) {
         this.X = X;
         this.Y = Y;

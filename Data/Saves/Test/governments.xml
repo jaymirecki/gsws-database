@@ -7,12 +7,13 @@
     <value>
       <Government xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="empire">
         <Name>Galactic Empire</Name>
+        <kSuperGovernment />
         <ExecutivePower>1</ExecutivePower>
         <LegislativePower>0</LegislativePower>
         <JudicialPower>0</JudicialPower>
         <ResidentialTax>0</ResidentialTax>
         <CommercialTax>0</CommercialTax>
-        <MemberPlanets />
+        <Relationships />
         <Budget>
           <Military>0</Military>
           <PublicSafety>0</PublicSafety>
@@ -30,12 +31,13 @@
     <value>
       <Government xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="rebels">
         <Name>New Republic</Name>
+        <kSuperGovernment />
         <ExecutivePower>0.375</ExecutivePower>
         <LegislativePower>0.375</LegislativePower>
         <JudicialPower>0.25</JudicialPower>
         <ResidentialTax>0</ResidentialTax>
         <CommercialTax>0</CommercialTax>
-        <MemberPlanets />
+        <Relationships />
         <Budget>
           <Military>0</Military>
           <PublicSafety>0</PublicSafety>

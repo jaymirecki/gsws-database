@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JGraphOfString>
+  <values>
+    <string>coruscant</string>
+    <string>corellia</string>
+    <string>commenor</string>
+  </values>
+  <edges>
+    <EdgeOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Origin>coruscant</Origin>
+      <Destination>corellia</Destination>
+      <Weight>0</Weight>
+    </EdgeOfString>
+    <EdgeOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Origin>coruscant</Origin>
+      <Destination>commenor</Destination>
+      <Weight>0</Weight>
+    </EdgeOfString>
+  </edges>
+</JGraphOfString>

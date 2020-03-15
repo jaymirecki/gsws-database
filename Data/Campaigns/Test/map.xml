@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JUndirectedGraphOfString>
+  <values>
+    <string>coruscant</string>
+    <string>corellia</string>
+    <string>commenor</string>
+  </values>
+  <edges>
+    <EdgeOfString>
+      <Origin>coruscant</Origin>
+      <Destination>corellia</Destination>
+    </EdgeOfString>
+    <EdgeOfString>
+      <Origin>coruscant</Origin>
+      <Destination>commenor</Destination>
+    </EdgeOfString>
+  </edges>
+</JUndirectedGraphOfString>

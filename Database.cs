@@ -3,7 +3,7 @@
 //                                Database.cs                                 //
 //                               Database class                               //
 //             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//            Modified by: Jarett (Jay) Mirecki, February 27, 2020            //
+//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
 //                                                                            //
 //          The Database class implements all of the functions                //
 //          needed to manipulate the data structures in the GSWS              //
@@ -14,6 +14,8 @@
 //          for getting the Planet object representing a character's          //
 //          home planet).                                                     //
 //                                                                            //
+//          Testing Coverage: /241
+//                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
 using System;
@@ -23,19 +25,20 @@ using JMSuite.Collections;
 namespace GSWS {
     public partial class Database {
         #region Members
-        private JDictionary<string, Character> Characters;
-        private JDictionary<string, Faction> Factions;
-        private JDictionary<string, Fleet> Fleets;
-        private JDictionary<string, Government> Governments;
-        private JDictionary<string, Planet> Planets;
-        private JGraph<string> Map;
-        private Player Player;
-        private Date Date;
+        public JDictionary<string, Body> Bodies;
+        public JDictionary<string, Character> Characters;
+        public JDictionary<string, Fleet> Fleets;
+        public JDictionary<string, Government> Governments;
+        public JDictionary<string, Planet> Planets;
+        public JGraph<string> Map;
+        public Player Player;
+        public Date Date;
         #endregion
         #region Constructing
-        private void InitDatabase() {
+        // Testing Coverage: 9/11
+        public Database() {
+            Bodies = new JDictionary<string, Body>();
             Characters = new JDictionary<string, Character>();
-            Factions = new JDictionary<string, Faction>();
             Fleets = new JDictionary<string, Fleet>();
             Governments = new JDictionary<string, Government>();
             Planets = new JDictionary<string, Planet>();
@@ -44,19 +47,13 @@ namespace GSWS {
             Date = new Date();
         }
 
-        public Database() {
-            InitDatabase();
-        }
-
-        public Database(Player p, Date d) {
-            InitDatabase();
+        public Database(Player p, Date d): this() {
             Player = p;
             Date = d;
         }
         #endregion
-        public static string GetFreshID() {
-            return Guid.NewGuid().ToString();
-        }
+        #region Boiler Plate
+        // Testing Coverage: 11/11
         private string DictionaryToString<T>(Dictionary<string, T> dic) {
             string ret = "[ ";
             foreach (T t in dic.Values) {
@@ -66,92 +63,90 @@ namespace GSWS {
         }
         public override string ToString() {
             return DictionaryToString<Character>(Characters) + 
-                   DictionaryToString<Faction>(Factions) + 
                    DictionaryToString<Fleet>(Fleets) + 
                    DictionaryToString<Government>(Governments) + 
-                   //DictionaryToString<Planet>(Planets) + 
+                   DictionaryToString<Planet>(Planets) + 
                    Player.ToString() + 
                    Date.ToString();
         }
-        ////////////////////////////////////////////////////////////////////////
-        //                              Planets                               //
-        ////////////////////////////////////////////////////////////////////////
-        #region
-        public Planet GetPlanet(string planetId) {
-            Planet p;
-            if (Planets.TryGetValue(planetId, out p))
-                return p;
-            return new Planet();
+        #endregion
+        #region IDs and Names
+        // Testing Coverage: 19/19
+        public string FreshID(HashSet<string> ids, string name, string prefix) {
+            bool used = true;
+            int counter = 1;
+            string id = "";
+            while (used) {
+                id = name.ToLower().Replace(" ", "").Replace("#", "").Replace("'", "") + prefix + counter++.ToString();
+                if (!ids.Contains(id))
+                    used = false;
+            }
+            return id;
         }
-        public JGraph<string> GetMap() {
-            return Map;
+        public string FreshName<T>(JDictionary<string, T>.ValueCollection values, string prefix) {
+            bool used = true;
+            int counter = 1;
+            string name = "";
+            while (used) {
+                used = false;
+                name = prefix + " #" + counter++.ToString();
+                foreach (T t in values) {
+                    if ((string)typeof(T).GetField("Name").GetValue(t) == 
+                                                                        name) {
+                        used = true;
+                        break;
+                    }
+                }
+            }
+            return name;
         }
-        public JDictionary<string, Planet> GetPlanets() {
-            return Planets;
+        #endregion
+        #region Planets
+        // Testing Coverage: 5/5
+        public string FreshPlanetID(Planet planet) {
+            return FreshID(new HashSet<string>(Planets.Keys), planet.Name, "planet");
+        }
+        public string FreshPlanetName() {
+            return FreshName<Planet>(Planets.Values, "Unnamed Planet");
         }
         public void AddPlanet(Planet p) {
-            // int[] distances = new int[p.Neighbors.Length];
-            // foreach ()
+            string ID = FreshPlanetID(p);
+            p.ID = ID;
             Planets.Add(p.ID, p);
         }
-        public List<Fleet> GetPlanetFleets(string planet) {
-            Planet p = GetPlanet(planet);
-            return GetPlanetFleets(p);
-        }
-        public List<Fleet> GetPlanetFleets(Planet planet) {
-            List<Fleet> fleets = new List<Fleet>();
-            foreach (string f in planet.Fleets) {
-                fleets.Add(GetFleet(f));
-            }
-            return fleets;
-        }
         #endregion
-        ////////////////////////////////////////////////////////////////////////
-        //                             Characters                             //
-        ////////////////////////////////////////////////////////////////////////
-        #region
+        #region Characters
+        // Testing Coverage: 5/5
+        public string FreshCharacterID(Character c) {
+            return FreshID(new HashSet<string>(Characters.Keys), c.Name, "character");
+        }
+        public string FreshCharacterName() {
+            return FreshName<Character>(Characters.Values, "Unnamed Character");
+        }
         public void AddCharacter(Character c) {
+            string ID = FreshCharacterID(c);
+            c.ID = ID;
             Characters.Add(c.ID, c);
         }
-        public Character GetCharacter(string characterId) {
-            Character c;
-            if (Characters.TryGetValue(characterId, out c))
-                return c;
-            return new Character();
-        }
-        public Character GetPlayerCharacter() {
-            return GetCharacter(Player.Character);
-        }
-        public Planet GetHomeworld(string characterId) {
-            return GetHomeworld(GetCharacter(characterId));
-        }
-        public Planet GetHomeworld(Character c) {
-            return GetPlanet(c.Homeworld);
-        }
         #endregion
-        ////////////////////////////////////////////////////////////////////////
-        //                              Factions                               /
-        ////////////////////////////////////////////////////////////////////////
-        #region
-        public Faction GetFaction(string factionId) {
-            Faction f;
-            if (Factions.TryGetValue(factionId, out f))
-                return f;
-            return new Faction();
+        #region Fleets
+        // Testing Coverage: /14
+        public string FreshFleetID(Fleet fleet) {
+            if (fleet.Orbiting == null)
+            return FreshID(new HashSet<string>(Fleets.Keys), "", "fleet");
+            else
+                return FreshID(new HashSet<string>(Fleets.Keys), fleet.Orbiting.Name, "fleet");
         }
-        public Faction GetFaction(Planet p) {
-            return GetFaction(p.Faction);
+        public string FreshFleetName(Fleet fleet) {
+            if (fleet.Orbiting == null)
+                return FreshName<Fleet>(Fleets.Values, "Fleet");
+            else
+                return FreshName<Fleet>(Fleets.Values, 
+                                        fleet.Orbiting.Name + " Fleet");
         }
-        public Faction GetPlayerFaction() {
-            return GetFaction(Player.Faction);
-        }
-        #endregion
-        ////////////////////////////////////////////////////////////////////////
-        //                              Fleets                                //
-        ////////////////////////////////////////////////////////////////////////
-        #region
         public Fleet NewFleet() {
-            Fleet fleet = new Fleet(GetNewFleetName());
+            Fleet fleet = new Fleet();
+            fleet.Name = FreshFleetName(fleet);
             return fleet;
         }
         public Fleet NewFleet(string name) {
@@ -159,68 +154,26 @@ namespace GSWS {
             return fleet;
         }
         public void AddFleet(Fleet fleet) {
+            string ID = FreshFleetID(fleet);
+            fleet.ID = ID;
             Fleets.Add(fleet.ID, fleet);
         }
-        public Fleet GetFleet(string fleetID) {
-            Fleet fleet;
-            if (Fleets.TryGetValue(fleetID, out fleet))
-                return fleet;
-            return new Fleet();
+        #endregion
+        #region Governments
+        // Testing Coverage: 5/5
+        public string FreshGovernmentID(Government government) {
+            return FreshID(new HashSet<string>(Governments.Keys), government.Name, "government");
         }
-        private string GetNewFleetName() {
-            int fleetCounter = 1;
-            string fleetName = "UNASSIGNED";
-            bool nameExists = true;
-            while(nameExists) {
-                fleetName = "Fleet #" + fleetCounter++.ToString();
-                nameExists = false;
-                foreach(Fleet f in Fleets.Values) {
-                    if (fleetName == f.Name) {
-                        nameExists = true;
-                        break;
-                    }
-                }
-            }
-            return fleetName;
+        public string FreshGovernmentName() {
+            return FreshName<Government>(Governments.Values, "Unnamed Government");
         }
-        public List<Fleet> GetFleets() {
-            return new List<Fleet>(Fleets.Values);
-        }
-        public bool GetFleetPlanet(string fleet, out Planet planet) {
-            return GetFleetPlanet(GetFleet(fleet), out planet);
-        }
-        public bool GetFleetPlanet(Fleet fleet, out Planet planet) {
-            if (fleet.Orbiting == null) {
-                planet = new Planet();
-                return false;
-            }
-            else {
-                planet =  GetPlanet(fleet.Orbiting);
-                return true;
-            }
+        public void AddGovernment(Government g) {
+            string ID = FreshGovernmentID(g);
+            g.ID = ID;
+            Governments.Add(g.ID, g);
         }
         #endregion
-        ////////////////////////////////////////////////////////////////////////
-        //                             Governments                            //
-        ////////////////////////////////////////////////////////////////////////
-        #region
-        public Government GetGovernment(string governmentId) {
-            Government g;
-            if (Governments.TryGetValue(governmentId, out g))
-                return g;
-            return new Government();
-        }
-        public Government GetGovernment(Faction f) {
-            return GetGovernment(f.Government);
-        }
-        public Government GetPlayerGovernment() {
-            return GetGovernment(GetFaction(Player.Faction).Government);
-        }
-        #endregion
-        ////////////////////////////////////////////////////////////////////////
-        //                                Date                                //
-        ////////////////////////////////////////////////////////////////////////
-        #region
+        #region Date
         public void AdvanceTime() {
             Date.AdvanceTime();
         }
@@ -237,13 +190,10 @@ namespace GSWS {
             return Date.IsYear();
         }
         #endregion
-        ////////////////////////////////////////////////////////////////////////
-        //                               Player                               //
-        ////////////////////////////////////////////////////////////////////////
-        #region
+        #region Player
         public void CreatePlayer(string character, string faction) {
             Player = new Player(character, faction);
-            GetCharacter(character).IsPlayer = true;
+            Characters[character].IsPlayer = true;
         }
         public void CreatePlayer(string name, string species, string homeworld, string faction) {
             Character c = new Character();

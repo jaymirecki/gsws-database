@@ -3,7 +3,7 @@
 //                                 Planet.cs                                  //
 //                                Planet class                                //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//            Modified by: Jarett (Jay) Mirecki, February 06, 2020            //
+//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
 //                                                                            //
 //          The Planet class represents a planet in the galaxy. This          //
 //          structure stores information about its location,                  //
@@ -16,54 +16,105 @@
 using System;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace GSWS {
 
+public partial class Database {
+    private void UpdatePlanetValues() {
+        foreach (Planet p in Planets.Values) {
+            p.UpdateValues(this);
+        }
+    }
+    private void UpdatePlanetKeys() {
+        foreach (Planet p in Planets.Values) {
+            p.UpdateKeys();
+        }
+    }
+}
+
 [Serializable] public class Planet {
+    #region properties
     [XmlAttribute] public string ID;
-    public string Name, System, Sector, Region, Class, Climate, Demonym, Description, Faction, Economy;
-    public Coordinate Coordinates;
-    public int DayLength, YearLength, AtmosphereType, Diameter;
-    public float Gravity, AvailableSurface, PopulationEconomicPosition, PopulationSocialPosition, Population, Wealth, Industrialization, Productivity, PopulationCapacity, IndustrialCapacity, UnusedCapacity, MaxCapacity;
-    public string[] Neighbors, Fleets;
-
-    private void InitInstance() {
-        ID = Name = System = Sector = Region = Class = Climate = Demonym = Description = Faction = Economy = "";
-        DayLength = YearLength = AtmosphereType = Diameter = 0;
-        Gravity = AvailableSurface = PopulationEconomicPosition = PopulationSocialPosition = Population = Wealth = Industrialization = Productivity = PopulationCapacity = IndustrialCapacity = UnusedCapacity = MaxCapacity = 0f;
-        Neighbors = new string[0];
-        Fleets = new string[0];
-        Coordinates = new Coordinate();
+    public string Name;
+    public string kGovernment;
+    public float Population, Wealth;
+    [XmlIgnore] public HashSet<Fleet> Fleets { get; private set; }
+    private Body _body;
+    [XmlIgnore] public Body Body {
+        set { if (value.ID == ID)
+                  _body = value; }
+        private get { return _body; }
     }
+    [XmlIgnore] public Government Government;
 
+    [XmlIgnore] public Coordinate Coordinates {
+        get { return Body.Coordinates; }
+    }
+    [XmlIgnore] public string System {
+        get { return Body.kSystem; }
+    }
+    [XmlIgnore] public string Sector {
+        get { return Body.kSystem; }
+    }
+    [XmlIgnore] public Region Region {
+        get { return Body.Region; }
+    }
+    [XmlIgnore] public Government Faction {
+        get { return Government.Faction; }
+        private set {}
+    }
+    #endregion
+    #region Constructing
     public Planet() {
-        InitInstance();
+        ID = "";
+        Name = "";
+        kGovernment = "";
+        Population = Wealth = 0f;
+        Fleets = new HashSet<Fleet>();
+        _body = new Body();
     }
-    public Planet(string name, Coordinate Coordinates, string[] neighbors) {
-        InitInstance();
-        this.Name = name;
-        this.ID = this.Name.ToLower().Replace("'", "").Replace(' ', '_');
-        this.Coordinates = Coordinates;
-        this.Neighbors = neighbors;
-    }
+    #endregion
+    #region Boiler Plate
     public string DatapadDescription() {
         string description = 
-            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region + "\n" + Description;
+            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region;
         return description;
     }
+    public override string ToString() {
+        return "{" + ID + ", " + Name + "}";
+    }
+    public void UpdateValues(Database db) {
+        Body body;
+        if (db.Bodies.TryGetValue(ID, out body))
+            Body = body;
+        foreach (Fleet f in Fleets) {
+            if (f.Orbiting != this)
+                Fleets.Remove(f);
+        }
+        Government government;
+        if (db.Governments.TryGetValue(kGovernment, out government)) {
+            Government = government;
+            Government.MemberPlanets.Add(this);
+        }
+    }
+    public void UpdateKeys() {
+        kGovernment = Government.ID;
+    }
+    #endregion
     public float Value() {
-        return ResidentialValue() + IndustrialValue();
+        return ResidentialValue();// + IndustrialValue();
     }
     public float ResidentialValue() {
         return Wealth * Population;
     }
-    public float IndustrialValue() {
-        return Productivity * Industrialization;
-    }
-    public void GenerateUnknownInfo() {
-        if (Description == "")
-            Description = "A planet in the " + System + "system";
-    }
+    // public float IndustrialValue() {
+    //     return Productivity * Industrialization;
+    // }
+    // public void GenerateUnknownInfo() {
+    //     if (Description == "")
+    //         Description = "A planet in the " + System + "system";
+    // }
     public string ValueString() {
         float value = Value();
         string valueString;

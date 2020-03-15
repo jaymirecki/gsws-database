@@ -1,0 +1,4 @@
+ID,X,Y,Z,System,Sector,Region,Class,Atmosphere,Gravity,Terrain,Demonym,DayLength,YearLength,Climate,Surface,Diameter
+corellia,101,-121,0,corellia,corellia,Core,Terrestrial,Breathable,1,Varied,Corellian,25,329,Temperate,0.23,12742
+coruscant,0,0,0,coruscant,coruscant,Core,Terrestrial,Breathable,1,Ecumenopolis,Coruscanti,24,368,Temperate,0.99,12240
+commenor,151,-59,0,commenor,commenor,Colonies,Terrestrial,Breathable,1,Varied,Commenori,20,301,Temperate,0.7,10000

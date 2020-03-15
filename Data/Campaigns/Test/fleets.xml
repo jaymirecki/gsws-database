@@ -2,7 +2,7 @@
 <JDictionaryOfStringFleet>
   <item>
     <key>
-      <string>fleetfleet1</string>
+      <string>Fleet1</string>
     </key>
     <value>
       <Fleet ID="Fleet1">
@@ -17,7 +17,7 @@
     <value>
       <Fleet ID="coruscant">
         <Name>Coruscant Defense Fleet</Name>
-        <Orbiting>coruscant</Orbiting>
+        <kOrbiting>coruscant</kOrbiting>
       </Fleet>
     </value>
   </item>

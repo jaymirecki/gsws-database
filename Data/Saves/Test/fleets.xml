@@ -2,11 +2,14 @@
 <JDictionaryOfStringFleet>
   <item>
     <key>
-      <string>fleetfleet1</string>
+      <string>Fleet1</string>
     </key>
     <value>
       <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="Fleet1">
         <Name>Fleet #1</Name>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting />
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -23,7 +26,9 @@
     <value>
       <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="coruscant">
         <Name>Coruscant Defense Fleet</Name>
-        <Orbiting>coruscant</Orbiting>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting>coruscant</kOrbiting>
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -35,11 +40,14 @@
   </item>
   <item>
     <key>
-      <string>f79bfd6a-dcd5-48fb-a6ce-067b3aa2d140</string>
+      <string>fleet1</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f79bfd6a-dcd5-48fb-a6ce-067b3aa2d140">
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet1">
         <Name>Test Fleet</Name>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting />
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -51,11 +59,14 @@
   </item>
   <item>
     <key>
-      <string>4dfd7495-033f-4ce9-88c7-9b1f5e0e3711</string>
+      <string>fleet2</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="4dfd7495-033f-4ce9-88c7-9b1f5e0e3711">
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet2">
         <Name>Fleet #2</Name>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting />
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -67,11 +78,14 @@
   </item>
   <item>
     <key>
-      <string>9632101e-7b2d-4f58-857f-3be2e759fda4</string>
+      <string>fleet3</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="9632101e-7b2d-4f58-857f-3be2e759fda4">
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet3">
         <Name>Fleet #3</Name>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting />
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -83,11 +97,14 @@
   </item>
   <item>
     <key>
-      <string>ce307ee9-7326-4cde-a2ad-3df820c856b4</string>
+      <string>fleet4</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="ce307ee9-7326-4cde-a2ad-3df820c856b4">
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet4">
         <Name>Fleet #4</Name>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting />
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -99,11 +116,14 @@
   </item>
   <item>
     <key>
-      <string>888e087e-8e4c-4e2d-b0c7-0082f0b28387</string>
+      <string>fleet5</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="888e087e-8e4c-4e2d-b0c7-0082f0b28387">
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet5">
         <Name>Fleet #5</Name>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting />
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -115,11 +135,14 @@
   </item>
   <item>
     <key>
-      <string>0073cca5-1812-47cd-85aa-e06f25d18d99</string>
+      <string>fleet6</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0073cca5-1812-47cd-85aa-e06f25d18d99">
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet6">
         <Name>Fleet #6</Name>
+        <kDestination />
+        <kNextStop />
+        <kOrbiting />
         <Position>
           <X>0</X>
           <Y>0</Y>
