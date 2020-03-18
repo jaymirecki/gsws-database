@@ -2,8 +2,8 @@
 //                                                                            //
 //                                 Planet.cs                                  //
 //                                Planet class                                //
-//              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
+//                   Created by: Jay Mirecki, July 27, 2019                   //
+//                  Modified by: Jay Mirecki, March 17, 2020                  //
 //                                                                            //
 //          The Planet class represents a planet in the galaxy. This          //
 //          structure stores information about its location,                  //
@@ -19,24 +19,10 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 
 namespace GSWS {
-
-public partial class Database {
-    private void UpdatePlanetValues() {
-        foreach (Planet p in Planets.Values) {
-            p.UpdateValues(this);
-        }
-    }
-    private void UpdatePlanetKeys() {
-        foreach (Planet p in Planets.Values) {
-            p.UpdateKeys();
-        }
-    }
-}
-
-[Serializable] public class Planet {
-    #region properties
+[Serializable] public class Planet : IObject {
+    #region Properties
     [XmlAttribute] public string ID;
-    public string Name;
+    public string Name, Demonym, Description;
     public string kGovernment;
     public float Population, Wealth;
     [XmlIgnore] public HashSet<Fleet> Fleets { get; private set; }
@@ -48,8 +34,8 @@ public partial class Database {
     }
     [XmlIgnore] public Government Government;
 
-    [XmlIgnore] public Coordinate Coordinates {
-        get { return Body.Coordinates; }
+    [XmlIgnore] public Coordinate Position {
+        get { return Body.Position; }
     }
     [XmlIgnore] public string System {
         get { return Body.kSystem; }
@@ -60,15 +46,20 @@ public partial class Database {
     [XmlIgnore] public Region Region {
         get { return Body.Region; }
     }
+    [XmlIgnore] public Class Class {
+        get { return Body.Class; }
+    }
+    [XmlIgnore] public Atmosphere Atmosphere {
+        get { return Body.Atmosphere; }
+    }
     [XmlIgnore] public Government Faction {
         get { return Government.Faction; }
-        private set {}
     }
     #endregion
     #region Constructing
     public Planet() {
         ID = "";
-        Name = "";
+        Name = Demonym = Description = "";
         kGovernment = "";
         Population = Wealth = 0f;
         Fleets = new HashSet<Fleet>();
@@ -78,7 +69,9 @@ public partial class Database {
     #region Boiler Plate
     public string DatapadDescription() {
         string description = 
-            Name + "\n" + Coordinates.ToString() + ", " + System + ", " + Sector + ", " + Region;
+            Name + "\n\n" + 
+            Position.ToString() + ", " + System + ", " + Sector + ", " + Region + "\n\n" +
+            Description;
         return description;
     }
     public override string ToString() {
@@ -88,20 +81,24 @@ public partial class Database {
         Body body;
         if (db.Bodies.TryGetValue(ID, out body))
             Body = body;
-        foreach (Fleet f in Fleets) {
-            if (f.Orbiting != this)
-                Fleets.Remove(f);
-        }
         Government government;
-        if (db.Governments.TryGetValue(kGovernment, out government)) {
+        if (db.Governments.TryGetValue(kGovernment, out government))
             Government = government;
-            Government.MemberPlanets.Add(this);
-        }
     }
     public void UpdateKeys() {
         kGovernment = Government.ID;
     }
+    public void VerifySubGroups() {
+        foreach (Fleet f in Fleets) {
+            if (f.Orbiting != this)
+                Fleets.Remove(f);
+        }
+    }
+    public void UpdateSuperGroups() {
+        Government.MemberPlanets.Add(this);
+    }
     #endregion
+    #region Value Calculations
     public float Value() {
         return ResidentialValue();// + IndustrialValue();
     }
@@ -147,5 +144,5 @@ public partial class Database {
                 value.ToString("###,###.00");
         return valueString + " credits per year";
     }
-}
-}
+    #endregion
+}}

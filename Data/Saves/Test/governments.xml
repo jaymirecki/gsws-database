@@ -7,18 +7,32 @@
     <value>
       <Government xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="empire">
         <Name>Galactic Empire</Name>
+        <Color>Red</Color>
+        <Description>The Galactic Empire, also known as the Old Empire, the First Galactic Empire, Palpatine's New Order, the Imperium or simply the Empire, was the galactic government established by Supreme Chancellor Palpatine to replace the Galactic Republic in 19 BBY and bring Sith rule to the galaxy.
+
+The Republic, which had lasted for at least 25,034 years, ended following a period of intense political turmoil and the subsequent devastation of the Clone Wars. After the death of Count Dooku above Coruscant, the death of General Grievous on Utapau and finally the massacre of the leaders of the Confederacy of Independent Systems on Mustafar, Chancellor Palpatine (by then ruling with near-absolute power) began a purge of the Jedi Order, and then proclaimed himself Emperor of the galaxy and reorganized the Galactic Republic into "the first Galactic Empire" on the galactic capital, Coruscant.</Description>
         <kSuperGovernment />
+        <kMilitary>empire</kMilitary>
         <ExecutivePower>1</ExecutivePower>
         <LegislativePower>0</LegislativePower>
         <JudicialPower>0</JudicialPower>
-        <ResidentialTax>0</ResidentialTax>
+        <ResidentialTax>30</ResidentialTax>
         <CommercialTax>0</CommercialTax>
-        <Relationships />
+        <Relationships>
+          <item>
+            <key>
+              <string>republic</string>
+            </key>
+            <value>
+              <Relationship>Enemy</Relationship>
+            </value>
+          </item>
+        </Relationships>
         <Budget>
-          <Military>0</Military>
-          <PublicSafety>0</PublicSafety>
-          <Health>0</Health>
-          <Education>0</Education>
+          <Military>0.5</Military>
+          <PublicSafety>0.3</PublicSafety>
+          <Health>0.1</Health>
+          <Education>0.1</Education>
           <Balance>0</Balance>
         </Budget>
       </Government>
@@ -26,23 +40,39 @@
   </item>
   <item>
     <key>
-      <string>rebels</string>
+      <string>republic</string>
     </key>
     <value>
-      <Government xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="rebels">
+      <Government xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="republic">
         <Name>New Republic</Name>
+        <Color>Blue</Color>
+        <Description>The New Republic was the name of the galactic government established by the Alliance to Restore the Republic to replace the Galactic Empire after the Battle of Endor. Like its predecessor, it was often simply referred to as the Republic; less often, it was referred to as the New Galactic Republic or the Second Galactic Republic.
+
+Formed in 4 ABY, after the dissolution of the former Alliance of Free Planets (which was formed directly after the Battle of Endor as an intermediate government), it was to become the supreme governmental authority of the galaxy. The "New" Republic was supposed to be a sort of continuation of the original Galactic Republic that had become known as the Old Republic at that time.
+
+The New Republic was founded on the same principle that the old Galactic Republic was thousands of generations before—to have a representative parliamentary body govern the galaxy in a fair and equal manner—and it was designed to eradicate the shortcomings that brought about the Galactic Republic's downfall. The New Republic was protected by the New Jedi Order, which was established by Luke Skywalker, just as the Old Republic was once protected by the Old Jedi Order.</Description>
         <kSuperGovernment />
+        <kMilitary>republic</kMilitary>
         <ExecutivePower>0.375</ExecutivePower>
         <LegislativePower>0.375</LegislativePower>
         <JudicialPower>0.25</JudicialPower>
-        <ResidentialTax>0</ResidentialTax>
+        <ResidentialTax>30</ResidentialTax>
         <CommercialTax>0</CommercialTax>
-        <Relationships />
+        <Relationships>
+          <item>
+            <key>
+              <string>empire</string>
+            </key>
+            <value>
+              <Relationship>Enemy</Relationship>
+            </value>
+          </item>
+        </Relationships>
         <Budget>
-          <Military>0</Military>
-          <PublicSafety>0</PublicSafety>
-          <Health>0</Health>
-          <Education>0</Education>
+          <Military>0.4</Military>
+          <PublicSafety>0.2</PublicSafety>
+          <Health>0.2</Health>
+          <Education>0.2</Education>
           <Balance>0</Balance>
         </Budget>
       </Government>

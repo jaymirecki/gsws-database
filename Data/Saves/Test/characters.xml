@@ -1,20 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<JDictionaryOfStringCharacter>
-  <item>
-    <key>
-      <string>character1</string>
-    </key>
-    <value>
-      <Character xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="character1">
-        <Name />
-        <Species />
-        <Homeworld />
-        <Governments />
-        <Factions />
-        <Militaries />
-        <Units />
-        <IsPlayer>false</IsPlayer>
-      </Character>
-    </value>
-  </item>
-</JDictionaryOfStringCharacter>
+<JDictionaryOfStringCharacter />

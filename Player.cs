@@ -12,24 +12,34 @@ using System;
 namespace GSWS {
 
 public class Player {
-    public string Character;
-    public string Faction;
-
-    private void initInstance() {
-        Character = Faction = "";
-    }
+    public string kCharacter, kFaction;
+    // public Character Character;
+    public Government Faction;
 
     public Player() {
-        initInstance();
-    }
-
-    public Player(string name, string faction) {
-        initInstance();
-        this.Character = name;
-        this.Faction = faction;
+        kCharacter = kFaction = "";
+        // Character = new Character();
+        Faction = new Government();
     }
     public override string ToString() {
-        return "{" + Character + ", " + Faction + "}";
+        return "{" +  Faction.ID + "}";
+    }
+    public void UpdateValues(Database db) {
+        // if (kCharacter != "")
+        //     Character = db.Characters[kCharacter];
+        if (kFaction != "")
+            Faction = db.Governments[kFaction];
+
+    }
+    public void UpdateKeys() {
+        // if (Character != null)
+        //     kCharacter = Character.ID;
+        // else
+        //     kCharacter = "";
+        if (Faction != null)
+            kFaction = Faction.ID;
+        else
+            kFaction = "";
     }
 }
 }

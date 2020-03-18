@@ -7,6 +7,10 @@
     <value>
       <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="corellia">
         <Name>Corellia</Name>
+        <Demonym>Corellian</Demonym>
+        <Description>Corellia was the capital planet of the Corellian system, which included Selonia, Drall, Tralus, and Talus. It was also the birthplace of smuggler and New Republic General Han Solo as well as Rogue Squadron pilot and New Republic hero Wedge Antilles, along with many other humans who played important roles in the histories of the Rebel Alliance, New Republic and Galactic Alliance.
+
+Collectively, the planets of the system were known as the Five Brothers. As the largest planet and the closest to Corell, Corellia was often called the "Eldest Brother" or the "Eldest." Historians believed the Celestials assembled the system artificially, the worlds brought from other parts of the galaxy for unknown reasons. Some believed that these Celestials populated Corellia with Humans from Coruscant.</Description>
         <kGovernment>empire</kGovernment>
         <Population>3E+09</Population>
         <Wealth>72641</Wealth>
@@ -20,6 +24,10 @@
     <value>
       <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="coruscant">
         <Name>Coruscant</Name>
+        <Demonym>Coruscanti</Demonym>
+        <Description>Coruscant, originally called Notron, also known as Imperial Center or the Queen of the Core, was a planet located in the Galactic Core. It was generally agreed that Coruscant was, during most of galactic history, the most politically important world in the galaxy. At various times, it was the capital of the Galactic Republic, the Galactic Empire, the New Republic, the Yuuzhan Vong empire, the Galactic Alliance, very briefly the Fel Empire, Darth Krayt's Galactic Empire, and the Galactic Federation Triumvirate. In controlling Coruscant, these governments controlled most of the galaxy in the process.
+
+Over the centuries, Coruscant had developed into an ecumenopolis, with a total of 5,127 levels of city built up from the crust by the time of the Clone Wars. The actual planet-wide metropolis of Coruscant was called Galactic City. Under the Galactic Republic, the names Republic City or the City of Spires were also used to reference the city. It was also called Imperial City under the Galactic Empire, and New Republic City under the New Republic. However, in practice, Galactic City and its other names were sometimes applied to the Senate District, the central government center and de facto capital of Coruscant. Under the Yuuzhan Vong, the city and planet were both referred to as Yuuzhan'tar.</Description>
         <kGovernment>empire</kGovernment>
         <Population>1E+12</Population>
         <Wealth>367343</Wealth>
@@ -33,7 +41,11 @@
     <value>
       <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="commenor">
         <Name>Commenor</Name>
-        <kGovernment>empire</kGovernment>
+        <Demonym>Commenori</Demonym>
+        <Description>Commenor was a planet in the Commenor system of the Colonies, just outside of the Core Worlds.
+
+A trading outpost and spaceport, Commenor was considered as prestigious as the Core planets. It was known for its chrysopaz gemstones and local brandy.</Description>
+        <kGovernment>republic</kGovernment>
         <Population>7.165621E+09</Population>
         <Wealth>72641</Wealth>
       </Planet>

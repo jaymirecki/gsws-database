@@ -2,8 +2,8 @@
 //                                                                            //
 //                                 Budget.cs                                  //
 //                                Budget class                                //
-//             Created by: Jarett (Jay) Mirecki, August 08, 2019              //
-//            Modified by: Jarett (Jay) Mirecki, October 09, 2019             //
+//                  Created by: Jay Mirecki, August 08, 2019                  //
+//                  Modified by: Jay Mirecki, March 17, 2020                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,12 +16,8 @@ namespace GSWS {
 
 [Serializable] public class Budget {
     public float Military, PublicSafety, Health, Education, Balance;
-
-    private void InitInstance() {
-        Military = PublicSafety = Health = Education = Balance = 0;
-    }
     public Budget() {
-        InitInstance();
+        Military = PublicSafety = Health = Education = Balance = 0;
     }
     public void SetMilitary(float value) {
         if (GetSurplus() >= (value - Military))

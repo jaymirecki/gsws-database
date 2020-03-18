@@ -1,24 +1,2 @@
-<?xml version="1.0" encoding="utf-8"?>
-<JDictionaryOfStringFleet>
-  <item>
-    <key>
-      <string>Fleet1</string>
-    </key>
-    <value>
-      <Fleet ID="Fleet1">
-        <Name>Fleet #1</Name>
-      </Fleet>
-    </value>
-  </item>
-  <item>
-    <key>
-      <string>coruscant</string>
-    </key>
-    <value>
-      <Fleet ID="coruscant">
-        <Name>Coruscant Defense Fleet</Name>
-        <kOrbiting>coruscant</kOrbiting>
-      </Fleet>
-    </value>
-  </item>
-</JDictionaryOfStringFleet>
+<?xml version='1.0' encoding='utf-8'?>
+<JDictionaryOfStringFleet><item><key><string>coruscant</string></key><value><Fleet ID="coruscant"><Name>Coruscant Defense Fleet</Name><kOrbiting>coruscant</kOrbiting><kMilitary>impnavy</kMilitary></Fleet></value></item><item><key><string>corellia</string></key><value><Fleet ID="corellia"><Name>Imperial Corellia Fleet</Name><kOrbiting>corellia</kOrbiting><kMilitary>impnavy</kMilitary></Fleet></value></item><item><key><string>commenor</string></key><value><Fleet ID="commenor"><Name>New Republic First Fleet</Name><kOrbiting>commenor</kOrbiting><kMilitary>repnavy</kMilitary></Fleet></value></item></JDictionaryOfStringFleet>

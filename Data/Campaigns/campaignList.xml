@@ -31,21 +31,15 @@
   <Campaign ID="Test">
     <Name>Test (0 ABY)</Name>
     <FactionNames>
-      <string>CIS</string>
-      <string>Republic</string>
+      <string>Galactic Empire</string>
+      <string>New Republic</string>
     </FactionNames>
     <FactionIDs>
-      <string>cis</string>
+      <string>empire</string>
       <string>republic</string>
     </FactionIDs>
     <Date>
       <DateInt>0</DateInt>
     </Date>
-    <Species>
-      <string>Human</string>
-    </Species>
-    <SpeciesIDs>
-      <string>human</string>
-    </SpeciesIDs>
   </Campaign>
 </ArrayOfCampaign>

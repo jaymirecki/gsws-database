@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JDictionaryOfStringMilitary>
+  <item>
+    <key>
+      <string>empire</string>
+    </key>
+    <value>
+      <Military xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="empire">
+        <Name>Imperial Military</Name>
+        <Description>The Imperial Military, also known as the Imperial armed forces or Imperial Service, was the armed forces of the Galactic Empire, and successor to the Republic Military. It was responsible for carrying out military operations throughout the galaxy as well as maintaining order on Imperial member worlds, governorships, colonies, and protectorates.
+
+The Imperial Military was a massive organization, as Palpatine did nothing to halt the massive military build up that had produced an army of troopers and enormous weapons of mass destruction following the Clone Wars. Its ranks were filled with tens of trillions of regular army soldiers, trillions of fleet crew, and a sizable force of stormtroopers.
+
+The Imperial Military was under the direct control of Imperial High Command. Although the Galactic Emperor acted as the Commander-in-Chief of the Military, Palpatine rarely ever left the confines of his palace on Coruscant, leaving a relative few military personnel ever actually seeing him face to face. As such, even though the various commanders merely carry out orders issued by the Emperor, they are considered to be the true positions of power in the New Order. The next highest rank was that of the Supreme Commander. The individual who held this title had complete control over the Imperial Military, and answered only to the Emperor. In the absence of an official Emperor, the Supreme Commander often became the de-facto leader of the Empire, as was seen in the cases of Grand Admiral Thrawn and Gilad Pellaeon. This position was held by several different Imperial officials over the course of the Empire's history, including Darth Vader, Thrawn, and Gilad Pellaeon.
+
+The Imperial Military was not only a physical superpower, but a mental one as well. Vader's stormtrooper division, the 501st Legion, known as "Vader's Fist," inspired fear in any sentient species. The infamous Death Stars were used by Emperor Palpatine to frighten the galaxy's citizens into submission. These are only a few examples of the fact that pure fear of the Empire's might was often more effective than might itself. Much of the equipment used by the Empire was designed to enhance this effect, the fear-inspiring appearance of the AT-AT being one example of this phenomena.</Description>
+        <kSuperMilitary />
+        <kGovernment>empire</kGovernment>
+      </Military>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>imparmy</string>
+    </key>
+    <value>
+      <Military xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="imparmy">
+        <Name>Imperial Army</Name>
+        <Description>The Imperial Army also called the Imperial Strike Force was a branch of the Imperial Military of the Galactic Empire that had the responsibility of prosecuting ground-based military operations. Operating under the oversight of Army Command, the Imperial Army was formed from the non-clone forces of the Grand Army of the Republic in the immediate aftermath of the Clone Wars in 19 BBY. By the time of the Galactic Civil War around 0 BBY, the Army numbered in the tens of trillions and utilized a wide range of walkers, repulsortanks, wheeled vehicles and ships in support of its infantry. At the decisive Battle of Endor in 4 ABY, the Imperial Military suffered a devastating defeat at the hands of the Rebel Alliance, and the Imperial Army fragmented as the Empire collapsed into warlordism and infighting, losing ground to the New Republic. Imperial Army troops would reconquer Coruscant for the Reborn Emperor in 10 ABY, but it would not be until 12 ABY that the Imperial Military as a whole was reunified as the armed forces of the Imperial Remnant. The Imperial Army remained the ground force of the Empire after its reconstitution as the Fel Empire, and split again in 130 ABY during the Second Imperial Civil War between Darth Krayt's Imperial faction and that of Emperor Roan Fel.
+
+Imperial Army troopers were by far the most common Imperial soldiers, substantially outnumbering the more-famous Imperial Stormtroopers and forming the garrisons of all occupied worlds. Army troopers piloted nearly all of the Empire's heavy vehicles, including the celebrated All Terrain Armored Transport and All Terrain Scout Transport walkers. Army units were often reinforced by Stormtroopers, although the command structure for the two organizations remained separate. On garrisoned worlds, the Army operated in conjunction with Imperial Starfleet, Stormtroopers, and the local constabulary to maintain order and security.</Description>
+        <kSuperMilitary>empire</kSuperMilitary>
+        <kGovernment />
+      </Military>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>impnavy</string>
+    </key>
+    <value>
+      <Military xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="impnavy">
+        <Name>Imperial Navy</Name>
+        <Description>The Imperial Navy, also known as the Imperial Starfleet, Imperial Fleet, Imperial Battlefleet, Imperial Space Navy, or Imperial Space Service, and also informally referred to as "the Empire's long arm", was the space warfare branch of the Imperial Military of the Galactic Empire. At its peak, it fielded millions of warships, logistics vessels and fighters, becoming one of the largest navies in galactic history and maintaining Imperial control throughout the galaxy.
+
+The Imperial Navy was formed from the Republic Navy of the Galactic Republic in 19 BBY, as part of Palpatine's Imperialization campaign during the rise of the Empire. A reorganized command structure, eventually consisting of twelve Grand Admirals,[5] oversaw the rapid expansion of the fleet that had begun during the Clone Wars. Growing discontent with the Empire eventually coalesced into the Alliance to Restore the Republic, which began a military campaign against Imperial forces, that became known as the Galactic Civil War.
+
+The Imperial Navy was one of the most formidable militaries ever assembled, consisting of millions of warships, fighters and transports, manned by trillions of fleet crew. The mainstays of its fleets - the Star Destroyer and Super Star Destroyer capital ships[8] and the TIE fighter series of starfighters - became some of the most visible symbols of Imperial rule to the galaxy's civilian populace.</Description>
+        <kSuperMilitary>empire</kSuperMilitary>
+        <kGovernment />
+      </Military>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>republic</string>
+    </key>
+    <value>
+      <Military xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="republic">
+        <Name>Combined Defense Forces of the New Republic</Name>
+        <Description>The Combined Defense Forces of the New Republic</Description>
+        <kSuperMilitary />
+        <kGovernment>republic</kGovernment>
+      </Military>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>repnavy</string>
+    </key>
+    <value>
+      <Military xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="repnavy">
+        <Name>New Republic Defense Fleet</Name>
+        <Description>The New Republic Defense Fleet, commonly referred to as the New Republic Navy or the New Republic Space Navy, was the name of the defense Fleet of the New Republic.
+
+At the creation of the New Republic, the former Alliance Fleet consisted primarily of donated starships converted to military duty, volunteer resistance force fleets and a small number of vessels purchased with limited Rebel Alliance funds, headed by Admiral Ackbar, who also held a seat on the New Republic Provisional Council. During this period, Ackbar coordinated the Fleet towards the Council's primary goal: the capture of Coruscant. Along the way, the Fleet engaged a number of Imperial warlords and relied heavily upon its officers' ingenuity to defeat the warlords' superior warships.</Description>
+        <kSuperMilitary>republic</kSuperMilitary>
+        <kGovernment />
+      </Military>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>reparmy</string>
+    </key>
+    <value>
+      <Military xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="reparmy">
+        <Name>New Republic Army</Name>
+        <Description>The New Republic Army was a segment of the New Republic Defense Force that served as the ground military of the New Republic. It was formed from the ground forces of the Alliance to Restore the Republic after the New Republic was established.
+
+Formed from the Alliance Army, the Rebel SpecForces were re-purposed as commandos to seize bridgeheads during planetary assaults, while the bulk of the Army was to be used for occupation and peacekeeping duties.</Description>
+        <kSuperMilitary>republic</kSuperMilitary>
+        <kGovernment />
+      </Military>
+    </value>
+  </item>
+</JDictionaryOfStringMilitary>

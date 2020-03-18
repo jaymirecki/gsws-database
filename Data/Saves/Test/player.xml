@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Player xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Character>Test Player</Character>
-  <Faction>cis</Faction>
+  <kCharacter />
+  <kFaction>empire</kFaction>
+  <Faction ID="empire">
+    <Name>Galactic Empire</Name>
+    <Color>Red</Color>
+    <Description>The Galactic Empire, also known as the Old Empire, the First Galactic Empire, Palpatine's New Order, the Imperium or simply the Empire, was the galactic government established by Supreme Chancellor Palpatine to replace the Galactic Republic in 19 BBY and bring Sith rule to the galaxy.
+
+The Republic, which had lasted for at least 25,034 years, ended following a period of intense political turmoil and the subsequent devastation of the Clone Wars. After the death of Count Dooku above Coruscant, the death of General Grievous on Utapau and finally the massacre of the leaders of the Confederacy of Independent Systems on Mustafar, Chancellor Palpatine (by then ruling with near-absolute power) began a purge of the Jedi Order, and then proclaimed himself Emperor of the galaxy and reorganized the Galactic Republic into "the first Galactic Empire" on the galactic capital, Coruscant.</Description>
+    <kSuperGovernment />
+    <kMilitary>empire</kMilitary>
+    <ExecutivePower>1</ExecutivePower>
+    <LegislativePower>0</LegislativePower>
+    <JudicialPower>0</JudicialPower>
+    <ResidentialTax>30</ResidentialTax>
+    <CommercialTax>0</CommercialTax>
+    <Relationships>
+      <item>
+        <key>
+          <string>republic</string>
+        </key>
+        <value>
+          <Relationship>Enemy</Relationship>
+        </value>
+      </item>
+    </Relationships>
+    <Budget>
+      <Military>0.5</Military>
+      <PublicSafety>0.3</PublicSafety>
+      <Health>0.1</Health>
+      <Education>0.1</Education>
+      <Balance>0</Balance>
+    </Budget>
+  </Faction>
 </Player>

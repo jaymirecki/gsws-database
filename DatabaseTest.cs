@@ -2,8 +2,8 @@
 //                                                                            //
 //                               DatabaseTest.cs                              //
 //                       Testing file for Database class                      //
-//             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
+//                  Created by: Jay Mirecki, October 09, 2019                 //
+//                  Modified by: Jay Mirecki, March 17, 2020                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 using JMSuite;
@@ -25,7 +25,7 @@ class Driver {
                             "planet1planet2");
         Testing.CheckExpect("Class Specific Database.FreshID",
                             ClassFreshIDs,
-                            "planet1character1fleet1testplanetfleet1nullgovernment1");
+                            "planet1character1fleet1testplanetfleet1government1");
         // Testing.CheckExpect("Database.FreshName",
         //                     FreshNames,
         //                     "");
@@ -51,21 +51,26 @@ class Driver {
         //                     NewFleet,
         //                     "");
         #endregion
+        #region Save.cs
         Testing.CheckExpectTimed("Load Database from Campaign", 
                                  LoadCampaignDatabase, LoadedDatabaseString);
+        Testing.CheckExpect("Save Test", SaveTest, "saved");
+        Testing.CheckExpect("Save Does Not Exist", FailSaveExist, "False");
+        Testing.CheckExpect("Save Does Exist", SuccessSaveExist, "True");
+        Testing.CheckExpect("List Save Files", SaveFiles, "Test");
+        #endregion
         Testing.CheckExpect("Get Planet's Fleets", TestPlanetFleets, "coruscant");
         Testing.CheckExpect("Date Test", DateTest, "00:00 1:0 ABY");
         Testing.CheckExpect("Date Test 2", DateTest2, "00:00 217:13 ABY");
-        Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #20");
+        Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #10");
         Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
-        Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Fleet #1Coruscant Defense FleetTest FleetFleet #2Fleet #3Fleet #4Fleet #5Fleet #6");
+        Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Coruscant Defense FleetImperial Corellia FleetNew Republic First FleetTest FleetFleet #1Fleet #2Fleet #3Fleet #4Fleet #5");
         Testing.CheckExpect("Get Fleet's Planet", TestFleetPlanet, "coruscant");
         Testing.CheckExpect("Test Character", TestCharacter, "character1");
-        Testing.CheckExpect("Search Test 1", SearchTest, "");
-        Testing.CheckExpect("Save Test", SaveTest, "saved");
+        Testing.CheckExpect("Search Test 1", SearchTest, "empirecoruscantcorellia");
         Testing.ReportTestResults();
     }
-    static string LoadedDatabaseString = "[ ][ {Fleet1, Fleet #1}, {coruscant, Coruscant Defense Fleet}, ][ {empire, Galactic Empire}, {rebels, New Republic}, ][ {corellia, Corellia}, {coruscant, Coruscant}, {commenor, Commenor}, ]{Test Player, cis}00:00 1:0 ABY";
+    static string LoadedDatabaseString = "[ ][ {coruscant, Coruscant Defense Fleet}, {corellia, Imperial Corellia Fleet}, {commenor, New Republic First Fleet}, ][ {empire, Galactic Empire}, {republic, New Republic}, ][ {corellia, Corellia}, {coruscant, Coruscant}, {commenor, Commenor}, ]{empire}00:00 1:0 ABY";
     static string ConstructDatabase() {
         db = new Database();
         return "success";
@@ -75,10 +80,29 @@ class Driver {
         camps = new Serializer<Campaign[]>().Deserialize(loadDirectory + "campaignList.xml");
         return camps[0].Name + camps[1].Name + camps[2].Name + camps.Length.ToString();
     }
+    #endregion
+    #region Saves
     static string LoadCampaignDatabase() {
-        Player player = new Player("Test Player", camps[2].FactionIDs[0]);
-        db.LoadDatabase(loadDirectory + camps[2].ID + "/", player);
+        db.LoadDatabase(loadDirectory + camps[2].ID + "/", "empire");
+        Character c = new Character();
+        // player.Character = db.Characters["Test Player"];
         return db.ToString();
+    }
+    static string SaveTest() {
+        db.Save("Data/Saves/Test/");
+        return "saved";
+    }
+    static string FailSaveExist() {
+        return db.DoesSaveExist("Data/Saves/", "Fail").ToString();
+    }
+    static string SuccessSaveExist() {
+        return db.DoesSaveExist("Data/Saves/", "Test").ToString();
+    }
+    static string SaveFiles() {
+        string saves = "";
+        foreach (KeyValuePair<string, DateTime> s in db.GetSaves("Data/Saves/"))
+            saves += s.Key + s.Value.ToString();
+        return saves;
     }
     #endregion
     #region Database
@@ -163,15 +187,12 @@ class Driver {
     #endregion
     #region Search
     static string SearchTest() {
+        LoadCampaignDatabase();
         string results = "";
-        foreach(KeyValuePair<string, Type> p in db.Search("empireempirecorelliabilbringicoruscantfondor", true, true, true, true, true)) {
+        foreach(KeyValuePair<string, Type> p in db.Search("empire", true, true, true, true, true, true)) {
             results += p.Key;
         }
         return results;
     }
     #endregion
-    static string SaveTest() {
-        db.Save("Data/Saves/Test/");
-        return "saved";
-    }
 }

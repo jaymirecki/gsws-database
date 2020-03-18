@@ -7,22 +7,22 @@
     <value>
       <Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="corellia">
         <Name />
-        <kSystem>corellia</kSystem>
-        <kSector>corellia</kSector>
+        <kSystem />
+        <kSector />
         <Atmosphere>Breathable</Atmosphere>
-        <Coordinates>
+        <Position>
           <X>101</X>
           <Y>-121</Y>
           <Z>0</Z>
-        </Coordinates>
+        </Position>
         <Class>Terrestrial</Class>
         <Gravity>1</Gravity>
-        <Surface>1</Surface>
+        <Surface>0.23</Surface>
         <Terrain>Varied</Terrain>
         <Region>Core</Region>
-        <DayLength>1</DayLength>
-        <YearLength>1</YearLength>
-        <Diameter>1</Diameter>
+        <DayLength>25</DayLength>
+        <YearLength>329</YearLength>
+        <Diameter>12742</Diameter>
       </Body>
     </value>
   </item>
@@ -33,22 +33,22 @@
     <value>
       <Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="coruscant">
         <Name />
-        <kSystem>coruscant</kSystem>
-        <kSector>coruscant</kSector>
+        <kSystem />
+        <kSector />
         <Atmosphere>Breathable</Atmosphere>
-        <Coordinates>
+        <Position>
           <X>0</X>
           <Y>0</Y>
           <Z>0</Z>
-        </Coordinates>
+        </Position>
         <Class>Terrestrial</Class>
         <Gravity>1</Gravity>
-        <Surface>1</Surface>
-        <Terrain>Varied</Terrain>
+        <Surface>0.99</Surface>
+        <Terrain>Ecumenopolis</Terrain>
         <Region>Core</Region>
-        <DayLength>1</DayLength>
-        <YearLength>1</YearLength>
-        <Diameter>1</Diameter>
+        <DayLength>24</DayLength>
+        <YearLength>368</YearLength>
+        <Diameter>12240</Diameter>
       </Body>
     </value>
   </item>
@@ -59,22 +59,22 @@
     <value>
       <Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="commenor">
         <Name />
-        <kSystem>commenor</kSystem>
-        <kSector>commenor</kSector>
+        <kSystem />
+        <kSector />
         <Atmosphere>Breathable</Atmosphere>
-        <Coordinates>
+        <Position>
           <X>151</X>
           <Y>-59</Y>
           <Z>0</Z>
-        </Coordinates>
+        </Position>
         <Class>Terrestrial</Class>
         <Gravity>1</Gravity>
-        <Surface>1</Surface>
+        <Surface>0.7</Surface>
         <Terrain>Varied</Terrain>
-        <Region>Core</Region>
-        <DayLength>1</DayLength>
-        <YearLength>1</YearLength>
-        <Diameter>1</Diameter>
+        <Region>Colonies</Region>
+        <DayLength>20</DayLength>
+        <YearLength>301</YearLength>
+        <Diameter>10000</Diameter>
       </Body>
     </value>
   </item>

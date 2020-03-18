@@ -2,8 +2,8 @@
 //                                                                            //
 //                                Database.cs                                 //
 //                               Database class                               //
-//             Created by: Jarett (Jay) Mirecki, October 09, 2019             //
-//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
+//                 Created by: Jay Mirecki, October 09, 2019                  //
+//                  Modified by: Jay Mirecki, March 17, 2020                  //
 //                                                                            //
 //          The Database class implements all of the functions                //
 //          needed to manipulate the data structures in the GSWS              //
@@ -29,6 +29,7 @@ namespace GSWS {
         public JDictionary<string, Character> Characters;
         public JDictionary<string, Fleet> Fleets;
         public JDictionary<string, Government> Governments;
+        public JDictionary<string, Military> Militaries;
         public JDictionary<string, Planet> Planets;
         public JGraph<string> Map;
         public Player Player;
@@ -40,6 +41,7 @@ namespace GSWS {
             Bodies = new JDictionary<string, Body>();
             Characters = new JDictionary<string, Character>();
             Fleets = new JDictionary<string, Fleet>();
+            Militaries = new JDictionary<string, Military>();
             Governments = new JDictionary<string, Government>();
             Planets = new JDictionary<string, Planet>();
             Map = new JGraph<string>();
@@ -192,19 +194,22 @@ namespace GSWS {
         #endregion
         #region Player
         public void CreatePlayer(string character, string faction) {
-            Player = new Player(character, faction);
-            Characters[character].IsPlayer = true;
+            Player = new Player();
+            // Player.Character = Characters[character];
+            Player.Faction = Governments[faction];
+            Player.UpdateKeys();
+            Player.UpdateValues(this);
         }
-        public void CreatePlayer(string name, string species, string homeworld, string faction) {
-            Character c = new Character();
-            c.Name = name;
-            c.ID = c.Name;
-            c.Species = species;
-            c.Homeworld = homeworld;
-            c.IsPlayer = true;
-            AddCharacter(c);
-            Player = new Player(c.ID, faction);
-        }
+        // public void CreatePlayer(string name, string species, string homeworld, string faction) {
+        //     Character c = new Character();
+        //     c.Name = name;
+        //     c.ID = c.Name;
+        //     c.Species = species;
+        //     c.Homeworld = homeworld;
+        //     c.IsPlayer = true;
+        //     AddCharacter(c);
+        //     Player = new Player(c.ID, faction);
+        // }
         public Player GetPlayer() {
             return Player;
         }

@@ -2,25 +2,6 @@
 <JDictionaryOfStringFleet>
   <item>
     <key>
-      <string>Fleet1</string>
-    </key>
-    <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="Fleet1">
-        <Name>Fleet #1</Name>
-        <kDestination />
-        <kNextStop />
-        <kOrbiting />
-        <Position>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Position>
-        <Ships />
-      </Fleet>
-    </value>
-  </item>
-  <item>
-    <key>
       <string>coruscant</string>
     </key>
     <value>
@@ -29,6 +10,7 @@
         <kDestination />
         <kNextStop />
         <kOrbiting>coruscant</kOrbiting>
+        <kMilitary>impnavy</kMilitary>
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -40,14 +22,15 @@
   </item>
   <item>
     <key>
-      <string>fleet1</string>
+      <string>corellia</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet1">
-        <Name>Test Fleet</Name>
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="corellia">
+        <Name>Imperial Corellia Fleet</Name>
         <kDestination />
         <kNextStop />
-        <kOrbiting />
+        <kOrbiting>corellia</kOrbiting>
+        <kMilitary>impnavy</kMilitary>
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -59,90 +42,15 @@
   </item>
   <item>
     <key>
-      <string>fleet2</string>
+      <string>commenor</string>
     </key>
     <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet2">
-        <Name>Fleet #2</Name>
+      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="commenor">
+        <Name>New Republic First Fleet</Name>
         <kDestination />
         <kNextStop />
-        <kOrbiting />
-        <Position>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Position>
-        <Ships />
-      </Fleet>
-    </value>
-  </item>
-  <item>
-    <key>
-      <string>fleet3</string>
-    </key>
-    <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet3">
-        <Name>Fleet #3</Name>
-        <kDestination />
-        <kNextStop />
-        <kOrbiting />
-        <Position>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Position>
-        <Ships />
-      </Fleet>
-    </value>
-  </item>
-  <item>
-    <key>
-      <string>fleet4</string>
-    </key>
-    <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet4">
-        <Name>Fleet #4</Name>
-        <kDestination />
-        <kNextStop />
-        <kOrbiting />
-        <Position>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Position>
-        <Ships />
-      </Fleet>
-    </value>
-  </item>
-  <item>
-    <key>
-      <string>fleet5</string>
-    </key>
-    <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet5">
-        <Name>Fleet #5</Name>
-        <kDestination />
-        <kNextStop />
-        <kOrbiting />
-        <Position>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
-        </Position>
-        <Ships />
-      </Fleet>
-    </value>
-  </item>
-  <item>
-    <key>
-      <string>fleet6</string>
-    </key>
-    <value>
-      <Fleet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fleet6">
-        <Name>Fleet #6</Name>
-        <kDestination />
-        <kNextStop />
-        <kOrbiting />
+        <kOrbiting>commenor</kOrbiting>
+        <kMilitary>repnavy</kMilitary>
         <Position>
           <X>0</X>
           <Y>0</Y>
