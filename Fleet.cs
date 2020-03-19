@@ -3,7 +3,7 @@
 //                                  Fleet.cs                                  //
 //                                 Fleet class                                //
 //                 Created by: Jay Mirecki, January 31, 2020                  //
-//                  Modified by: Jay Mirecki, March 17, 2020                  //
+//                  Modified by: Jay Mirecki, March 18, 2020                  //
 //                                                                            //
 //          The Fleet class is a representation of groups of space            //
 //          vessels, allowing them to move as groups.                         //
@@ -35,11 +35,17 @@ namespace GSWS {
             }
     }
     [XmlIgnore] public Military Military;
-    public Coordinate Position;
-    public List<string> Ships;
+    private Coordinate _position;
+    public Coordinate Position {
+        get { return _position; }
+        set { if (Orbiting != null && value != Orbiting.Position)
+                  Orbiting = null;
+              _position = value; }
+    }
     [XmlIgnore] public bool isStationary {
         get { return Destination == null; }
     }
+    [XmlIgnore] public List<string> Ships;
     #endregion
     #region Constructing
     public Fleet() {

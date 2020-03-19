@@ -3,7 +3,7 @@
 //                               DatabaseTest.cs                              //
 //                       Testing file for Database class                      //
 //                  Created by: Jay Mirecki, October 09, 2019                 //
-//                  Modified by: Jay Mirecki, March 17, 2020                  //
+//                  Modified by: Jay Mirecki, March 18, 2020                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 using JMSuite;
@@ -67,7 +67,7 @@ class Driver {
         Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Coruscant Defense FleetImperial Corellia FleetNew Republic First FleetTest FleetFleet #1Fleet #2Fleet #3Fleet #4Fleet #5");
         Testing.CheckExpect("Get Fleet's Planet", TestFleetPlanet, "coruscant");
         Testing.CheckExpect("Test Character", TestCharacter, "character1");
-        Testing.CheckExpect("Search Test 1", SearchTest, "empirecoruscantcorellia");
+        Testing.CheckExpect("Search Test 1", SearchTest, "empirecorelliacoruscantimparmyimpnavyempirecorelliacoruscant");
         Testing.ReportTestResults();
     }
     static string LoadedDatabaseString = "[ ][ {coruscant, Coruscant Defense Fleet}, {corellia, Imperial Corellia Fleet}, {commenor, New Republic First Fleet}, ][ {empire, Galactic Empire}, {republic, New Republic}, ][ {corellia, Corellia}, {coruscant, Coruscant}, {commenor, Commenor}, ]{empire}00:00 1:0 ABY";
@@ -101,7 +101,7 @@ class Driver {
     static string SaveFiles() {
         string saves = "";
         foreach (KeyValuePair<string, DateTime> s in db.GetSaves("Data/Saves/"))
-            saves += s.Key + s.Value.ToString();
+            saves += s.Key;
         return saves;
     }
     #endregion

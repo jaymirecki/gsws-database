@@ -3,7 +3,7 @@
 //                               Coordinate.cs                                //
 //                              Coordinate class                              //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//             Modified by: Jarett (Jay) Mirecki, March 15, 2020              //
+//             Modified by: Jarett (Jay) Mirecki, March 18, 2020              //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,12 +18,29 @@ namespace GSWS {
     public int X;
     public int Y;
     public int Z;
-    private static float scaleFactor = 0.2f;
 
     public Coordinate(int X, int Y, int Z) {
         this.X = X;
         this.Y = Y;
         this.Z = Z;
+    }
+
+    public override bool Equals(Object obj) {
+        if (!(obj is Coordinate))
+            return false;
+        Coordinate c = (Coordinate) obj;
+        return this.X == c.X && 
+               this.Y == c.Y && 
+               this.Z == c.Z;
+    }
+    public override int GetHashCode() {
+        return this.X.GetHashCode();
+    }
+    public static bool operator ==(Coordinate a, Coordinate b) {
+        return a.Equals(b);
+    }
+    public static bool operator !=(Coordinate a, Coordinate b) {
+        return !a.Equals(b);
     }
 
     // public Vector3 AsVector() {
@@ -35,10 +52,9 @@ namespace GSWS {
     //                        this.Z * scaleFactor);
     // }
     public float DistanceTo(Coordinate destination) {
-        return (float)Math.Sqrt(Math.Pow(this.X - destination.X, 2f) + Math.Pow(this.Y - destination.Y, 2f));
-    }
-    public float MapDistanceTo(Coordinate destination) {
-        return this.DistanceTo(destination) * scaleFactor;
+        return (float)Math.Sqrt(Math.Pow(this.X - destination.X, 2f) + 
+                                Math.Pow(this.Y - destination.Y, 2f) +
+                                Math.Pow(this.Z - destination.Z, 2f));
     }
     public float Angle(Coordinate destination) {
         return 57.2958f * (float)Math.Atan((float)(this.X - destination.X) / (float)(this.Y - destination.Y));

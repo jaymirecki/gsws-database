@@ -16,7 +16,6 @@
           <Y>0</Y>
           <Z>0</Z>
         </Position>
-        <Ships />
       </Fleet>
     </value>
   </item>
@@ -36,7 +35,6 @@
           <Y>0</Y>
           <Z>0</Z>
         </Position>
-        <Ships />
       </Fleet>
     </value>
   </item>
@@ -56,7 +54,6 @@
           <Y>0</Y>
           <Z>0</Z>
         </Position>
-        <Ships />
       </Fleet>
     </value>
   </item>
