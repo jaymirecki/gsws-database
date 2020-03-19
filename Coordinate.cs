@@ -57,13 +57,17 @@ namespace GSWS {
                                 Math.Pow(this.Z - destination.Z, 2f));
     }
     public float Angle(Coordinate destination) {
-        return 57.2958f * (float)Math.Atan((float)(this.X - destination.X) / (float)(this.Y - destination.Y));
+        return 57.2958f * 
+               (float)Math.Atan((float)(this.X - destination.X) / 
+               (float)(this.Y - destination.Y));
     }
     public float AngleOfElevation(Coordinate destination) {
-        return 57.2958f * (float)Math.Asin((float)(this.Z - destination.Z) / this.DistanceTo(destination));
+        return 57.2958f * 
+               (float)Math.Asin((float)(this.Z - destination.Z) / 
+               this.DistanceTo(destination));
     }
     public float MapAngleOfElevation(Coordinate destination) {
-        return this.AngleOfElevation(destination) + 90f;
+        return this.AngleOfElevation(destination);
     }
     public float MapAngle(Coordinate destination) {
         return this.Angle(destination) - 90f;

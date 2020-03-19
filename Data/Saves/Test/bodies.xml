@@ -13,7 +13,7 @@
         <Position>
           <X>101</X>
           <Y>-121</Y>
-          <Z>0</Z>
+          <Z>10</Z>
         </Position>
         <Class>Terrestrial</Class>
         <Gravity>1</Gravity>
@@ -65,7 +65,7 @@
         <Position>
           <X>151</X>
           <Y>-59</Y>
-          <Z>0</Z>
+          <Z>-30</Z>
         </Position>
         <Class>Terrestrial</Class>
         <Gravity>1</Gravity>

@@ -4,6 +4,7 @@
     <string>coruscant</string>
     <string>corellia</string>
     <string>commenor</string>
+    <string>dac</string>
   </values>
   <edges>
     <EdgeOfString>
@@ -12,6 +13,10 @@
     </EdgeOfString>
     <EdgeOfString>
       <Origin>coruscant</Origin>
+      <Destination>commenor</Destination>
+    </EdgeOfString>
+    <EdgeOfString>
+      <Origin>dac</Origin>
       <Destination>commenor</Destination>
     </EdgeOfString>
   </edges>
