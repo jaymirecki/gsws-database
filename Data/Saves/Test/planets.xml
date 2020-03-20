@@ -51,4 +51,21 @@ A trading outpost and spaceport, Commenor was considered as prestigious as the C
       </Planet>
     </value>
   </item>
+  <item>
+    <key>
+      <string>dac</string>
+    </key>
+    <value>
+      <Planet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="dac">
+        <Name>Dac</Name>
+        <Demonym>Mon Calamari</Demonym>
+        <Description>Commenor was a planet in the Commenor system of the Colonies, just outside of the Core Worlds.
+
+A trading outpost and spaceport, Commenor was considered as prestigious as the Core planets. It was known for its chrysopaz gemstones and local brandy.</Description>
+        <kGovernment>republic</kGovernment>
+        <Population>7.90368051E+09</Population>
+        <Wealth>80000</Wealth>
+      </Planet>
+    </value>
+  </item>
 </JDictionaryOfStringPlanet>

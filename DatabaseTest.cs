@@ -3,7 +3,7 @@
 //                               DatabaseTest.cs                              //
 //                       Testing file for Database class                      //
 //                  Created by: Jay Mirecki, October 09, 2019                 //
-//                  Modified by: Jay Mirecki, March 18, 2020                  //
+//                  Modified by: Jay Mirecki, March 19, 2020                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 using JMSuite;
@@ -68,9 +68,10 @@ class Driver {
         Testing.CheckExpect("Get Fleet's Planet", TestFleetPlanet, "coruscant");
         Testing.CheckExpect("Test Character", TestCharacter, "character1");
         Testing.CheckExpect("Search Test 1", SearchTest, "empirecorelliacoruscantimparmyimpnavyempirecorelliacoruscant");
+        Testing.CheckExpect("Coordinate Move", CoordinateMove, "244.9204");
         Testing.ReportTestResults();
     }
-    static string LoadedDatabaseString = "[ ][ {coruscant, Coruscant Defense Fleet}, {corellia, Imperial Corellia Fleet}, {commenor, New Republic First Fleet}, ][ {empire, Galactic Empire}, {republic, New Republic}, ][ {corellia, Corellia}, {coruscant, Coruscant}, {commenor, Commenor}, ]{empire}00:00 1:0 ABY";
+    static string LoadedDatabaseString = "[ ][ {coruscant, Coruscant Defense Fleet}, {corellia, Imperial Corellia Fleet}, {commenor, New Republic First Fleet}, ][ {empire, Galactic Empire}, {republic, New Republic}, ][ {corellia, Corellia}, {coruscant, Coruscant}, {commenor, Commenor}, {dac, Dac}, ]{empire}00:00 1:0 ABY";
     static string ConstructDatabase() {
         db = new Database();
         return "success";
@@ -193,6 +194,14 @@ class Driver {
             results += p.Key;
         }
         return results;
+    }
+    #endregion
+    #region Coordinate
+    static string CoordinateMove() {
+        Coordinate a = new Coordinate(0, 0, 0);
+        Coordinate b = new Coordinate(100, 256, 10);
+        Coordinate c = a.MoveTowards(b, 30);
+        return c.DistanceTo(b).ToString();
     }
     #endregion
 }

@@ -65,7 +65,7 @@
         <Position>
           <X>151</X>
           <Y>-59</Y>
-          <Z>-30</Z>
+          <Z>-3</Z>
         </Position>
         <Class>Terrestrial</Class>
         <Gravity>1</Gravity>
@@ -75,6 +75,32 @@
         <DayLength>20</DayLength>
         <YearLength>301</YearLength>
         <Diameter>10000</Diameter>
+      </Body>
+    </value>
+  </item>
+  <item>
+    <key>
+      <string>dac</string>
+    </key>
+    <value>
+      <Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="dac">
+        <Name />
+        <kSystem />
+        <kSector />
+        <Atmosphere>Breathable</Atmosphere>
+        <Position>
+          <X>582</X>
+          <Y>210</Y>
+          <Z>5</Z>
+        </Position>
+        <Class>Terrestrial</Class>
+        <Gravity>1</Gravity>
+        <Surface>0.7</Surface>
+        <Terrain>Varied</Terrain>
+        <Region>OuterRim</Region>
+        <DayLength>21</DayLength>
+        <YearLength>398</YearLength>
+        <Diameter>11030</Diameter>
       </Body>
     </value>
   </item>

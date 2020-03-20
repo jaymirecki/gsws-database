@@ -3,7 +3,7 @@
 //                               Coordinate.cs                                //
 //                              Coordinate class                              //
 //              Created by: Jarett (Jay) Mirecki, July 27, 2019               //
-//             Modified by: Jarett (Jay) Mirecki, March 18, 2020              //
+//             Modified by: Jarett (Jay) Mirecki, March 19, 2020              //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -11,6 +11,7 @@ using System;
 using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
+using System.IO;
 
 namespace GSWS {
 
@@ -71,6 +72,20 @@ namespace GSWS {
     }
     public float MapAngle(Coordinate destination) {
         return this.Angle(destination) - 90f;
+    }
+    // Move 20 units per hour!!!
+    public Coordinate MoveTowards(Coordinate destination, int distance) {
+        float relativeDistance = (float)distance / this.DistanceTo(destination);
+        if (relativeDistance >= 1f)
+            return destination;
+        else {
+            int x = X + 
+                    (int)Math.Round((float)(destination.X - X) * 
+                    relativeDistance);
+            int y = Y + (int)Math.Round((float)(destination.Y - Y) * relativeDistance);
+            int z = Z + (int)Math.Round((float)(destination.Z - Z) * relativeDistance);
+            return new Coordinate(x, y, z);
+        }
     }
     override public string ToString() {
         return ("(" + X.ToString() + "," + Y.ToString() + "," + Z.ToString() + ")");

@@ -4,6 +4,7 @@
     <string>coruscant</string>
     <string>corellia</string>
     <string>commenor</string>
+    <string>dac</string>
   </values>
   <edges>
     <EdgeOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -14,6 +15,11 @@
     <EdgeOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Origin>coruscant</Origin>
       <Destination>commenor</Destination>
+      <Weight>0</Weight>
+    </EdgeOfString>
+    <EdgeOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Origin>commenor</Origin>
+      <Destination>dac</Destination>
       <Weight>0</Weight>
     </EdgeOfString>
   </edges>
