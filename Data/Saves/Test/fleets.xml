@@ -11,6 +11,7 @@
         <kNextStop />
         <kOrbiting>coruscant</kOrbiting>
         <kMilitary>impnavy</kMilitary>
+        <Speed>1</Speed>
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -30,10 +31,11 @@
         <kNextStop />
         <kOrbiting>corellia</kOrbiting>
         <kMilitary>impnavy</kMilitary>
+        <Speed>1</Speed>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
+          <X>101</X>
+          <Y>-121</Y>
+          <Z>10</Z>
         </Position>
       </Fleet>
     </value>
@@ -49,10 +51,11 @@
         <kNextStop />
         <kOrbiting>commenor</kOrbiting>
         <kMilitary>repnavy</kMilitary>
+        <Speed>1</Speed>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
-          <Z>0</Z>
+          <X>151</X>
+          <Y>-59</Y>
+          <Z>-3</Z>
         </Position>
       </Fleet>
     </value>

@@ -27,6 +27,14 @@ The Republic, which had lasted for at least 25,034 years, ended following a peri
               <Relationship>Enemy</Relationship>
             </value>
           </item>
+          <item>
+            <key>
+              <string>empire</string>
+            </key>
+            <value>
+              <Relationship>Ally</Relationship>
+            </value>
+          </item>
         </Relationships>
         <Budget>
           <Military>0.5</Military>
@@ -65,6 +73,14 @@ The New Republic was founded on the same principle that the old Galactic Republi
             </key>
             <value>
               <Relationship>Enemy</Relationship>
+            </value>
+          </item>
+          <item>
+            <key>
+              <string>republic</string>
+            </key>
+            <value>
+              <Relationship>Ally</Relationship>
             </value>
           </item>
         </Relationships>

@@ -24,6 +24,14 @@ The Republic, which had lasted for at least 25,034 years, ended following a peri
           <Relationship>Enemy</Relationship>
         </value>
       </item>
+      <item>
+        <key>
+          <string>empire</string>
+        </key>
+        <value>
+          <Relationship>Ally</Relationship>
+        </value>
+      </item>
     </Relationships>
     <Budget>
       <Military>0.5</Military>

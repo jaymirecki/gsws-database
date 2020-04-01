@@ -3,7 +3,7 @@
 //                                  Fleet.cs                                  //
 //                                 Fleet class                                //
 //                 Created by: Jay Mirecki, January 31, 2020                  //
-//                  Modified by: Jay Mirecki, March 18, 2020                  //
+//                  Modified by: Jay Mirecki, March 26, 2020                  //
 //                                                                            //
 //          The Fleet class is a representation of groups of space            //
 //          vessels, allowing them to move as groups.                         //
@@ -11,19 +11,23 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using JMSuite.Collections;
 
 namespace GSWS {
 [Serializable] public class Fleet : IObject {
     #region Properties
     [XmlAttribute] public string ID;
+    private const float hourlyDistance = 20f;
     public string Name;
     public string kDestination, kNextStop, kOrbiting, kMilitary;
+    public float Speed;
     private Planet _orbiting;
-    [XmlIgnore] public Planet Destination;
-    [XmlIgnore] public Planet NextStop;
+    [XmlIgnore] public Planet Destination { get; private set; }
+    [XmlIgnore] public Planet NextStop { get; private set; }
     [XmlIgnore] public Planet Orbiting {
         get { return _orbiting; }
         set { if (value == null)
@@ -56,6 +60,7 @@ namespace GSWS {
         Military = null;
         Position = new Coordinate(0, 0, 0);
         Ships = new List<string>();
+        Speed = 1f;
     }
     public Fleet(string name):this() {
         Name = name;
@@ -120,9 +125,59 @@ namespace GSWS {
         return description;
     }
     #endregion
-    public void Move() {
-        if (isStationary) return;
-        
+    public bool SetDestination(Planet destination, JGraph<string> map, JDictionary<string, Planet> planets) {
+        List<string> path;
+        if (Orbiting != null && map.TryPathTo(Orbiting.ID, destination.ID, out path, p => {return Military.Faction.Relationships[planets[p].Faction.ID] != Relationship.Enemy;}, true)) {
+            Destination = destination;
+            NextStop = planets[path[1]];
+            return true;
+        }
+        return false;
+    }
+    public bool Move(JGraph<string> map, JDictionary<string, Planet> planets) {
+        if (isStationary) return false;
+        Position = Position.MoveTowards(NextStop.Position, 20);
+        if (Position == NextStop.Position) {
+            Orbiting = NextStop;
+            if (NextStop == Destination) {
+                NextStop = Destination = null;
+                return true;
+            }
+            SetDestination(Destination, map, planets);
+            return false;
+        }
+        else {
+            Orbiting = null;
+            return false;
+        }
+    }
+    public JDictionary<Planet, int> SafeDestinations(JGraph<string> map, JDictionary<string, Planet> planets) {
+        return Destinations(map, planets, false, false);
+    }
+    public JDictionary<Planet, int> HostileDestinations(JGraph<string> map, JDictionary<string, Planet> planets) {
+        return Destinations(map, planets, true, true);
+    }
+    private JDictionary<Planet, int> Destinations(JGraph<string> map, JDictionary<string, Planet> planets, bool includeHostile, bool onlyHostile) {
+        JDictionary<Planet, int> planetDestinations = 
+            new JDictionary<Planet, int>();
+        Planet start;
+        if (Orbiting != null)
+            start = Orbiting;
+        else if (NextStop != null)
+            start = NextStop;
+        else
+            return planetDestinations;
+        JDictionary<string, int> destinations;
+        if (map.TryReachableVertices(start.ID, out destinations, p => Military.Faction.Relationships[planets[p].Faction.ID] != Relationship.Enemy, includeHostile)) {
+            destinations.Remove(start.ID);
+            foreach (string s in destinations.Keys) {
+                Relationship relationship = 
+                    Military.Faction.Relationships[planets[s].Faction.ID];
+                if (!onlyHostile || (onlyHostile && relationship == Relationship.Enemy))
+                    planetDestinations.Add(planets[s], destinations[s] / (int)(hourlyDistance / Speed));
+            }
+        }
+        return planetDestinations;
     }
 }
 }

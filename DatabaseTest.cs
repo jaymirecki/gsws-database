@@ -3,7 +3,7 @@
 //                               DatabaseTest.cs                              //
 //                       Testing file for Database class                      //
 //                  Created by: Jay Mirecki, October 09, 2019                 //
-//                  Modified by: Jay Mirecki, March 19, 2020                  //
+//                  Modified by: Jay Mirecki, March 26, 2020                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 using JMSuite;
@@ -62,10 +62,16 @@ class Driver {
         Testing.CheckExpect("Get Planet's Fleets", TestPlanetFleets, "coruscant");
         Testing.CheckExpect("Date Test", DateTest, "00:00 1:0 ABY");
         Testing.CheckExpect("Date Test 2", DateTest2, "00:00 217:13 ABY");
+        #region Fleet.cs
         Testing.CheckExpect("Construct Fleet", ConstructFleet, "Fleet #10");
         Testing.CheckExpect("Add Fleet", AddFleet, "Test Fleet");
         Testing.CheckExpect("Add Many Fleets", AddMultipleFleets, "Coruscant Defense FleetImperial Corellia FleetNew Republic First FleetTest FleetFleet #1Fleet #2Fleet #3Fleet #4Fleet #5");
         Testing.CheckExpect("Get Fleet's Planet", TestFleetPlanet, "coruscant");
+        Testing.CheckExpect("Simple Fleet Move", FleetMoveSimple, "8");
+        Testing.CheckExpect("Complex Fleet Move", FleetMoveComplex, "17");
+        Testing.CheckExpect("Fleet Destinations", FleetDestinations, "1");
+        Testing.CheckExpect("Fleet Hostile Destinations", FleetHostileDestinations, "commenor");
+        #endregion
         Testing.CheckExpect("Test Character", TestCharacter, "character1");
         Testing.CheckExpect("Search Test 1", SearchTest, "empirecorelliacoruscantimparmyimpnavyempirecorelliacoruscant");
         Testing.CheckExpect("Coordinate Move", CoordinateMove, "244.9204");
@@ -175,8 +181,34 @@ class Driver {
         return ret;
     }
     static string TestFleetPlanet() {
-        Fleet f = db.Fleets["coruscant"];;
+        Fleet f = db.Fleets["coruscant"];
         return f.Orbiting.ID;
+    }
+    static string FleetMoveSimple() {
+        Fleet f = db.Fleets["coruscant"];
+        f.SetDestination(db.Planets["corellia"], db.Map, db.Planets);
+        int count = 0;
+        do {
+            count++;
+        } while (!f.Move(db.Map, db.Planets));
+        return count.ToString();
+    }
+    static string FleetMoveComplex() {
+        Fleet f = db.Fleets["corellia"];
+        f.SetDestination(db.Planets["commenor"], db.Map, db.Planets);
+        int count = 0;
+        do {
+            count++;
+        } while (!f.Move(db.Map, db.Planets) && count < 20);
+        return count.ToString();
+    }
+    static string FleetDestinations() {
+        Fleet f = db.Fleets["coruscant"];
+        return f.SafeDestinations(db.Map, db.Planets).Count.ToString();
+    }
+    static string FleetHostileDestinations() {
+        Fleet f = db.Fleets["coruscant"];
+        return new List<Planet>(f.HostileDestinations(db.Map, db.Planets).Keys)[0].ID;
     }
     #endregion
     #region Characters

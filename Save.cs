@@ -3,7 +3,7 @@
 //                                  Save .cs                                  //
 //               Save and Load functions for the Database Class               //
 //                  Created by: Jay Mirecki, October 19, 2019                 //
-//                  Modified by: Jay Mirecki, March 17, 2020                  //
+//                  Modified by: Jay Mirecki, March 26, 2020                  //
 //                                                                            //
 //          This extension for the Database class allows for the              //
 //          loading and saving of the entire database (and its                //
@@ -76,10 +76,10 @@ public partial class Database {
         foreach (JUndirectedGraph<string>.Edge e in Map.Edges) {
             Map.AddEdge(e.Origin, e.Destination, (int)Planets[e.Origin].Position.DistanceTo(Planets[e.Destination].Position));
         }
+        UpdatePlanetValues();
         UpdateFleetValues();
         UpdateGovernmentValues();
         UpdateMilitaryValues();
-        UpdatePlanetValues();
         if (updatePlayer)
             Player.UpdateValues(this);
     }

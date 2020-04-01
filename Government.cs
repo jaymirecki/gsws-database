@@ -3,7 +3,7 @@
 //                               Government.cs                                //
 //                              Government class                              //
 //                  Created by: Jay Mirecki, August 08, 2019                  //
-//                  Modified by: Jay Mirecki, March 17, 2020                  //
+//                  Modified by: Jay Mirecki, March 26, 2020                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -42,6 +42,7 @@ public enum Relationship { Ally, Neutral, Enemy };
         ExecutivePower = LegislativePower = JudicialPower = ResidentialTax = CommercialTax = 0f;
         MemberPlanets = new HashSet<Planet>();
         Relationships = new JDictionary<string, Relationship>();
+        Relationships[ID] = Relationship.Ally;
         Budget = new Budget();
         Military = null;
         SuperGovernment = null;
@@ -63,6 +64,7 @@ public enum Relationship { Ally, Neutral, Enemy };
             if (!db.Governments.ContainsKey(k))
                 Relationships.Remove(k);
         }
+        Relationships[ID] = Relationship.Ally;
     }
     public void UpdateKeys() {
         kSuperGovernment = kMilitary = "";
