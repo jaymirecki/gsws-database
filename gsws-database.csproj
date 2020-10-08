@@ -1,0 +1,133 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49C66170-A157-47F2-A07D-E7239283169A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>GSWS.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>gsws_database</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JMSuite, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\JMSuite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\objects\pack\pack-6c41812b3048ef7ec26314d614949b6a64f6ce43.idx" />
+    <None Include=".git\objects\pack\pack-6c41812b3048ef7ec26314d614949b6a64f6ce43.pack" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".vs\gsws-database\v16\.suo" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include="Data\Campaigns\Test\bodies.csv" />
+    <None Include="Data\Campaigns\Test\fleets.csv" />
+    <None Include="Data\Campaigns\Test\governments.csv" />
+    <None Include="Data\Campaigns\Test\map.csv" />
+    <None Include="Data\Campaigns\Test\militaries.csv" />
+    <None Include="Data\Campaigns\Test\planets.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Body.cs" />
+    <Compile Include="Budget.cs" />
+    <Compile Include="Campaign.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="Coordinate.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="DatabaseTest.cs" />
+    <Compile Include="Date.cs" />
+    <Compile Include="Fleet.cs" />
+    <Compile Include="Government.cs" />
+    <Compile Include="IObject.cs" />
+    <Compile Include="Military.cs" />
+    <Compile Include="Planet.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Save.cs" />
+    <Compile Include="Search.cs" />
+    <Compile Include="Serializer.cs" />
+    <Compile Include="Ship.cs" />
+    <Compile Include="ShipModel.cs" />
+    <Compile Include="Weapon.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="csvtoxml.py" />
+    <Content Include="Data\Campaigns\campaignList.xml" />
+    <Content Include="Data\Campaigns\Test\bodies.xml" />
+    <Content Include="Data\Campaigns\Test\date.xml" />
+    <Content Include="Data\Campaigns\Test\fleets.xml" />
+    <Content Include="Data\Campaigns\Test\governments.xml" />
+    <Content Include="Data\Campaigns\Test\map.xml" />
+    <Content Include="Data\Campaigns\Test\militaries.xml" />
+    <Content Include="Data\Campaigns\Test\planets.xml" />
+    <Content Include="Data\Saves\Test\bodies.xml" />
+    <Content Include="Data\Saves\Test\characters.xml" />
+    <Content Include="Data\Saves\Test\date.xml" />
+    <Content Include="Data\Saves\Test\fleets.xml" />
+    <Content Include="Data\Saves\Test\governments.xml" />
+    <Content Include="Data\Saves\Test\map.xml" />
+    <Content Include="Data\Saves\Test\militaries.xml" />
+    <Content Include="Data\Saves\Test\planets.xml" />
+    <Content Include="Data\Saves\Test\player.xml" />
+    <Content Include="JMSuite.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
